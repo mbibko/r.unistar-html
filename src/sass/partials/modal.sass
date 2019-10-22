@@ -1,0 +1,96 @@
+.tingle-modal
+  $_: &
+  backdrop-filter: none
+  +xs
+    padding-top: 20px
+  &.modal-video
+    display: flex
+  &__close
+    position: absolute
+    display: flex
+    align-items: center
+    justify-content: center
+    width: 22px
+    height: 22px
+    top: 20px
+    right: 20px
+    left: auto
+    border: 1.5px solid #fff
+    border-radius: 50%
+    background-color: transparent
+    &:hover
+      opacity: 0.7
+    svg
+      display: block
+      width: 9px
+      height: 9px
+  &__closeIcon
+    margin-right: 0
+    width: auto
+  &__closeLabel
+    display: none
+
+.tingle-modal-box
+  // margin-top: 40px
+  width: 800px
+  background-color: $blue-color
+  color: #fff
+  border-radius: $border-radius
+  +md
+    width: 80%
+  +xs
+    width: 100%
+  .modal-md &
+    width: 600px
+    +md
+      width: 80%
+    +xs
+      width: 100%
+  .modal-lg &
+    width: 800px
+    +md
+      width: 80%
+    +xs
+      width: 100%
+  .modal-video &
+    width: 800px
+    background: none
+    +md
+      width: 80%
+    +xs
+      width: 100%
+  &__content
+    padding: 60px
+    padding-bottom: 60px
+    +md
+      padding-left: 40px
+      padding-right: 40px
+    +xs
+      padding-left: 16px
+      padding-right: 16px
+    .modal-video &
+      padding: 0
+    .button
+      padding-left: 28px
+      padding-right: 28px
+    label
+      text-transform: uppercase
+      font-size: 12px
+  &__footer
+    background-color: $blue-color
+    text-align: center
+    padding-bottom: 60px
+
+.modal-title
+  margin-bottom: 38px
+  font-size: 20px
+  font-weight: 700
+  max-width: 540px
+
+.modal-footer
+  margin-top: 56px
+  text-align: center
+  &>*
+    margin: 0 20px
+    +xs
+      margin: 0

@@ -1,0 +1,144 @@
+include ../../layouts/mixins
+
+.modal-title
+  | Хотите быстро записать яркий и эффективный ролик?
+  br
+  | Сделаем!
+
+| Чем больше полей вы заполните, тем лучше. Но не пропускайте поля со звездочкой.
+br
+br
+br
+
+form.formClip(id="form-clip")
+  .form-group
+    label.required Как вас зовут?
+    input.form-control(type="text" placeholder="Например, Наталья." required)
+  .form-group
+    label.required Как с вами связаться?
+    input.form-control(type="text" placeholder="Телефон, Viber, e-mail или другой контакт." required)
+  .form-group
+    label.required Как называется ваша компания?
+    input.form-control(type="text" placeholder="Например, ООО \"Облако\"." required)
+  .form-group
+    label.required Что вы хотите рекламировать?
+    input.form-control(type="text" placeholder="Например, товары для дома." required)
+  label Когда вам нужен ролик?
+  .form-offsets.form-offsets_3
+    .form-group
+      select.select
+        option День
+        - var n = 0;
+        while n < 31
+          option= n++
+    .form-group
+      select.select
+        option Месяц
+        each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
+          option=item
+    .form-group
+      select.select
+        option Год
+        option 2019
+        option 2020
+        option 2021
+
+  label Когда стартует ваша рекламная кампания?
+  .form-offsets.form-offsets_3
+    .form-group
+      select.select
+        option День
+        - var n = 0;
+        while n < 31
+          option= n++
+    .form-group
+      select.select
+        option Месяц
+        each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
+          option=item
+    .form-group
+      select.select
+        option Год
+        option 2019
+        option 2020
+        option 2021
+  .form-group
+    label Почему именно в этот период?
+    .checkboxes
+        each item in ["Время скидок или акции", "Горячий сезон", "Праздничный сезон", "Другая причина (напишите)"]
+            div
+                input(id="check-"+item type="checkbox")
+                label.checkbox-label(for="check-"+item)=item
+  .form-group
+    textarea.form-control(placeholder="Например, у вас есть какие-либо дополнительные пожелания.")
+  .form-group
+    label Продолжительность ролика?
+    .b-counter-wrapper
+      +counter({value: "13", type: "сек", max: "60"})
+      div Ваш ролик не должен быть длиннее, чем 60 секунд
+  .form-group
+    label.required
+      | Какая информация
+      |
+      span.text-underline обязательно
+      |
+      | должна прозвучать в ролике? 
+    textarea.form-control(placeholder="Укажите ваши пожелания." required)
+  .form-group
+    label Какой у вас слоган?
+    input.form-control(type="text" placeholder="Напишите, если он должен прозвучать.")
+  .form-group
+    label Какие контактные данные должны прозвучать?
+    textarea.form-control(placeholder="Адрес, телефон, сайт...")
+  
+  label Что вы знаете о своей целевой аудитории?
+  .form-offsets.form-offsets_3
+    .form-group
+      select.select
+        option Пол
+        option Мужской
+        option Женский
+  .form-offsets.form-offsets_3
+    .form-group
+      select.select
+        option Возраст
+        each item in ["Младше 18", "18-24", "25-29", "30-34", "35-39", "40-44", "45-49", "Старше 50"]
+          option= item
+  .form-offsets.form-offsets_3
+    .form-group
+      select.select
+        option Доход
+        option Низкий
+        option Средний
+        option Выше среднего
+  .form-group
+    textarea.form-control(placeholder="Если есть дополнительная информация, напишите.")
+  .form-group
+    label Какие есть препятствия для роста продаж?
+    .checkboxes
+        each item in ["Высокая цена", "У конкурентов лучше условия", "Товар/услуга не знакомы покупателю", "Другое (напишите)"]
+            div
+                input(id="check-"+item type="checkbox")
+                label.checkbox-label(for="check-"+item)=item
+  .form-group
+    label Что выгодно отличает ваш товар или услугу?
+    .checkboxes
+        each item in ["Новая технология производства", "Страна производства", "Скорость/модель работы", "Цена", "Другое (напишите)"]
+            div
+                input(id="check-"+item type="checkbox")
+                label.checkbox-label(for="check-"+item)=item
+  .form-group
+    label Расскажите подробнее о вашем продукте
+    textarea.form-control(placeholder="Напишите о его отличительных свойствах, уникальном торговом предложении.")
+  .form-group
+    label Каким должен быть ваш ролик?
+    .checkboxes
+        each item in ["Сдержанным, информационным", "Эмоциональным", "Смешным", "Пафосным", "Личным", "Другое (напишите)"]
+            div
+                input(id="check-"+item type="checkbox")
+                label.checkbox-label(for="check-"+item)=item
+
+  .form-error-text Заполните пожалуйста все обязательные поля. Они отмечены красной точкой.
+  
+  .modal-footer
+    button.button.button-red.button-submit(type="submit") Отправить форму

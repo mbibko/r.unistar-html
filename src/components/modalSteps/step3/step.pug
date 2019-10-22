@@ -1,0 +1,15 @@
+include ../../../layouts/mixins
+
+.modal-title Как должна выходить ваша реклама?
+form.formSteps.form-bottom-validate
+  .formSteps__inner
+    .formSteps__side
+      +steps(3)
+    .formSteps__content
+      .checkboxes
+        each item in ["Чтобы реклама зачитывалась в прямом эфире", "Разыграть подарок", "Стандартное размещение"]
+          div
+            input(id=`check-${item}` type="radio" name="radio-step-3")
+            label(for=`check-${item}`)=item
+  .modal-footer
+    button.button.button-red(type="submit") Далее

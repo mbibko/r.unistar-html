@@ -1,0 +1,176 @@
+.b-cases
+    background-color: #28348a
+    color: #fff
+    margin-bottom: 98px
+    +sm
+        margin-bottom: 40px
+    &__inner
+        display: flex
+        min-height: 682px
+        padding-top: 110px
+        padding-bottom: 110px
+        padding-right: 56px
+        +xl
+            padding-right: 70px
+        +md
+            display: block
+            padding: 30px 70px 30px 30px
+        +sm
+            padding-right: 30px
+
+.b-cases-content
+    flex: none
+    width: 349px
+    padding-top: 10px
+    +md
+        width: auto
+        display: flex
+        margin-bottom: 30px
+    +sm
+        display: block
+    p
+        max-width: 239px
+        color: fade-out(#fff, 0.3)
+        +md
+            max-width: none
+    &__title
+        +h2
+        color: inherit
+        margin-bottom: 45px
+    &__bottom
+        margin-top: 66px
+        font-size: 18px
+        font-weight: 700
+        +md
+            padding-left: 60px
+            padding-right: 60px
+            margin-left: 60px
+            margin-top: 0
+            border-left: 1px solid rgba(#fff, .21)
+        +sm
+            border-left: 0
+            padding-left: 0
+            margin-left: 0
+            position: relative
+            margin-bottom: 35px
+            padding-bottom: 35px
+        &::before
+            content: ''
+            background-color: #fff
+            opacity: 0.21
+            display: block
+            width: 88px
+            height: 1px
+            margin-bottom: 37px
+            +md
+                display: none
+            +sm
+                display: block
+                position: absolute
+                bottom: 0
+                left: 0
+                width: 180px
+                margin-bottom: 0
+        .button
+            margin-top: 25px
+
+.b-cases-content2
+    position: relative
+    min-width: 0
+    flex: 1
+    min-height: 462px
+    border-radius: $border-radius
+    border: 3px solid rgba(#fff, 0.16)
+    padding: 55px 15px 31px 71px
+    +lg
+        padding-top: 40px
+        padding-left: 40px
+    +xs
+        padding: 0
+        border: 0
+    &__audio
+        display: block
+        position: relative
+        flex: none
+        width: 180px
+        height: 180px
+        border-radius: $border-radius
+        margin-right: 60px
+        +lg
+            margin-right: 30px
+        +sm
+            margin-bottom: 30px
+        &::before
+            +play-icon
+            content: ''
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+        &:hover::before
+            +play-icon-hover()
+    &__content
+        
+    &__title
+        font-size: 20px
+        font-weight: 700
+    &__subtitle
+        margin-top: -3px
+        margin-bottom: 28px
+    .swiper-slide
+        display: flex
+        padding-right: 15px
+        +sm
+            display: block
+            padding-right: 0
+
+.b-cases-slider
+    .swiper-wrapper
+        height: auto !important
+    .swiper-navigation
+        position: absolute
+        z-index: 1
+        top: 0
+        left: calc(100% + 60px)
+        width: 40px
+        +xl
+            left: calc(100% + 20px)
+        +sm
+            top: 40px
+            left: auto
+            right: 20px
+        +xs
+            top: 0
+        +to(320px)
+            right: 0
+        .swiper-button-next, .swiper-button-prev
+            position: static
+            margin: 0
+            background-image: url(../images/arr-right.svg?stroke=%23fff)
+            border-color: #fff
+            &:hover
+                background-image: url(../images/arr-right.svg?stroke=%2328348A)
+                background-color: #fff
+        .swiper-button-prev
+            margin-bottom: 27px
+    .swiper-pagination
+        position: absolute
+        left: calc(100% + 50px)
+        margin-bottom: 4px
+        bottom: 0
+        width: 60px
+        white-space: nowrap
+        transform: rotate(90deg)
+        letter-spacing: 4px
+        +xl
+            left: calc(100% + 0px)
+        +sm
+            transform: none
+            width: auto
+            left: auto
+            bottom: auto
+            right: 20px
+            top: 163px + 40px
+        +xs
+            right: 0
+            top: 163px

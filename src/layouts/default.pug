@@ -1,0 +1,39 @@
+include ./variables
+include ./mixins
+
+
+doctype html
+html(lang=ru)
+  head
+    meta(charset="UTF-8")
+    meta(content="width=device-width, initial-scale=1.0" name="viewport")
+    meta(content="ie=edge" http-equiv="X-UA-Compatible")
+    link(href="main.css" preload="" rel="stylesheet")
+    title Unistar Reklama
+    meta(name="description" content="Реклама на Радио Юнистар")
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/tabby/12.0.1/js/tabby.min.js')
+    //- link(href='https://fonts.googleapis.com/css?family=Exo+2:400,700,800i&display=swap&subset=cyrillic' rel='stylesheet')
+    link(href="https://fonts.googleapis.com/css?family=Exo+2:400,400i,700,700i,800,800i&display=swap&subset=cyrillic" rel="stylesheet")
+    link(rel="icon" href="favicon.ico" type="image/x-icon")
+
+    link(rel="image_src" href="./images/logo.jpg")
+    meta(property="og:image" content="./images/logo.jpg")
+
+  body
+    include ./partials/header
+          
+    block content
+
+    .overlay(data-dismiss="popup")
+    .popup-mobile
+        .popup-mobile__close(data-dismiss="popup")
+        .popup-mobile__inner
+            nav.nav-mobile
+              each item in navItems
+                a(href="#"+item.replace(' ', '-'))= item
+
+    
+    include ./../components/player/player
+    include ./partials/footer
+      
+  script(src="main.js")

@@ -1,0 +1,15 @@
+include ../../../layouts/mixins
+
+.modal-title Что хотите рекламировать?
+form.formSteps.form-bottom-validate
+  .formSteps__inner
+    .formSteps__side
+      +steps(2)
+    .formSteps__content
+      .checkboxes
+        each item in ["Товар", "Услугу", "Набор персонала"]
+          div
+            input(id=`check-${item}` type="radio" name="radio-step-2")
+            label(for=`check-${item}`)=item
+  .modal-footer
+    button.button.button-red(type="submit") Далее

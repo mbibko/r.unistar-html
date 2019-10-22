@@ -1,0 +1,29 @@
+extends ../layouts/clear.pug
+
+block vars
+  - var bodyclass = 'page-pdf'
+
+block content
+  .p-pdf
+    .p-pdf__wrapper
+      br
+      br
+      .pdf-logo
+        svg(width="230" height="136"): use(xlink:href="#logo")
+      .p-pdf__title Расчет рекламной кампании
+      .p-pdf__inner
+        .b-list
+          each item in [["Город вещания", "Все города"], ["Хронометраж", "10 секунд"], ["Тип", "Ролик в блоке"], ["Период", "7 дней"], ["Время выходов", "Прайм-тайм"], ["Выходов в день", "5"]]
+            .b-list__item
+              .b-list__title=item[0]
+              =item[1]
+        .b-price
+          .b-price__discount
+            span -15%
+          .b-price__newprice
+            | 2 739
+            span BYN        
+          .b-price__oldprice
+            | 2 977
+            span BYN
+      .p-pdf__footer Мы рассчитали для вас примерную стоимость рекламной кампании на радио Unistar с учетом НДС 20%. Она не включает сезонные коэффициенты, дополнительные скидки и пониженные тарифы выходного дня. Подробный медиаплан для вас подготовит специалист по работе с клиентами. Пожалуйста, позвоните по тел. +375 17 209 53 83 или напишите на reklama@unistar.by. Либо оставьте заявку на reklama.unistar.by и ожидайте звонок в рабочее время (ПН-ЧТ с 10:00 до 18:00, ПТ с 10:00 до 17:00).

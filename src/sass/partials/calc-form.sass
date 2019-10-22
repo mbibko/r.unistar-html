@@ -1,0 +1,124 @@
+.calc-form
+    width: 394px
+    flex: none
+    padding-top: 10px
+    +sm
+        width: auto
+    label
+        text-transform: uppercase
+        white-space: nowrap
+        span
+            +xs
+                display: none
+    .form-group
+      margin-bottom: 41px
+      +lg
+        margin-bottom: 32px
+      +xs
+        margin-bottom: 26px
+    &__content
+        display: flex
+        +sm
+            justify-content: center
+        +to(375px)
+            display: block
+            margin-bottom: 0
+        &>.col
+            flex: none
+            +to(375px)
+                margin-bottom: 16px
+            &:nth-child(1)
+                width: 197px
+                +to(375px)
+                    width: auto
+            &:nth-child(2)
+                width: 120px
+                margin-left: 77px
+                +lg
+                    margin-left: 30px
+                +xs
+                    margin-left: 10px
+                +to(375px)
+                    margin-left: 0
+    &__title
+        font-size: 20px
+        font-weight: 700
+        line-height: 20px
+        margin-bottom: 39px
+
+.b-counter-wrapper
+    display: flex
+    align-items: center
+    +xs
+        display: block
+    .b-counter
+        flex: none
+        width: 120px
+        margin-right: 20px
+        +xs
+            margin-bottom: 10px
+    div:last-child
+        opacity: 0.4    
+.b-counter
+    height: var(--control-height)
+    display: flex
+    align-items: center
+    justify-content: space-between
+    background-color: #fff
+    border-radius: $border-radius
+    padding: 0 7px
+    color: #000
+    span
+        cursor: pointer
+        width: 20px
+        height: 20px
+        background-size: 13px 13px
+        opacity: 0.17
+        &:hover
+            opacity: 1
+    &__minus
+        background: url(../images/minus.svg) center no-repeat
+    &__plus
+        background: url(../images/plus.svg) center no-repeat
+    &__control
+        position: relative
+        display: flex
+        align-items: flex-end
+        justify-content: center
+        input
+            width: 40px
+            height: 20px
+            border-radius: 0
+            text-align: center
+            padding-left: 0
+            padding-right: 0
+            border: 0
+            &.has-type
+                padding-right: 25px
+    &__text
+        position: absolute
+        right: 0
+        top: 1px
+        padding-left: 3px
+        pointer-events: none
+
+.b-times
+    margin-top: 13px
+    display: flex
+    flex-wrap: wrap
+    &_choose
+        display: none
+        &.active
+            display: flex
+    &>div
+        flex: none
+        display: flex
+        align-items: center
+        justify-content: center
+        width: 80px
+        height: 30px
+        margin-right: 10px
+        margin-bottom: 10px
+        border: 2px solid #ffffff
+        font-size: 11px
+        border-radius: $border-radius

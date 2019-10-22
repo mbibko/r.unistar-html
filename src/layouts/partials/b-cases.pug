@@ -1,0 +1,43 @@
+.b-cases
+  .container.b-cases__inner
+    .b-cases-content
+      div
+        .b-cases-content__title кейсы
+        p Радио Unistar создает оригинальные эксклюзивные эфирные проекты под нужды заказчика, с учетом его целевой аудитории и потребностей. По форме спецпроекты бывают информационными, игровыми и музыкальными.
+      .b-cases-content__bottom
+        div Хотите заказать спецпроект?
+        .button.button-red заполните бриф
+    .b-cases-content2
+      .b-cases-slider
+        .b-cases-slider__inner.swiper-container.slider-group
+          .swiper-wrapper
+            each item in ["1", "2", "3"]
+              .swiper-slide
+                a.b-cases-content2__audio(href="https://www.youtube.com/embed/If2HNblI-gA" data-modal="video")
+                  img(src="../images/cases/1.png")
+                .b-cases-content2__content
+                  .b-cases-content2__title Мои Родители
+                  .b-cases-content2__subtitle Санаторий «Плисса»
+                  .b-toggle
+                    .b-toggle__inner
+                      ul.list-desc
+                        li
+                          span Задача
+                          div
+                            p Продвинуть услуги санатория «Плисса» на внутреннем рынке
+                        li
+                          span Описание
+                          div
+                            p Радио Unistar предложило слушателям выиграть отдых для своих родителей – 10 дней в санатории «Плисса» на берегу живописного озера. Чтобы стать участником, нужно было прислать историю о своих родителях. Самые интересные письма зачитывались в рамках шоу «Утро в большом городе».
+                        li
+                          span Статистика
+                          div
+                            p Охват слушателей (без учёта анонсов) – 42.630 ежедневно. Количество заявок – 800 писем Охват слушателей (без учёта анонсов) – 42.630 ежедневно. Количество заявок – 800 писем
+                      .video-wrapper
+                        iframe(allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" data-src="https://www.youtube.com/embed/If2HNblI-gA?controls=0")
+
+
+        .swiper-pagination
+        .swiper-navigation
+          .swiper-button-prev
+          .swiper-button-next

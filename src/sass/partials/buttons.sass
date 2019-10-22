@@ -1,0 +1,54 @@
+.button
+  +button
+
+// .button-icon
+//   +button-icon
+// .button-with-icon
+//   +button-with-icon
+// .button-white
+//   +button-white
+.button-blue
+  +button-blue
+.button-red
+  +button-red
+.button-gray
+  +button-gray
+// .button-gray-border
+//   +button-gray-border
+// .button-block
+//   +button-block
+
+
+.button-next
+  +button
+  +button-red
+  min-width: initial
+  height: 78px
+  padding-left: 34px
+  padding-right: 36px
+  font-size: 16px
+  font-weight: 600
+  letter-spacing: 0.64px
+  line-height: 20px
+  +sm
+    font-size: 14px
+  +xs
+    width: 100%
+    padding-right: 30px
+    padding-left: 30px
+    height: 60px
+  &::after
+    content: ''
+    height: 40px
+    margin-left: 78px
+    border-left: 1px solid rgba(#fff, 0.48)
+    padding-left: 40px
+    background: url(../images/triangle-right.svg?fill=%23fff) right center no-repeat
+    background-size: 9px 18px
+    +sm
+      margin-left: 20px
+    +to(375px)
+      display: none
+  &:hover
+    background-color: $blue-color
+

@@ -1,0 +1,134 @@
+.title
+    
+.subtitle
+    margin-bottom: 35px
+
+.section-video-creates
+    display: flex
+    margin-bottom: 66px
+    +md
+        display: block
+    &__side
+        flex: none
+        width: 302px
+        margin-right: 118px
+        +lg
+            margin-right: 60px
+        +md
+            width: auto
+            margin-right: 0
+        .title
+            white-space: nowrap
+        .subtitle
+            max-width: 240px
+    &__content
+        flex: 1
+
+.player-2-wrapper-1
+    &>div
+        margin-bottom: 20px
+        +md
+            width: 70%
+            margin: 0 auto 10px
+        +sm
+            width: 100%
+
+.player3-wrapper
+    display: flex
+    flex-wrap: wrap
+    justify-content: space-between
+    .b-player3
+        width: calc(50% - 30px)
+        margin-bottom: 60px
+        +sm
+            width: auto
+            margin-bottom: 20px
+        +xs
+            min-height: 60px
+            margin-bottom: 10px
+
+.list-desc
+    li
+        display: flex
+        margin-bottom: 8px
+        +xs
+            display: block
+    span
+        flex: none
+        width: 90px
+        opacity: 0.59
+        +xs
+            width: auto
+
+.section-contact
+    display: flex
+    .subtitle
+        +sm
+            display: none
+    +md
+        display: block
+    &__side
+        flex: none
+        width: 370px
+        +md
+            width: auto
+        .title
+        .subtitle
+            max-width: 200px
+            margin-bottom: 36px
+    &__side-inner
+        +md
+            display: flex
+            justify-content: space-between
+        +sm
+            flex-direction: column
+            align-items: flex-start
+        &>div:nth-child(2)
+            order: +1
+    &__content
+        flex: 1
+        padding-top: 76px
+        +xl
+            overflow: hidden
+        +md
+            padding-top: 20px
+
+.b-phone
+    margin-bottom: 36px
+    font-size: 28px
+    font-weight: 700
+    line-height: 30px
+    white-space: nowrap
+    +sm
+        margin-bottom: 20px
+
+.time-work
+    margin-bottom: 25px
+    padding-left: 34px
+    background: url(../images/clock.svg) 0 3px no-repeat
+    background-size: 15px 15px
+    +sm
+        margin-top: 30px
+    &__item
+        margin-bottom: 17px
+        +sm
+            margin-right: 20px
+        span
+            font-weight: 700
+            display: block
+
+.b-recommend
+    &__title
+        margin-bottom: 36px
+    .b-player3
+        margin-bottom: 20px
+
+.video-wrapper
+    position: relative
+    padding-top: 56.25%
+    &>*
+        width: 100%
+        height: 100%
+        position: absolute
+        top: 0
+        left: 0

@@ -1,0 +1,37 @@
+.tabs-voices
+    margin-top: 123px
+    +sm
+        margin-top: 40px
+    &__nav
+        display: flex
+        margin-bottom: 37px
+        li
+            margin-right: 73px
+            overflow: hidden
+            +sm
+                margin-right: 30px
+            a
+                color: #d4d4d4
+                text-transform: uppercase
+                padding-bottom: 10px
+                text-decoration: none
+                outline: none !important
+                font-weight: 700
+                &::after
+                    content: ''
+                    display: block
+                    width: 40px
+                    height: 2px
+                    margin-top: 11px
+                    transform: translateX(-40px)
+                    background-color: #000
+                    transition: $transition-elems-show
+                &:hover
+                    color: #000
+                &[aria-selected="true"]
+                    color: #000
+                    &::after
+                        transform: translateX(0)
+
+    &__contents
+    &__content

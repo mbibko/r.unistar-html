@@ -1,0 +1,43 @@
+.contact-form
+    margin-bottom: 135px
+    +md
+        margin-bottom: 60px
+    label
+        text-transform: uppercase
+    &__inner
+        display: flex
+        justify-content: space-between
+        +md
+            flex-wrap: wrap
+        +sm
+            display: block
+    &__item
+        flex: none
+        width: calc((100% - 120px - 40px) / 3 - 20px)
+        +md
+            width: calc(100%/2 - 20px)
+        +sm
+            width: auto
+        label
+            color: #fff
+            margin-bottom: 34px
+            +md
+                margin-bottom: 16px
+        .form-control
+            background-color: rgba(#fff, 0.3)
+            &:focus, &.is-filled
+                background-color: #fff
+        &_submit
+            width: 120px
+            +md
+                width: calc(100%/4 - 20px)
+                margin-right: auto
+                margin-left: 40px
+            +sm
+                width: 200px
+                margin: auto
+            label
+                opacity: 0
+            .button
+                width: 100%
+                display: flex

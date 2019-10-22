@@ -1,0 +1,89 @@
+.calc-form-order
+    position: relative
+    flex: none
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
+    width: 258px
+    height: 446px
+    border-radius: $border-radius
+    border-top-left-radius: 0
+    background: #fff url(../images/star-red.svg) -54px -64px no-repeat
+    background-size: 248px 314px
+    padding-left: 27px
+    padding-right: 32px
+    padding-top: 30px
+    padding-bottom: 33px
+    text-align: right
+    +lg
+        padding-left: 14px
+        padding-right: 14px
+        width: 220px
+    +sm
+        width: auto
+        max-width: 347px
+        margin: 0 auto
+        height: auto
+        background-size: 168px 224px
+        background-position: -54px -64px
+        padding-left: 30px
+        padding-right: 30px
+    &::before
+        content: ''
+        position: absolute
+        left: 0
+        top: 0
+        width: 27px
+        height: 14px
+        background-color: #d8007b
+        +sm
+            display: none
+    &__discount
+        position: absolute
+        left: 0
+        top: 60px
+        color: #fff
+        font-size: 61px
+        font-weight: 700
+        line-height: 38px
+        transform: rotate(-45deg)
+        transform-origin: center
+        +sm
+            font-size: 36px
+            top: 20px
+        +sm
+            top: 27px
+    &__oldprice
+        color: rgba(#000, 0.22)
+        font-size: 22px
+        font-weight: 700
+        line-height: 24px
+        text-transform: uppercase
+        margin-bottom: 9px
+        span
+            position: relative
+            &::before
+                content: ''
+                position: absolute
+                top: 50%
+                left: 0
+                width: 100%
+                height: 1px
+                background-color: $red-color
+    &__newprice
+        color: #000000
+        font-size: 62px
+        line-height: 62px
+        font-weight: 700
+        margin-bottom: 30px
+        +xs
+            font-size: 40px
+            line-height: 40px
+        span
+            vertical-align: super
+            font-size: 16px
+            line-height: 16px
+            font-weight: 400
+            position: relative
+    .button-blue
+        margin-bottom: 18px

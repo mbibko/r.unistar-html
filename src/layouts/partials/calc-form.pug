@@ -1,0 +1,41 @@
+.calc-form
+  .calc-form__title Сколько стоит?
+  .calc-form__content
+    .col
+      .form-group
+        label Город вещания
+        select.select
+          each item in ["Минск", "Бобруйск", "Другой город"]
+            option= item
+      .form-group
+        label Тип
+        select.select
+          each item in ["Ролик в рекл. блоке", "Читалка в рекламном блоке", "Читалка в новостях"]
+            option= item
+      .form-group
+        label Время выходов
+        select.select.js-select-time-choose
+          each item, value in ["Околопрайм", "Прайм", "Постпрайм"]
+            option(value=value)= item
+        .b-times.b-times_choose.active
+          each item, value in ["7:00 - 8:00", "10:00 - 11:00", "12:00 - 14:00", "16:00 - 17:00"]
+            div= item
+        .b-times.b-times_choose
+          each item, value in ["10:00 - 11:00", "12:00 - 14:00", "16:00 - 17:00"]
+            div= item
+        .b-times.b-times_choose
+          each item, value in ["12:00 - 14:00", "16:00 - 17:00"]
+            div= item
+    .col
+      .form-group
+        label Хронометраж
+        +counter({value: "13", type: "сек"})
+      .form-group
+        label
+          | Период
+          |
+          span размещения
+        +counter({value: "13", type: "дн"})
+      .form-group
+        label Выходов в день
+        +counter({value: "25"})

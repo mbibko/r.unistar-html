@@ -1,0 +1,23 @@
+footer.footer
+  .container
+    .footer__title Закажите звонок
+    form.contact-form(action="#")
+      .contact-form__inner
+        .contact-form__item.form-group
+          label Контактное лицо
+          input.form-control(type="text" required)
+        .contact-form__item.form-group
+          label Компания
+          input.form-control(type="text" required)
+        .contact-form__item.form-group
+          label Телефон
+          input.form-control(type="tel" required data-field="phone" pattern="\\+\\d{3}\\s\\(\\d{2}\\)\\s\\d{3}\\-\\d{2}\\-\\d{2}")
+        .contact-form__item.form-group.contact-form__item_submit
+          label отправить
+          button.button.button-red(type="submit") отправить
+      //- .form-error-text Заполните пожалуйста все поля.
+
+    .footer__bottom
+      .copy © 2019 Радио Unistar
+      .develop
+        a(href="https://silentcode.org/") Создание сайта – Silentcode

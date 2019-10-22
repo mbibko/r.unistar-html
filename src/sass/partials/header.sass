@@ -1,0 +1,148 @@
+.logo
+    svg
+        width: 164px
+        height: 70px
+
+.hamburger
+    display: none
+    +sm
+        position: absolute
+        left: 20px
+        top: 49px
+        display: block
+
+.header
+    position: sticky
+    top: 0
+    z-index: 2
+    background-color: #fff
+    padding-bottom: 27px
+    +sm
+        position: relative
+    &__inner
+    &__wrapper
+        display: flex
+    &__left
+        flex: 1
+        padding-right: 62px
+        +lg
+            padding-right: 0
+    &__right
+        flex: 1
+        margin-left: 120px
+        +lg
+            max-width: 600px
+            margin-left: auto
+        +md
+            margin-left: 50px
+        +sm
+            margin-left: 0
+            display: flex
+            flex-direction: column
+            align-items: center
+        &>div
+            display: flex
+            justify-content: space-between
+            +lg
+                justify-content: flex-start
+            &>div:first-child
+                +lg
+                    width: 50%
+                +md
+                    margin-right: 20px
+                +sm
+                    width: auto
+                    margin-right: 0
+            &:nth-child(1)
+                margin-top: 20px
+                +sm
+                    display: block
+            &:nth-child(2)
+                display: none
+                +lg
+                    display: flex
+                    margin-top: 20px
+                +sm
+                    display: block
+    &__side
+        flex: none
+        width: 260px
+        border-radius: 0 0 $border-radius $border-radius
+        background-color: #f6f7fa
+        padding: 40px 34px 30px 27px
+        +lg
+            display: none
+    &__top
+        display: flex
+        justify-content: space-between
+        margin-bottom: 30px
+        padding-top: 23px
+        align-items: flex-start
+        padding-right: 50px
+        +lg
+            padding-right: 0
+            justify-content: flex-start
+        +sm
+            flex-direction: column
+            align-items: center
+            margin-bottom: 0
+    &__phone
+        display: flex
+        align-items: center
+        font-size: 18px
+        font-weight: 700
+        margin-bottom: 26px
+        +lg
+            margin-bottom: 0
+        a
+            color: #000
+            text-decoration: none
+        svg
+            margin-right: 8px
+    &__submit
+        display: flex
+        +sm
+            margin-top: 16px
+
+.work-dates
+    display: flex
+    align-items: center
+    +sm
+        margin-bottom: 8px
+    span
+        color: lighten(#000, 70%)
+        margin-left: 12px
+        margin-right: 4px
+.b-mail
+    display: flex
+    align-items: center
+    +sm
+        justify-content: center
+    a
+        text-decoration: none
+        color: #253786
+        &:hover
+            color: #1E243A
+    svg
+        margin-right: 8px
+
+.list-channels
+    margin-bottom: 26px
+    color: lighten(#000, 70%)
+    font-size: 13px
+    &__inner
+        justify-content: space-between
+        +lg
+            justify-content: flex-start
+    .swiper-slide
+        width: auto
+        white-space: nowrap
+        +lg
+            width: calc(100% / 5)
+        +sm
+            width: calc(100% / 3)
+        +xs
+            width: 50%
+
+.swiper-container-free-mode>.swiper-wrapper
+    transition-timing-function: linear

@@ -1,0 +1,83 @@
+.b-player
+    display: flex
+    min-height: 120px
+    align-items: center
+    padding-left: 31px
+    background-color: #f6f7fa
+    +md
+        min-height: 80px
+    +xs
+        padding-left: 20px
+    &__icon
+        +play-icon
+        margin-right: 27px
+        +xs
+            margin-right: 20px
+    &__title
+        font-size: 18px
+        font-weight: 700
+        line-height: 20px
+        padding-right: 30px
+        +xs
+            padding-right: 0
+            font-size: 1rem
+            line-height: normal
+
+.b-player2
+    display: flex
+    padding: 27px 30px 32px
+    background-color: $gray-light-color
+    +sm
+        padding: 20px
+    &__icon
+        +play-icon
+        margin-right: 29px
+        +sm
+            margin-right: 20px
+    &__content
+
+    &__title
+        font-size: 18px
+        font-weight: 700
+        line-height: 20px
+        +sm
+            font-size: 16px
+    &__subtitle
+        font-size: 13px
+        line-height: 20px
+        margin-bottom: 18px
+    &__price
+        font-size: 19px
+        font-weight: 700
+        line-height: 20px
+        color: #db057c
+        span
+            display: inline-block
+            margin-left: 6px
+            vertical-align: text-top
+            font-size: 13px
+            font-weight: 400
+            text-transform: uppercase
+
+.b-player3
+    $_: &
+    display: flex
+    &__icon
+        +play-icon
+        margin-right: 40px
+    &__content
+
+    &__title
+        font-size: 18px
+        font-weight: 700
+        line-height: 20px
+        +sm
+            font-size: 14px
+            font-weight: 600
+    &__subtitle
+        font-size: 13px
+        font-weight: 400
+        line-height: 20px
+        color: #999
+        +sm
+            font-size: 12px

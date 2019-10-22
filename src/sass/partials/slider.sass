@@ -1,0 +1,52 @@
+.swiper-button-next, .swiper-button-prev
+    width: 40px
+    height: 40px
+    border: 2px solid #28348a
+    border-radius: 50%
+    background-image: url(../images/arr-right.svg)
+    background-size: 10px 20px
+    // opacity: 0.23
+    transition: $transition
+    &:hover
+        background-image: url(../images/arr-right.svg?stroke=%23da007b)
+        border-color: $red-color
+        // opacity: 1
+.swiper-button-prev
+    transform: scaleX(-1)
+
+
+// .swiper-pagination-bullet
+//   flex: none
+//   width: 6px
+//   height: 6px
+//   opacity: 0.15
+//   background-color: $base-color
+//   +xs
+//     width: 4px
+//     height: 4px
+//   &.swiper-pagination-bullet-active
+//     background-color: $base-color
+//     opacity: 1
+
+
+// .slider-navigation
+//   z-index: 5
+//   display: flex
+
+// .slider-button
+//   cursor: pointer
+//   flex: none
+//   width: var(--button-default-height)
+//   height: var(--button-default-height)
+//   background-color: #16181c
+//   border: 0
+//   outline: none !important
+//   background-position: 28px center
+//   background-repeat: no-repeat
+//   background-size: 14px 14px
+//   &[disabled]
+//     cursor: default
+//   +lg
+//     background-position: 17px center
+//   &.slider-button-prev
+//   &.slider-button-next

@@ -1,0 +1,80 @@
+.tabs-side
+    display: flex
+    margin-bottom: 68px
+    +sm
+        display: block
+    &__nav
+        flex: none
+        width: 345px
+        margin-right: 80px
+        padding: 36px 41px 0 32px
+        border-radius: $border-radius
+        border: 2px solid #efefef
+        +lg
+            width: 300px
+            margin-right: 40px
+        +md
+            width: 240px
+            padding: 30px 20px 0
+            margin-right: 28px
+        +sm
+            width: auto
+            margin-bottom: 30px
+            margin-right: 0
+        li
+            margin-bottom: 40px
+            +sm
+                margin-bottom: 16px
+            a
+                display: block
+                padding-right: 20px
+                font-size: 18px
+                font-weight: 700
+                line-height: 20px
+                text-decoration: none
+                background: url(../images/triangle-right.svg) 100% center no-repeat
+                background-size: 5px 10px
+                outline: none !important
+                color: #000
+                +sm
+                    font-size: 14px
+                    font-weight: 600
+                &:hover
+                    color: $link-color
+                    background-image: url('../images/triangle-right.svg?fill=%23253786')
+                &[aria-selected="true"]
+                    background-image: url('../images/triangle-right.svg?fill=%23da007b')
+                    color: $red-color
+    &__contents
+        flex: 1
+        min-width: 0
+        +md
+            padding-right: 20px
+        h4
+            margin-bottom: 50px
+            +sm
+                margin-bottom: 20px
+    &__content
+        height: 100%
+    &__content-inner
+        display: flex
+        flex-direction: column
+        height: 100%
+
+.tabs-player
+    display: flex
+    justify-content: space-between
+    margin-top: 50px
+    +md
+        margin-top: 30px
+        display: block
+    +xs
+        margin-top: 10px
+    &>div
+        flex: none
+        width: calc(50% - 30px)
+        +lg
+            width: calc(50% - 15px)
+        +md
+            width: 100%
+            margin-top: 10px

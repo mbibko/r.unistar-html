@@ -1,0 +1,115 @@
+.video-slider-wrapper
+    position: relative
+    margin-bottom: 76px
+    +md
+        display: flex
+        flex-direction: column
+        background-color: #f6f7fa
+        padding-bottom: 30px
+    +sm
+        margin-bottom: 40px
+
+.video-slider
+    position: absolute
+    left: 0
+    top: 70px
+    width: 603px
+    border-radius: $border-radius
+    overflow: hidden
+    +lg
+        width: 50%
+    +md
+        position: static
+        margin: 0 auto
+    +sm
+        width: calc(100% - #{$fields_sm*2})
+
+.video-slider-content
+    height: 461px
+    margin-left: 303px
+    padding-left: 369px
+    background-color: #f6f7fa
+    padding-top: 97px
+    padding-bottom: 64px
+    padding-right: 80px
+    +lg
+        margin-left: 25%
+        padding-left: 300px
+        padding-right: 40px
+    +md
+        margin-left: 0
+        padding-left: 30px
+        padding-right: 30px
+        padding-top: 30px
+        padding-bottom: 20px
+        order: -1
+        height: auto
+    +xs
+        padding-left: $fields_sm
+        padding-right: $fields_sm
+    &__inner
+        height: 100%
+        +sm
+            padding-bottom: 50px
+        +only(md)
+            padding-bottom: 0
+    &__item
+
+    &__title
+        +h2
+        margin-bottom: 30px
+    .swiper-container
+        overflow: visible
+    .swiper-pagination-fraction
+        bottom: 28px
+        right: 35px
+        left: auto
+        width: auto
+        +only(md)
+            bottom: -100px
+    .swiper-navigation
+        position: absolute
+        left: -10px
+        bottom: 20px
+        width: 120px
+        +only(md)
+            left: auto
+            right: 20px
+            bottom: -60px
+        .swiper-button-next, .swiper-button-prev
+            top: auto
+            bottom: 0
+            margin: 0
+
+.b-video
+    $_: &
+    &__wrapper
+        position: relative
+    &__cover
+        position: absolute
+        top: 0
+        left: 0
+        bottom: 0
+        right: 0
+        background: url(../images/video-cover.jpg) 0 0 no-repeat
+        cursor: pointer
+        transition: 0.5s
+        z-index: 1
+        #{$_}.is-playing &
+            opacity: 0
+            visibility: hidden
+        &::before
+            +play-icon('red')
+            content: ''
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            background-size: 50% 50%
+            width: 104px
+            height: 104px
+            +xs
+                width: 60px
+                height: 60px
+        &:hover::before
+            +play-icon-hover($theme: 'red')
