@@ -11,10 +11,16 @@
       .b-cases-slider
         .b-cases-slider__inner.swiper-container.slider-group
           .swiper-wrapper
-            each item in ["1", "2", "3"]
+            each item, value in ["1", "2", "3"]
               .swiper-slide
-                a.b-cases-content2__audio(href="https://www.youtube.com/embed/If2HNblI-gA" data-modal="video")
-                  img(src="../images/cases/1.png")
+                if value == 0
+                  a.b-cases-content2__audio(href="https://www.youtube.com/embed/If2HNblI-gA" data-modal="video")
+                    span.b-cases-content2__icon
+                    img(src="../images/cases/1.png")
+                else
+                  a.b-cases-content2__audio(class="js-play-audio" data-url="player.mp3" data-title="Примеры партнерства игровой рубрики")
+                    span.b-cases-content2__icon
+                    img(src="../images/cases/1.png")
                 .b-cases-content2__content
                   .b-cases-content2__title Мои Родители
                   .b-cases-content2__subtitle Санаторий «Плисса»
@@ -39,5 +45,5 @@
 
         .swiper-pagination
         .swiper-navigation
-          .swiper-button-prev
-          .swiper-button-next
+          .swiper-button-prev.js-player-stop
+          .swiper-button-next.js-player-stop

@@ -62,10 +62,14 @@ audiojs.events.ready(function() {
         });
     });
 
-    document.querySelector('.player__close').addEventListener('click', () => {
-        prevAudio.classList.remove('is-playing');
-        document.body.classList.remove('player-open');
-        audio.pause();
+    forEach(document.querySelectorAll('.js-player-stop'), item => {
+        item.addEventListener('click', () => {
+            if (prevAudio) {
+                prevAudio.classList.remove('is-playing');
+            }
+            document.body.classList.remove('player-open');
+            audio.pause();
+        });
     });
 
     document.querySelector('[data-player="refresh"]').addEventListener('click', function() {

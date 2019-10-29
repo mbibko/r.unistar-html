@@ -17,13 +17,21 @@ new Swiper('.b-cases-slider__inner', {
     },
 
     pagination: {
-        el: '.swiper-pagination',
+        el: '.b-cases-slider .swiper-pagination',
         type: 'fraction',
     },
 
     navigation: {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
+    },
+
+    on: {
+      slideChange: function () {
+        const toggled = this.$el[0].querySelector('.b-toggle.is-active') 
+        if (!toggled) return;
+        toggled.classList.remove('is-active')
+      },
     },
   }
 )

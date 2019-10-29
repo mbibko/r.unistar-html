@@ -1,23 +1,31 @@
-import { Swiper, Navigation, Pagination, EffectFade } from 'swiper/dist/js/swiper.esm.js'
+import { Swiper, Navigation, Pagination, EffectFade, Thumbs } from 'swiper/dist/js/swiper.esm.js'
 
-Swiper.use([Navigation, Pagination, EffectFade]);
+Swiper.use([Navigation, Pagination, EffectFade, Thumbs]);
 
-let swipers = []
-
-
-swipers.push(new Swiper('.video-slider__inner', {
-    speed: 1000,
-    loop: true,
-    preventInteractionOnTransition: true,
-    slidesPerGroup: 1,
+const slider1 = new Swiper('.video-slider__inner', {
+    slidesPerView: 1,
+    freeMode: true,
+    watchSlidesVisibility: true,
+    watchSlidesProgress: true,
+    on: {
+      slideChange: function () {
+        const videoWrapper = this.slides[this.previousIndex].querySelector('.b-video') 
+        if (!videoWrapper) return;
+        const video = videoWrapper.querySelector('.b-video__video') 
+        let href = video.getAttribute("src");
+        if (!href) return;
+        videoWrapper.classList.remove('is-playing');
+        href = href.replace('?autoplay=1', '');
+        video.setAttribute("src", href);
+      },
+    },
   }
-))
+)
 
-swipers.push(new Swiper('.video-slider-content__inner', {
+new Swiper('.video-slider-content__inner', {
     speed: 1000,
     loop: true,
     preventInteractionOnTransition: true,
-    slidesPerGroup: 1,
 
     effect: 'fade',
 
@@ -26,7 +34,7 @@ swipers.push(new Swiper('.video-slider-content__inner', {
     },
 
     pagination: {
-        el: '.swiper-pagination',
+        el: '.video-slider-content__inner .swiper-pagination',
         type: 'fraction',
     },
 
@@ -34,28 +42,10 @@ swipers.push(new Swiper('.video-slider-content__inner', {
       nextEl: '.swiper-button-next',
       prevEl: '.swiper-button-prev',
     },
+
+    thumbs: {
+      swiper: slider1
+    },
+
   }
-))
-
-let isSlidesChanging = false
-
-const syncSwipers = ( currentSwiper, direction ) => {
-  swipers.forEach( swiper => {
-    if(swiper == currentSwiper) return;
-    swiper['slide'+direction]()
-  });
-  isSlidesChanging = false
-}
-
-swipers.forEach((swiper) => {
-  swiper.on('slideNextTransitionStart', () => {
-    if (isSlidesChanging) return;
-    isSlidesChanging = true
-    syncSwipers(swiper, 'Next')
-  });
-  swiper.on('slidePrevTransitionStart', () => {
-    if (isSlidesChanging) return;
-    isSlidesChanging = true
-    syncSwipers(swiper, 'Prev')
-  });
-});
+)
