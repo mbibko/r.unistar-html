@@ -27,6 +27,7 @@ import './js/slider-channels.js'
 import './js/b-toggle.js'
 import './js/modals.js'
 import './js/popup-mobile.js'
+import './js/calc-form.js'
 
 import counter from './js/b-counter.js'
 
