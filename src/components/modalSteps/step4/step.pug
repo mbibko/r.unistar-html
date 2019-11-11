@@ -1,18 +1,20 @@
 include ../../../layouts/mixins
 
-.modal-title Мы рекомендуем вам виды рекламы
-form.formSteps.form-bottom-validate
-  .formSteps__inner
-    .formSteps__side
-      +steps(4)
-    .formSteps__content
-      .b-recommend
-        .b-recommend__title Реклама в новостях или реклама в блоке
-        each item, value in ["Реклама в новостях", "Реклама в блоке"]
-          +player3({
-            class: 'theme-red',
-            title: item,
-            subtitle: "Пример 0"+(value+1)
-          })
-  .modal-footer
-    button.button.button-red(type="submit") Заказать расчет медиаплана
+#modalStep4
+
+  .modal-title Мы рекомендуем вам виды рекламы
+  form.formSteps.form-bottom-validate
+    .formSteps__inner
+      .formSteps__side
+        +steps(4)
+      .formSteps__content
+        .b-recommend
+          .b-recommend__title Реклама в новостях или реклама в блоке
+          each item, value in ["Реклама в новостях", "Реклама в блоке"]
+            +player3({
+              class: 'theme-red',
+              title: item,
+              subtitle: "Пример 0"+(value+1)
+            })
+    .modal-footer
+      button.button.button-red(type="submit") Заказать расчет медиаплана

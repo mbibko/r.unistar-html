@@ -1,68 +1,70 @@
 include ../../layouts/mixins
 
-.modal-title
-  | Хотите заказать программу на радио Unistar? Будем рады поработать!
-| Чем больше полей вы заполните, тем лучше. Но не пропускайте поля со звездочкой.
-br
-br
-br
+#modalBrif
 
-form.formBrif
-  .form-group
-    label.required Как вас зовут?
-    input.form-control(type="text" placeholder="Например, Наталья." required)
-  .form-group
-    label.required Как с вами связаться?
-    input.form-control(type="text" placeholder="Укажите телефон, Viber, e-mail или другой удобный для вас способ связи." required)
-  .form-group
-    label.required Как называется ваша компания?
-    input.form-control(type="text" placeholder="Например, ООО \"Облако\"." required)
-  label Когда вы хотите запустить программу?
-  .form-offsets.form-offsets_3
-    .form-group
-      select.select
-        option День
-        - var n = 0;
-        while n < 31
-          option= n++
-    .form-group
-      select.select
-        option Месяц
-        each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
-          option=item
-    .form-group
-      select.select
-        option Год
-        option 2019
-        option 2020
-        option 2021
+  .modal-title
+    | Хотите заказать программу на радио Unistar? Будем рады поработать!
+  | Чем больше полей вы заполните, тем лучше. Но не пропускайте поля со звездочкой.
+  br
+  br
+  br
 
-  .form-group
-    label.required Что вы хотите рекламировать?
-    textarea.form-control(placeholder="Опишите ваш продукт, его преимущества и слабые стороны." required)
-  .form-group
-    label Какой у вас сайт?
-    input.form-control(type="text" placeholder="")
-  .form-group
-    label Кто ваши конкуренты?
-    input.form-control(type="text" placeholder="")
-  .form-group
-    label.required Какого результата вы хотите добиться при помощи спецпроекта на радио?
-    textarea.form-control(placeholder="" required)
-  .form-group
-    label Какие проекты вам нравятся?
-    textarea.form-control(placeholder="Опишите их или скопируйте сюда ссылки")
-  .form-group
-    label У вас был опыт создания рекламных проектов?
-    textarea.form-control(placeholder="Расскажите о нем или дайте ссылки")
-  .form-group
-    label Ваши пожелания по созданию проекта 
-    textarea.form-control(placeholder="")
-  .form-group
-    label Почему вы хотите заказать специальный проект, а не прямую рекламу в эфире радио? 
-    textarea.form-control(placeholder="")
-  
-  .form-error-text Заполните пожалуйста все обязательные поля. Они отмечены красной точкой.
-  
-  .modal-footer
-    button.button.button-red.button-submit(type="submit") Отправить форму
+  form.formBrif
+    .form-group
+      label.required Как вас зовут?
+      input.form-control(type="text" placeholder="Например, Наталья." required)
+    .form-group
+      label.required Как с вами связаться?
+      input.form-control(type="text" placeholder="Укажите телефон, Viber, e-mail или другой удобный для вас способ связи." required)
+    .form-group
+      label.required Как называется ваша компания?
+      input.form-control(type="text" placeholder="Например, ООО \"Облако\"." required)
+    label Когда вы хотите запустить программу?
+    .form-offsets.form-offsets_3
+      .form-group
+        select.select
+          option День
+          - var n = 0;
+          while n < 31
+            option= n++
+      .form-group
+        select.select
+          option Месяц
+          each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
+            option=item
+      .form-group
+        select.select
+          option Год
+          option 2019
+          option 2020
+          option 2021
+
+    .form-group
+      label.required Что вы хотите рекламировать?
+      textarea.form-control(placeholder="Опишите ваш продукт, его преимущества и слабые стороны." required)
+    .form-group
+      label Какой у вас сайт?
+      input.form-control(type="text" placeholder="")
+    .form-group
+      label Кто ваши конкуренты?
+      input.form-control(type="text" placeholder="")
+    .form-group
+      label.required Какого результата вы хотите добиться при помощи спецпроекта на радио?
+      textarea.form-control(placeholder="" required)
+    .form-group
+      label Какие проекты вам нравятся?
+      textarea.form-control(placeholder="Опишите их или скопируйте сюда ссылки")
+    .form-group
+      label У вас был опыт создания рекламных проектов?
+      textarea.form-control(placeholder="Расскажите о нем или дайте ссылки")
+    .form-group
+      label Ваши пожелания по созданию проекта 
+      textarea.form-control(placeholder="")
+    .form-group
+      label Почему вы хотите заказать специальный проект, а не прямую рекламу в эфире радио? 
+      textarea.form-control(placeholder="")
+    
+    .form-error-text Заполните пожалуйста все обязательные поля. Они отмечены красной точкой.
+    
+    .modal-footer
+      button.button.button-red.button-submit(type="submit") Отправить форму

@@ -1,26 +1,28 @@
-.modal-title Заказать расчет медиаплана
+#modalMediaPlan
 
-form.form-mediaplan
-  .form-mediaplan__item
-    .form-group
-      label компания
-      input.form-control(type="text" placeholder="Например, ООО Росток" required)
-    .form-group
-      label контактное лицо
-      input.form-control(type="text" placeholder="Например, Радислав Гандапа" required)
-  .form-mediaplan__item
-    div
-      .form-group
-        label номер телефона
-        input.form-control(type="tel" placeholder="+375 (__) ___-__-__" data-field="phone" required)
-      .form-group
-        label электронная почта
-        input.form-control(type="email" placeholder="Например, radislav@gmail.com" required)
-    .form-group.form-mediaplan__tail
-      label дополнительно
-      textarea.form-control(type="text" placeholder="Например, у вас есть какие-либо дополнительные пожелания.")
+  .modal-title Заказать расчет медиаплана
 
-  .form-error-text Поля выделенные красным заполнены с ошибкой. Исправьте пожалуйста.
-  
-  .modal-footer
-    button.button.button-red(type="submit") Отправить заявку
+  form.form-mediaplan
+    .form-mediaplan__item
+      .form-group
+        label компания
+        input.form-control(type="text" placeholder="Например, ООО Росток" required)
+      .form-group
+        label контактное лицо
+        input.form-control(type="text" placeholder="Например, Радислав Гандапа" required)
+    .form-mediaplan__item
+      div
+        .form-group
+          label номер телефона
+          input.form-control(type="tel" placeholder="+375 (__) ___-__-__" data-field="phone" required)
+        .form-group
+          label электронная почта
+          input.form-control(type="email" placeholder="Например, radislav@gmail.com" required)
+      .form-group.form-mediaplan__tail
+        label дополнительно
+        textarea.form-control(type="text" placeholder="Например, у вас есть какие-либо дополнительные пожелания.")
+
+    .form-error-text Поля выделенные красным заполнены с ошибкой. Исправьте пожалуйста.
+    
+    .modal-footer
+      button.button.button-red(type="submit") Отправить заявку

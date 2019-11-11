@@ -1,16 +1,18 @@
 include ../../../layouts/mixins
 
-.modal-title Какой возраст вашей целевой аудитории?
-form.formSteps.form-bottom-validate
-  .formSteps__inner
-    .formSteps__side
-      +steps(1)
-    .formSteps__content
-      .checkboxes
-        each item in ["Мужчины и женщины 15 - 25", "Мужчины 15 - 25", "Женщины 15 - 25", "Мужчины и женщины 26 - 40", "Мужчины 26 - 40", "Женщины 26 - 40", "Мужчины и женщины 41 - 65", "Мужчины  41 - 65", "Женщины  41 - 65"]
-          div
-            input(id=`check-${item}` type="radio" name="radio-step-1")
-            label(for=`check-${item}`)=item
+#modalStep1
 
-  .modal-footer
-    button.button.button-red(type="submit") Далее
+  .modal-title Какой возраст вашей целевой аудитории?
+  form.formSteps.form-bottom-validate
+    .formSteps__inner
+      .formSteps__side
+        +steps(1)
+      .formSteps__content
+        .checkboxes
+          each item in ["Мужчины и женщины 15 - 25", "Мужчины 15 - 25", "Женщины 15 - 25", "Мужчины и женщины 26 - 40", "Мужчины 26 - 40", "Женщины 26 - 40", "Мужчины и женщины 41 - 65", "Мужчины  41 - 65", "Женщины  41 - 65"]
+            div
+              input(id=`check-${item}` type="radio" name="radio-step-1")
+              label(for=`check-${item}`)=item
+
+    .modal-footer
+      button.button.button-red(type="submit") Далее

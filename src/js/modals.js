@@ -28,8 +28,8 @@ const modalOpts = {
   }
 }
 
-const modalInit = (module, modalOpts) => {
-    const html = module.default()
+const modalInit = (modalEl, modalOpts) => {
+    const html = modalEl.innerHTML;
     const modal = new tingle.modal(modalOpts);
     modal.setContent(html);
     modal.open();
@@ -62,51 +62,39 @@ document.addEventListener("eventModalvideo", function(event) {
 })
 
 document.addEventListener("eventModalbrif", function(event) {
-    import (/* webpackChunkName: "modalClip" */ '../components/modalBrif/index.js').then(module => {
-        const modal = modalInit(module, modalOpts)
-    })
+    modalInit(modalBrif, modalOpts)
 })
 document.addEventListener("eventModalclip", function(event) {
-    import (/* webpackChunkName: "modalClip" */ '../components/modalClip/index.js').then(module => {
-        const modal = modalInit(module, modalOpts)
-        onlyNumber(modal.modal.querySelectorAll('[data-field="number"]'))
-        maxValue(modal.modal.querySelectorAll('input[type="number"]'))
-    })
+    const modal = modalInit(modalClip, modalOpts)
+    onlyNumber(modal.modal.querySelectorAll('[data-field="number"]'))
+    maxValue(modal.modal.querySelectorAll('input[type="number"]'))
 })
 document.addEventListener("eventModalmediaplan", function(event) {
-    import (/* webpackChunkName: "modalMediaPlan" */ '../components/modalMediaPlan/index.js').then(module => {
-        modalInit(module, modalOpts)
-    })
+    modalInit(modalMediaPlan, modalOpts)
 })
 document.addEventListener("eventModalrequestcall", function(event) {
-    import (/* webpackChunkName: "modalRequestCall" */ '../components/modalRequestCall/index.js').then(module => {
-        let modalOptsLocal = Object.assign({}, modalOpts)
-        modalOptsLocal.cssClass = ['modal-md']
+    let modalOptsLocal = Object.assign({}, modalOpts)
+    modalOptsLocal.cssClass = ['modal-md']
 
-        modalInit(module, modalOptsLocal)
-    })
+    modalInit(modalRequestCall, modalOptsLocal)
 })
 document.addEventListener("eventModalrequestok", function(event) {
-    import (/* webpackChunkName: "modalRequestOk" */ '../components/modalRequestOk/index.js').then(module => {
-        let modalOptsLocal = Object.assign({}, modalOpts)
-        modalOptsLocal.cssClass = ['modal-md']
-        const modal = new tingle.modal(modalOptsLocal);
-        modalInit(module, modalOptsLocal, {text: 'Закрыть', close: true})
-    })
+    let modalOptsLocal = Object.assign({}, modalOpts)
+    modalOptsLocal.cssClass = ['modal-md']
+    const modal = new tingle.modal(modalOptsLocal);
+    modalInit(modalRequestOk, modalOptsLocal, {text: 'Закрыть', close: true})
 })
 document.addEventListener("eventModalstep1", function(event) {
-    import (/* webpackChunkName: "modalStepsStep1" */ '../components/modalSteps/step1/index.js').then(module => modalInit(module, modalOpts))
+    modalInit(modalStep1, modalOpts)
 })
 document.addEventListener("eventModalstep2", function(event) {
-    import (/* webpackChunkName: "modalStepsStep2" */ '../components/modalSteps/step2/index.js').then(module => modalInit(module, modalOpts))
+    modalInit(modalStep2, modalOpts)
 })
 document.addEventListener("eventModalstep3", function(event) {
-    import (/* webpackChunkName: "modalStepsStep3" */ '../components/modalSteps/step3/index.js').then(module => modalInit(module, modalOpts))
+    modalInit(modalStep3, modalOpts)
 })
 document.addEventListener("eventModalstep4", function(event) {
-    import (/* webpackChunkName: "modalStepsStep4" */ '../components/modalSteps/step4/index.js').then(module => {
-        modalInit(module, modalOpts)
-    })
+    modalInit(modalStep4, modalOpts)
 })
 document.addEventListener("eventModalnotsuitable", function(event) {
     const modalTitle = '<div class="modal-title">Для вашей целевой аудитории рекомендуем выбрать другое радио</div>'

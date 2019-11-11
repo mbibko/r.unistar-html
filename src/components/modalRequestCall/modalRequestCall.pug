@@ -1,12 +1,13 @@
-.modal-title Заказать звонок
-form.modalRequestCall.form-bottom-validate(action="#")
-    .form-offsets.form-offsets_2
-        .form-group
-            label имя
-            input.form-control(type="text" placeholder="Ваше имя" required)
-        .form-group
-            label телефон
-            input.form-control(type="tel" placeholder="+375 (__) ___-__-__" required data-field="phone" pattern="\\+\\d{3}\\s\\(\\d{2}\\)\\s\\d{3}\\-\\d{2}\\-\\d{2}")
-    .form-error-text Имя или телефон заполнены с ошибкой. Исправьте пожалуйста.
-    .modal-footer
-        button.button.button-red(type="submit") Отправить заявку
+#modalRequestCall
+    .modal-title Заказать звонок
+    form.modalRequestCall.form-bottom-validate(action="#")
+        .form-offsets.form-offsets_2
+            .form-group
+                label имя
+                input.form-control(type="text" placeholder="Ваше имя" required)
+            .form-group
+                label телефон
+                input.form-control(type="tel" placeholder="+375 (__) ___-__-__" required data-field="phone" pattern="\\+\\d{3}\\s\\(\\d{2}\\)\\s\\d{3}\\-\\d{2}\\-\\d{2}")
+        .form-error-text Имя или телефон заполнены с ошибкой. Исправьте пожалуйста.
+        .modal-footer
+            button.button.button-red(type="submit") Отправить заявку
