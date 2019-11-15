@@ -1,6 +1,6 @@
 include ../../../layouts/mixins
 
-#modalStep4
+#modalStep4.modal-content
 
   .modal-title Мы рекомендуем вам виды рекламы
   form.formSteps.form-bottom-validate
@@ -14,7 +14,8 @@ include ../../../layouts/mixins
             +player3({
               class: 'theme-red',
               title: item,
-              subtitle: "Пример 0"+(value+1)
+              subtitle: "Пример 0"+(value+1),
+              url: 'player.mp3'
             })
     .modal-footer
       button.button.button-red(type="submit") Заказать расчет медиаплана

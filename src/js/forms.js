@@ -1,4 +1,4 @@
-import CustomSelect from './CustomSelect';
+import CustomSelect from './customSelect';
 import phoneMask from './phone-mask.js'
 import validate from './validate.js'
 import { forEach, onlyNumber, maxValue } from './helpers.js'

@@ -1,9 +1,11 @@
-import CustomSelect from 'vanilla-js-dropdown';
+import Select from 'vanilla-js-dropdown';
 import SimpleBar from 'simplebar';
 
 export default function(selectEls) {
     [].forEach.call(selectEls, item => {
-      new CustomSelect({
+      if (item.offsetWidth == 0 && item.offsetHeight == 0) return;
+
+      new Select({
         elem: item
       });
       const selectWrapper = item.previousElementSibling

@@ -1,4 +1,4 @@
-import CustomSelect from './CustomSelect';
+import CustomSelect from './customSelect';
 import counter from './b-counter.js';
 import { forEach } from './helpers'
 

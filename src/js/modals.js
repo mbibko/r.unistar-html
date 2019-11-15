@@ -2,7 +2,7 @@ import tingle from './tingle.js'
 import validate from './validate.js'
 import { forEach, moveTingleClose, onlyNumber, maxValue } from './helpers.js'
 import phoneMask from './phone-mask.js'
-import CustomSelect from './CustomSelect';
+import CustomSelect from './customSelect';
 import counter from './b-counter.js'
 
 const modalOpts = {
@@ -22,6 +22,7 @@ const modalOpts = {
     });
     phoneMask(modal.querySelector('[data-field="phone"]'))
     counter(modal.querySelectorAll('.b-counter'))
+    modal.dispatchEvent(new Event(`modalOpen`, {bubbles: true}));
   },
   onClose: function() {
     this.bouncer.destroy

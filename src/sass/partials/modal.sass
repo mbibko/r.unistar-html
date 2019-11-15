@@ -1,6 +1,12 @@
+.modal-content
+  display: none
+
 .tingle-modal
   $_: &
   backdrop-filter: none
+  z-index: 99
+  body.player-open &
+    padding-bottom: 120px
   +xs
     padding-top: 20px
   &.modal-video
