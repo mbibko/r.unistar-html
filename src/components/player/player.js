@@ -4,11 +4,11 @@ const audiojs = require('./plugin.js').audiojs
 
 export default class {
 
-    constructor() {
-        this.playerContainer = document.querySelector('.player')
-        this.playerAudioEl = this.playerContainer.querySelector('.player-audio')
-        this.playerTitleEl = this.playerContainer.querySelector('.player__title')
-        this.playerProgress = document.querySelector('.player__progress')
+    constructor(playerContainer) {
+        this.playerContainer = playerContainer
+        this.playerAudioEl = playerContainer.querySelector('.player-audio')
+        this.playerTitleEl = playerContainer.querySelector('.player__title')
+        this.playerProgress = playerContainer.querySelector('.player__progress')
         this.prevAudio = undefined
         this.audio = undefined
         this.audiojsClasses = {

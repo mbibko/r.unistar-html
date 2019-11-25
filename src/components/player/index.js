@@ -1,3 +1,6 @@
 import player from './player.js'
 
-new player().init()
+const playerContainer = document.querySelector('.player')
+if (playerContainer) {
+    new player(playerContainer).init()
+}
