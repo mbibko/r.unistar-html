@@ -1,5 +1,5 @@
 .calc-form
-  .calc-form__title Сколько стоит?
+  .calc-form__title Рассчитайте рекламную кампанию
   .calc-form__content
     .col
       .form-group
@@ -8,7 +8,7 @@
           each item in ["Минск", "Бобруйск", "Другой город"]
             option= item
       .form-group
-        label Тип
+        label Вид рекламы
         select.select
           each item in ["Ролик в рекл. блоке", "Читалка в рекламном блоке", "Читалка в новостях"]
             option= item
@@ -28,14 +28,11 @@
             div= item
     .col
       .form-group
-        label Хронометраж
-        +counter({value: "13", type: "сек"})
+        label Хронометраж, сек
+        +counter({value: "13"})
       .form-group
-        label
-          | Период
-          |
-          span размещения
-        +counter({value: "13", type: "дн"})
+        label Период, дней
+        +counter({value: "13"})
       .form-group
         label Выходов в день
         +counter({value: "25"})

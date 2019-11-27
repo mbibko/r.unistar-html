@@ -3,50 +3,29 @@
     color: #fff
     background: #28348A
     overflow: hidden
+    background: #28348a url(../images/calc-bg.png) left center no-repeat
+    background-size: auto 101%
+    +to(1920px)
+        background-position: -200px center
+    +xl
+        // background-position: left center
     +sm
         margin-bottom: 40px
+        background: none
     label
         color: inherit
     &__wrapper
         max-width: 1920px
         margin: 0 auto
         position: relative
-        background: url(../images/calc-bg.jpg) 0 0 no-repeat
-        background-size: contain
-        +xl
-            background-position: -80px 0
         +md
             padding-left: 20px
             padding-right: 20px
         +sm
-            background: none
-            // background: url(../images/calc-bg-mob.jpg) top center no-repeat
-            // background-size: cover
             padding-bottom: 40px
         +to(440px)
             padding-left: 0
             padding-right: 0
-        &::before
-            content: ''
-            opacity: 0.6
-            position: absolute
-            width: 100%
-            height: 100%
-            left: 0
-            top: 0
-            background-image: linear-gradient(185deg, #253786 0%, #682582 100%)
-            +sm
-                display: none
-        &::after
-            content: ''
-            position: absolute
-            width: 50%
-            height: 100%
-            left: 50%
-            top: 0
-            background: #28348A
-            +md
-                display: none
     &__inner
         display: flex
         min-height: 581px
@@ -57,23 +36,6 @@
             display: block
         +sm
             padding-top: 0
-        &::before
-            content: ''
-            position: absolute
-            width: 1260px
-            height: 1592px
-            top: 0
-            left: 0
-            background: url(../images/star.svg) 155px -334px no-repeat
-            background-size: 1260px 1592px
-            z-index: -1
-            +lg
-                background-position: 60px -334px
-            +md
-                transform: rotate(25deg)
-                background-position: 0 -300px
-            +sm
-                display: none
     &__left
         position: relative
         flex: none
@@ -138,7 +100,7 @@
             display: block
             font-size: 16px
             line-height: normal
-        span
+        .nums
             display: block
             color: $red-color
             font-size: 45px
@@ -148,6 +110,14 @@
                 font-size: 22px
                 margin: 0 10px
                 line-height: normal
+            &:hover + .text-hover
+                opacity: 1
+        .text-hover
+            font-size: 14px
+            margin-top: 10px
+            line-height: normal
+            font-weight: 400
+            opacity: 0
         .button
             margin-top: 26px
             +md

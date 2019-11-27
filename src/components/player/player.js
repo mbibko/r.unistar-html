@@ -69,18 +69,20 @@ export default class {
                         }
                         item.classList.add('is-played');
                         _this.audio.trackEnded();
+                        _this.audio.load(item.dataset.url);
+                        if (item.dataset.playlist) {
+                            _this.playerContainer.querySelector('[data-player="prev"]').style.display = 'block'
+                            _this.playerContainer.querySelector('[data-player="next"]').style.display = 'block'
+                        } else {
+                            _this.playerContainer.querySelector('[data-player="prev"]').style.display = 'none'
+                            _this.playerContainer.querySelector('[data-player="next"]').style.display = 'none'
+                        }
+                        _this.prevAudio = item
+                        _this.playerTitleEl.textContent = item.dataset.title
                     }
-                    _this.audio.element.setAttribute('src', item.dataset.url)
-                    if (item.dataset.playlist) {
-                        _this.playerContainer.querySelector('[data-player="prev"]').style.display = 'block'
-                        _this.playerContainer.querySelector('[data-player="next"]').style.display = 'block'
-                    } else {
-                        _this.playerContainer.querySelector('[data-player="prev"]').style.display = 'none'
-                        _this.playerContainer.querySelector('[data-player="next"]').style.display = 'none'
-                    }
-                    _this.prevAudio = item
-                    _this.audio.play();
-                    _this.playerTitleEl.textContent = item.dataset.title
+                    setTimeout(function() {
+                        _this.audio.play();
+                    }, 1500)
                 } else {
                     _this.audio.pause();
                     item.classList.remove('is-playing');

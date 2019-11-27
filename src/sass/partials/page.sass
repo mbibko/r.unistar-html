@@ -34,14 +34,12 @@
             width: 100%
 
 .player3-wrapper
-    display: flex
-    flex-wrap: wrap
-    justify-content: space-between
+    columns: 2
+    +sm
+        columns: initial
     .b-player3
-        width: calc(50% - 30px)
-        margin-bottom: 60px
+        margin-bottom: 40px
         +sm
-            width: auto
             margin-bottom: 20px
         +xs
             min-height: 60px
@@ -94,11 +92,15 @@
             padding-top: 20px
 
 .b-phone
+    display: block
     margin-bottom: 36px
     font-size: 28px
     font-weight: 700
     line-height: 30px
     white-space: nowrap
+    color: #000
+    &:hover
+        color: $link-color
     +sm
         margin-bottom: 20px
 

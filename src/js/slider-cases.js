@@ -10,7 +10,7 @@ new Swiper('.b-cases-slider__inner', {
     slidesPerGroup: 1,
 
     // effect: 'fade',
-    autoHeight: true,
+    // autoHeight: true,
 
     fadeEffect: {
       crossFade: true

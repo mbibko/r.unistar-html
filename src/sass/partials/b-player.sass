@@ -62,15 +62,21 @@
 .b-player3
     $_: &
     display: flex
+    padding-right: 30px
     &__icon
         +play-icon
         margin-right: 40px
+        +md
+            margin-right: 30px
+        +sm
+            margin-right: 20px
     &__content
 
     &__title
         font-size: 18px
         font-weight: 700
         line-height: 20px
+        min-height: 40px
         +sm
             font-size: 14px
             font-weight: 600

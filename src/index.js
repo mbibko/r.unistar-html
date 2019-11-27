@@ -37,23 +37,23 @@ import './js/svg-sprite'
 
 import { forEach } from './js/helpers'
 
-// // Import any polyfill to enable smoothscroll for JS APIs
-import smoothscrollPolyfill from 'smoothscroll-polyfill';
-// // Import this package to apply the smoothscroll to anchor links
-// import smoothscrollAnchorPolyfill from 'smoothscroll-anchor-polyfill';
-// // (Unlike this package, smoothscroll-polyfill needs to be actively invoked: )
-smoothscrollPolyfill.polyfill();
+// // // Import any polyfill to enable smoothscroll for JS APIs
+// import smoothscrollPolyfill from 'smoothscroll-polyfill';
+// // // Import this package to apply the smoothscroll to anchor links
+// // import smoothscrollAnchorPolyfill from 'smoothscroll-anchor-polyfill';
+// // // (Unlike this package, smoothscroll-polyfill needs to be actively invoked: )
+// smoothscrollPolyfill.polyfill();
 
 
-;(function() {
-    const header = document.querySelector('.header')
-    forEach(document.querySelectorAll('.nav-main a'), item => {
-        item.addEventListener('click', e => {
-            e.preventDefault()
-            window.scroll(0, document.querySelector(decodeURI(item.hash)).offsetTop - header.offsetHeight);
-        })
-    })
-}());
+// ;(function() {
+//     const header = document.querySelector('.header')
+//     forEach(document.querySelectorAll('.nav-main a'), item => {
+//         item.addEventListener('click', e => {
+//             e.preventDefault()
+//             window.scroll(0, document.querySelector(decodeURI(item.hash)).offsetTop - header.offsetHeight);
+//         })
+//     })
+// }());
 
 counter(document.querySelectorAll('.b-counter'))
 
@@ -67,3 +67,13 @@ if (document.querySelector('.tabs-side__nav')) {
 if (document.querySelector('.tabs-voices__nav')) {
     new Tabby('.tabs-voices__nav');
 }
+
+import ActiveMenuLink from "active-menu-link";
+
+const header = document.querySelector('.header')
+new ActiveMenuLink(".nav-main", {
+  activeClass: "active",
+  itemTag: "li",
+  // scrollOffset: header.offsetHeight,
+  headerHeight: header.offsetHeight
+});

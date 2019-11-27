@@ -52,6 +52,7 @@
     "webpack-dev-server": "^3.8.0"
   },
   "dependencies": {
+    "active-menu-link": "^1.1.7",
     "hamburgers": "^1.1.3",
     "image-webpack-loader": "^6.0.0",
     "node-libpng": "^0.2.7",
