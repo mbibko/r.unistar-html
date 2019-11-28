@@ -188,6 +188,7 @@ let config = {
     }),
     new CopyWebpackPlugin([
         // { from: './app/dinamic-links.js', to: '.' },
+        { from: './src/player.mp3', to: '.' },
         { from: './src/ajax.pages_list.php', to: '.' },
         { from: './src/favicon.ico', to: '.' },
         { from: './src/images/logo.jpg', to: './images' },

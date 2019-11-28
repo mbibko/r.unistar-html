@@ -63,7 +63,9 @@ export default class {
                 }
                 if (!item.classList.contains('is-playing')) {
                     item.classList.add('is-playing');
-                    if (!item.classList.contains('is-played')) {
+                    if (item.classList.contains('is-played')) {
+                        _this.audio.play();
+                    } else {
                         if (_this.prevAudio) {
                             _this.prevAudio.classList.remove('is-played');
                         }
@@ -79,10 +81,10 @@ export default class {
                         }
                         _this.prevAudio = item
                         _this.playerTitleEl.textContent = item.dataset.title
+                        setTimeout(function() {
+                            _this.audio.play();
+                        }, 1500)
                     }
-                    setTimeout(function() {
-                        _this.audio.play();
-                    }, 1500)
                 } else {
                     _this.audio.pause();
                     item.classList.remove('is-playing');
