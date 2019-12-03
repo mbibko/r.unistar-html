@@ -45,7 +45,7 @@ include ../../layouts/mixins
           option 2020
           option 2021
 
-    label Когда стартует ваша рекламная кампания?
+    label Когда стартует рекламная кампания в эфире?
     .form-offsets.form-offsets_3
       .form-group
         select.select
@@ -67,17 +67,16 @@ include ../../layouts/mixins
     .form-group
       label Почему именно в этот период?
       .checkboxes
-          each item in ["Время скидок или акции", "Горячий сезон", "Праздничный сезон", "Другая причина (напишите)"]
+          each item in ["Время скидок или акции", "Горячий сезон", "Праздничный период", "Другая причина (напишите)"]
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
-    .form-group
-      textarea.form-control(placeholder="Например, у вас есть какие-либо дополнительные пожелания.")
+      textarea.form-control(placeholder="Например, вы хотиту связать старт рекламной кампании с каким-то событием")
     .form-group
       label Продолжительность ролика?
       .b-counter-wrapper
         +counter({value: "13", type: "сек", max: "60"})
-        div Ваш ролик не должен быть длиннее, чем 60 секунд
+        div Ваш ролик не должен быть длиннее, чем ... секунд
     .form-group
       label.required
         | Какая информация
@@ -85,7 +84,7 @@ include ../../layouts/mixins
         span.text-underline обязательно
         |
         | должна прозвучать в ролике? 
-      textarea.form-control(placeholder="Укажите ваши пожелания." required)
+      textarea.form-control(placeholder="Основная информация о рекламируемом товаре/услуге/фирме." required)
     .form-group
       label Какой у вас слоган?
       input.form-control(type="text" placeholder="Напишите, если он должен прозвучать.")
@@ -122,6 +121,7 @@ include ../../layouts/mixins
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
+      textarea.form-control(placeholder="Какие-то другие препятствия для роста продаж.")
     .form-group
       label Что выгодно отличает ваш товар или услугу?
       .checkboxes
@@ -129,18 +129,24 @@ include ../../layouts/mixins
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
+      textarea.form-control(placeholder="Другие преимущества товара")
     .form-group
       label Расскажите подробнее о вашем продукте
       textarea.form-control(placeholder="Напишите о его отличительных свойствах, уникальном торговом предложении.")
     .form-group
       label Каким должен быть ваш ролик?
       .checkboxes
-          each item in ["Сдержанным, информационным", "Эмоциональным", "Смешным", "Пафосным", "Личным", "Другое (напишите)"]
+          each item in ["Сдержанным, информационным", "Эмоциональным", "Смешным", "Пафосным", "Лиричным", "Другое (напишите)"]
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
+      textarea.form-control(placeholder="Иные пожелания к ролику")
+    .form-group
+      label Что еще мы должны знать?
+      textarea.form-control(placeholder="")
+
 
     .form-error-text Заполните пожалуйста все обязательные поля. Они отмечены красной точкой.
     
     .modal-footer
-      button.button.button-red.button-submit(type="submit") Отправить форму
+      button.button.button-red.button-submit(type="submit") Отправить бриф
