@@ -5,12 +5,13 @@ const audiojs = require('./plugin.js').audiojs
 export default class {
 
     constructor(playerContainer) {
-        this.playerContainer = playerContainer
-        this.playerAudioEl = playerContainer.querySelector('.player-audio')
-        this.playerTitleEl = playerContainer.querySelector('.player__title')
-        this.playerProgress = playerContainer.querySelector('.player__progress')
-        this.prevAudio = undefined
-        this.audio = undefined
+        this.playerContainer = playerContainer;
+        this.playerErrorEl = playerContainer.querySelector('.player__error');
+        this.playerAudioEl = playerContainer.querySelector('.player-audio');
+        this.playerTitleEl = playerContainer.querySelector('.player__title');
+        this.playerProgress = playerContainer.querySelector('.player__progress');
+        this.prevAudio = undefined;
+        this.audio = undefined;
         this.audiojsClasses = {
             markup: false,
             playPauseClass: 'player__play',
@@ -36,7 +37,13 @@ export default class {
             _this.audio = audiojs.create(_this.playerAudioEl, {
                 css: false,
                 useFlash: false,
-                createPlayer: _this.audiojsClasses
+                createPlayer: _this.audiojsClasses,
+                loadError: function () {
+                    console.log('loadError')
+                    const errorText = `Ошибка. ${_this.playerAudioEl.getAttribute('src')} не найден.`;
+                    _this.playerContainer.classList.add('has-error');
+                    _this.playerErrorEl.textContent = errorText;
+                }
             });
         });
 
@@ -56,6 +63,8 @@ export default class {
             
             item.addEventListener('click', e => {
                 e.preventDefault();
+
+                _this.playerContainer.classList.remove('has-error');
 
                 document.body.classList.add('player-open');
                 if (_this.prevAudio && _this.prevAudio != item) {

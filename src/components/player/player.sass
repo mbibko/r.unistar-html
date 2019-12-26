@@ -23,6 +23,7 @@
       padding-top: 20px
       padding-bottom: 20px
   &__close
+    display: block !important
     width: 35px
     height: 35px
     margin-left: auto
@@ -42,6 +43,8 @@
       width: 100%
       padding: 0 30px
       display: block
+    .has-error &
+      display: none
   &__play
     +play-icon('player')
     flex: none
@@ -50,7 +53,6 @@
     margin-right: 36px
     border: 2px solid #fff
     +md
-      margin-right: 14px
       margin: 0 auto
     &:hover
       +play-icon-hover($theme: 'player')
@@ -158,11 +160,18 @@
       margin-left: 0
       margin-bottom: 16px
       order: -5
+    .has-error &
+      display: none
   &__side
     display: flex
     align-items: center
     +md
       width: 100%
       order: -1
-
+    .has-error &
+      display: none
+  &__error
+    display: none
+    .has-error &
+      display: block
 
