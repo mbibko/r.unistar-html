@@ -2,7 +2,7 @@ mixin counter(data)
   .b-counter
     span.b-counter__minus(data-button="-")
     .b-counter__control
-      input.form-control(class=data.type && "has-type" type="number" value=data.value data-field="number" max=data.max || "999")
+      input.form-control(class=data.type && "has-type" type="number" value=data.value data-field="number" min=data.min max=data.max || "999")
       if data.type
         .b-counter__text=data.type
     span.b-counter__plus(data-button="+")

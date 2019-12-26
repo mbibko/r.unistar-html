@@ -21,7 +21,7 @@ html(lang=ru)
 
   body#home
     include ./partials/header
-          
+
     block content
 
     .overlay(data-dismiss="popup")
@@ -32,7 +32,7 @@ html(lang=ru)
               each item in navItems
                 a(href="#"+item.replace(' ', '-'))= item
 
-    
+
     include ./../components/player/player
     include ./partials/footer
 

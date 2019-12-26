@@ -47,7 +47,7 @@ forEach(document.querySelectorAll('[data-modal]'), button => {
 document.addEventListener("eventModalvideo", function(event) {
     const html = `
     <div class="video-wrapper">
-        <iframe width="560" height="315" src="${event.target.href}?controls=0&autoplay=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <iframe width="560" height="315" src="${event.target.href}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
     </div>
     `
     console.log(event.target);

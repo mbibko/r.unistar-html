@@ -2,10 +2,7 @@ include ../../layouts/mixins
 
 #modalClip.modal-content
 
-  .modal-title
-    | Хотите быстро записать яркий и эффективный ролик?
-    br
-    | Сделаем!
+  .modal-title Хотите быстро записать яркий и эффективный ролик? Сделаем!
 
   | Чем больше полей вы заполните, тем лучше. Но не пропускайте поля со звездочкой.
   br
@@ -30,8 +27,8 @@ include ../../layouts/mixins
       .form-group
         select.select
           option День
-          - var n = 0;
-          while n < 31
+          - var n = 1;
+          while n <= 31
             option= n++
       .form-group
         select.select
@@ -50,8 +47,8 @@ include ../../layouts/mixins
       .form-group
         select.select
           option День
-          - var n = 0;
-          while n < 31
+          - var n = 1;
+          while n <= 31
             option= n++
       .form-group
         select.select
@@ -71,12 +68,12 @@ include ../../layouts/mixins
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
-      textarea.form-control(placeholder="Например, вы хотиту связать старт рекламной кампании с каким-то событием")
+      textarea.form-control(placeholder="Например, вы хотите связать старт рекламной кампании с каким-то событием.")
     .form-group
       label Продолжительность ролика?
       .b-counter-wrapper
-        +counter({value: "13", type: "сек", max: "60"})
-        div Ваш ролик не должен быть длиннее, чем ... секунд
+        +counter({value: "13", type: "сек", min: 5, max: "45"})
+        div Ваш ролик не должен быть длиннее, чем ... секунд.
     .form-group
       label.required
         | Какая информация
@@ -103,7 +100,7 @@ include ../../layouts/mixins
       .form-group
         select.select
           option Возраст
-          each item in ["Младше 18", "18-24", "25-29", "30-34", "35-39", "40-44", "45-49", "Старше 50"]
+          each item in ["Младше 18", "19-29", "30-39", "40-49", "Старше 50"]
             option= item
     .form-offsets.form-offsets_3
       .form-group
@@ -117,7 +114,7 @@ include ../../layouts/mixins
     .form-group
       label Какие есть препятствия для роста продаж?
       .checkboxes
-          each item in ["Высокая цена", "У конкурентов лучше условия", "Товар/услуга не знакомы покупателю", "Другое (напишите)"]
+          each item in ["Высокая цена", "У конкурентов лучше условия", "Товар/услуга не знакомы покупателю", "Высокая конкуренция в отрасли", "Другое (напишите)"]
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
@@ -129,18 +126,18 @@ include ../../layouts/mixins
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
-      textarea.form-control(placeholder="Другие преимущества товара")
+      textarea.form-control(placeholder="Другие преимущества товара.")
     .form-group
-      label Расскажите подробнее о вашем продукте
+      label Расскажите подробнее о вашем продукте.
       textarea.form-control(placeholder="Напишите о его отличительных свойствах, уникальном торговом предложении.")
     .form-group
       label Каким должен быть ваш ролик?
       .checkboxes
-          each item in ["Сдержанным, информационным", "Эмоциональным", "Смешным", "Пафосным", "Лиричным", "Другое (напишите)"]
+          each item in ["Сдержанным, информационным", "Эмоциональным", "Смешным", "Пафосным", "Личным", "Другое (напишите)"]
               div
                   input(id="check-"+item type="checkbox")
                   label.checkbox-label(for="check-"+item)=item
-      textarea.form-control(placeholder="Иные пожелания к ролику")
+      textarea.form-control(placeholder="Иные пожелания к ролику.")
     .form-group
       label Что еще мы должны знать?
       textarea.form-control(placeholder="")

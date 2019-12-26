@@ -45,13 +45,12 @@
 .b-price
     position: relative
     height: 86px
-    padding: 21px
+    padding: 21px 21px 21px 116px
     background-color: #f6f7fa
     font-size: 30px
     font-weight: bold
     display: flex
     max-width: 488px
-    padding-left: 116px
     &__discount
         position: absolute
         left: 0
@@ -62,9 +61,13 @@
         background: url(../images/star-red.svg) -54px -64px no-repeat
         background-size: cover
         span
-            font-size: 28px
-            display: inline-block
-            margin-top: 8px
+            display: block
+            width: 60px
+            position: absolute
+            left: 0
+            top: 8px
+            font-size: 26px
+            text-align: center
             transform: rotate(-45deg)
             transform-origin: center
     &__oldprice
