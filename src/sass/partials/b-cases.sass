@@ -2,7 +2,7 @@
     background-color: #28348a
     color: #fff
     margin-bottom: 98px
-    +sm
+    +sm-block
         margin-bottom: 40px
     &__inner
         display: flex
@@ -10,28 +10,28 @@
         padding-top: 110px
         padding-bottom: 110px
         padding-right: 56px
-        +xl
+        +xl-block
             padding-right: 70px
-        +md
+        +md-block
             display: block
             padding: 30px 70px 30px 30px
-        +sm
+        +sm-block
             padding-right: 30px
 
 .b-cases-content
     flex: none
     width: 349px
     padding-top: 10px
-    +md
+    +md-block
         width: auto
         display: flex
         margin-bottom: 30px
-    +sm
+    +sm-block
         display: block
     p
         max-width: 239px
         color: fade-out(#fff, 0.3)
-        +md
+        +md-block
             max-width: none
     &__title
         +h2
@@ -41,13 +41,13 @@
         margin-top: 66px
         font-size: 18px
         font-weight: 700
-        +md
+        +md-block
             padding-left: 60px
             padding-right: 60px
             margin-left: 60px
             margin-top: 0
             border-left: 1px solid rgba(#fff, .21)
-        +sm
+        +sm-block
             border-left: 0
             padding-left: 0
             margin-left: 0
@@ -62,9 +62,9 @@
             width: 88px
             height: 1px
             margin-bottom: 37px
-            +md
+            +md-block
                 display: none
-            +sm
+            +sm-block
                 display: block
                 position: absolute
                 bottom: 0
@@ -83,10 +83,10 @@
     border-radius: $border-radius
     border: 3px solid rgba(#fff, 0.16)
     padding: 55px 15px 31px 71px
-    +lg
+    +lg-block
         padding-top: 40px
         padding-left: 40px
-    +xs
+    +xs-block
         padding: 0
         border: 0
     &__audio
@@ -97,9 +97,9 @@
         height: 180px
         border-radius: $border-radius
         margin-right: 60px
-        +lg
+        +lg-block
             margin-right: 30px
-        +sm
+        +sm-block
             margin-bottom: 30px
     &__icon
         +play-icon
@@ -122,7 +122,7 @@
     .swiper-slide
         display: flex
         padding-right: 15px
-        +sm
+        +sm-block
             display: block
             padding-right: 0
 
@@ -135,13 +135,13 @@
         top: 0
         left: calc(100% + 60px)
         width: 40px
-        +xl
+        +xl-block
             left: calc(100% + 20px)
-        +sm
+        +sm-block
             top: 40px
             left: auto
             right: 20px
-        +xs
+        +xs-block
             top: 0
         +to(320px)
             right: 0
@@ -164,15 +164,15 @@
         white-space: nowrap
         transform: rotate(90deg)
         letter-spacing: 4px
-        +xl
+        +xl-block
             left: calc(100% + 0px)
-        +sm
+        +sm-block
             transform: none
             width: auto
             left: auto
             bottom: auto
             right: 20px
             top: 163px + 40px
-        +xs
+        +xs-block
             right: 0
             top: 163px

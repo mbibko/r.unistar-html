@@ -6,15 +6,15 @@
 .section-video-creates
     display: flex
     margin-bottom: 66px
-    +md
+    +md-block
         display: block
     &__side
         flex: none
         width: 302px
         margin-right: 118px
-        +lg
+        +lg-block
             margin-right: 60px
-        +md
+        +md-block
             width: auto
             margin-right: 0
         .title
@@ -27,23 +27,23 @@
 .player-2-wrapper-1
     &>div
         margin-bottom: 20px
-        +md
+        +md-block
             width: 70%
             margin: 0 auto 10px
-        +sm
+        +sm-block
             width: 100%
 
 .player3-wrapper
     columns: 2
-    +sm
+    +sm-block
         columns: initial
     .b-player3
         break-inside: avoid
         min-height: 100px
-        +sm
+        +sm-block
             min-height: auto
             margin-bottom: 20px
-        +xs
+        +xs-block
             min-height: 60px
             margin-bottom: 10px
 
@@ -51,36 +51,36 @@
     li
         display: flex
         margin-bottom: 8px
-        +xs
+        +xs-block
             display: block
     span
         flex: none
         width: 90px
         opacity: 0.59
-        +xs
+        +xs-block
             width: auto
 
 .section-contact
     display: flex
     .subtitle
-        +sm
+        +sm-block
             display: none
-    +md
+    +md-block
         display: block
     &__side
         flex: none
         width: 370px
-        +md
+        +md-block
             width: auto
         .title
         .subtitle
             max-width: 200px
             margin-bottom: 36px
     &__side-inner
-        +md
+        +md-block
             display: flex
             justify-content: space-between
-        +sm
+        +sm-block
             flex-direction: column
             align-items: flex-start
         &>div:nth-child(2)
@@ -88,9 +88,9 @@
     &__content
         flex: 1
         padding-top: 76px
-        +xl
+        +xl-block
             overflow: hidden
-        +md
+        +md-block
             padding-top: 20px
 
 .b-phone
@@ -103,7 +103,7 @@
     color: #000
     &:hover
         color: $link-color
-    +sm
+    +sm-block
         margin-bottom: 20px
 
 .time-work
@@ -111,11 +111,11 @@
     padding-left: 34px
     background: url(../images/clock.svg) 0 3px no-repeat
     background-size: 15px 15px
-    +sm
+    +sm-block
         margin-top: 30px
     &__item
         margin-bottom: 17px
-        +sm
+        +sm-block
             margin-right: 20px
         span
             font-weight: 700

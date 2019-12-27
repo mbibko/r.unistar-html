@@ -4,9 +4,9 @@
     overflow: hidden
     background: #28348a url(../images/calc-bg.png) left center no-repeat
     background-size: auto 101%
-    +xl
+    +xl-block
         // background-position: left center
-    +sm
+    +sm-block
         margin-bottom: 40px
         background-image: none
     label
@@ -15,10 +15,10 @@
         max-width: 1920px
         margin: 0 auto
         position: relative
-        +md
+        +md-block
             padding-left: 20px
             padding-right: 20px
-        +sm
+        +sm-block
             padding-bottom: 40px
             padding-left: 0
             padding-right: 0
@@ -29,9 +29,9 @@
         position: relative
         z-index: 1
         padding-top: 57px
-        +md
+        +md-block
             display: block
-        +sm
+        +sm-block
             padding-top: 0
     &__left
         position: relative
@@ -41,13 +41,13 @@
         width: 279px
         margin-right: 150px
         padding-bottom: 66px
-        +xl
+        +xl-block
             margin-right: 90px
-        +lg
+        +lg-block
             margin-right: 0
-        +md
+        +md-block
             width: auto
-        +sm
+        +sm-block
             margin-left: $fields_sm*-1
             margin-right: $fields_sm*-1
             margin-bottom: 30px
@@ -66,7 +66,7 @@
                 left: 0
                 top: 0
                 background-image: linear-gradient(185deg, #253786 0%, #682582 100%)
-        +xs
+        +xs-block
             padding-left: $fields_sm
             padding-right: $fields_sm
     &__left-inner
@@ -78,11 +78,11 @@
         flex: 1
         display: flex
         justify-content: space-between
-        +sm
+        +sm-block
             display: block
             padding-left: $fields_sm
             padding-right: $fields_sm
-        +xs
+        +xs-block
             padding-left: 0
             padding-right: 0
     &__title
@@ -91,7 +91,7 @@
         text-transform: uppercase
         color: #fff
         font-weight: 900
-        +sm
+        +sm-block
             font-size: 30px
             line-height: normal
     &__bottom
@@ -100,11 +100,11 @@
         font-weight: 700
         line-height: 37px
         text-transform: uppercase
-        +md
+        +md-block
             display: flex
             align-items: center
             justify-content: space-between
-        +sm
+        +sm-block
             display: block
             font-size: 16px
             line-height: normal
@@ -118,7 +118,7 @@
             font-size: 45px
             line-height: 45px
             font-weight: 800
-            +sm
+            +sm-block
                 display: inline-block
                 font-size: 22px
                 margin: 0 10px
@@ -133,9 +133,9 @@
             opacity: 0
         .button
             margin-top: 26px
-            +md
+            +md-block
                 +button-md
                 margin-top: 0
-            +sm
+            +sm-block
                 margin-top: 20px
 

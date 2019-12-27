@@ -6,7 +6,7 @@
 
 .hamburger
     display: none
-    +sm
+    +sm-block
         position: absolute
         left: 20px
         top: 49px
@@ -18,7 +18,7 @@
     z-index: 2
     background-color: #fff
     padding-bottom: 27px
-    +sm
+    +sm-block
         position: relative
     &__inner
     &__wrapper
@@ -26,17 +26,17 @@
     &__left
         flex: 1
         padding-right: 62px
-        +lg
+        +lg-block
             padding-right: 0
     &__right
         flex: 1
         margin-left: 120px
-        +lg
+        +lg-block
             max-width: 600px
             margin-left: auto
-        +md
+        +md-block
             margin-left: 50px
-        +sm
+        +sm-block
             margin-left: 0
             display: flex
             flex-direction: column
@@ -44,26 +44,26 @@
         &>div
             display: flex
             justify-content: space-between
-            +lg
+            +lg-block
                 justify-content: flex-start
             &>div:first-child
-                +lg
+                +lg-block
                     width: 50%
-                +md
+                +md-block
                     margin-right: 20px
-                +sm
+                +sm-block
                     width: auto
                     margin-right: 0
             &:nth-child(1)
                 margin-top: 20px
-                +sm
+                +sm-block
                     display: block
             &:nth-child(2)
                 display: none
-                +lg
+                +lg-block
                     display: flex
                     margin-top: 20px
-                +sm
+                +sm-block
                     display: block
     &__side
         flex: none
@@ -71,7 +71,7 @@
         border-radius: 0 0 $border-radius $border-radius
         background-color: #f6f7fa
         padding: 40px 34px 30px 27px
-        +lg
+        +lg-block
             display: none
     &__top
         display: flex
@@ -80,10 +80,10 @@
         padding-top: 23px
         align-items: flex-start
         padding-right: 50px
-        +lg
+        +lg-block
             padding-right: 0
             justify-content: flex-start
-        +sm
+        +sm-block
             flex-direction: column
             align-items: center
             margin-bottom: 0
@@ -93,7 +93,7 @@
         font-size: 18px
         font-weight: 700
         margin-bottom: 26px
-        +lg
+        +lg-block
             margin-bottom: 0
         a
             color: #000
@@ -102,13 +102,13 @@
             margin-right: 8px
     &__submit
         display: flex
-        +sm
+        +sm-block
             margin-top: 16px
 
 .work-dates
     display: flex
     align-items: center
-    +sm
+    +sm-block
         margin-bottom: 8px
     span
         color: lighten(#000, 70%)
@@ -117,7 +117,7 @@
 .b-mail
     display: flex
     align-items: center
-    +sm
+    +sm-block
         justify-content: center
     a
         text-decoration: none
@@ -133,16 +133,16 @@
     font-size: 13px
     &__inner
         justify-content: space-between
-        +lg
+        +lg-block
             justify-content: flex-start
     .swiper-slide
         width: auto
         white-space: nowrap
-        +lg
+        +lg-block
             width: calc(100% / 5)
-        +sm
+        +sm-block
             width: calc(100% / 3)
-        +xs
+        +xs-block
             width: 50%
 
 .swiper-container-free-mode>.swiper-wrapper

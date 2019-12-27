@@ -1,16 +1,16 @@
 // .form
 //   &__top
 //     margin-bottom: 38px
-//     +xs
+//     +xs-block
 //       margin-bottom: 20px
 //   &__title
 //     font-size: 17px
 //     font-weight: 500
-//     +lg
+//     +lg-block
 //       font-size: 14px
 //       line-height: 18px
 //       margin-bottom: 10px
-//     +xs
+//     +xs-block
 //       font-size: 13px
 //       line-height: 17px
 
@@ -30,7 +30,7 @@
 label, .label
   margin-bottom: 15px
   color: #fff
-  +xs
+  +xs-block
       margin-bottom: 10px
   &.required
     padding-right: 16px
@@ -68,14 +68,14 @@ label, .label
       background-image: url(../images/triangle.svg)
       background-repeat: no-repeat
       background-size: 11px 6px
-      +xs
+      +xs-block
         width: 100%
 
 .form-group
   margin-bottom: 27px
-  +lg
+  +lg-block
     // margin-bottom: 32px
-  +xs
+  +xs-block
     // margin-bottom: 26px
 
 .form-offsets
@@ -84,19 +84,19 @@ label, .label
   .form-group
     flex: none
   &_2
-    +xs
+    +xs-block
       display: block
     .form-group
       flex: none
       width: calc(50% - 20px)
-      +xs
+      +xs-block
         width: auto
   &_3
     +to(375px)
       display: block
     .form-group
       width: calc(100% / 3 - 20px)
-      +xs
+      +xs-block
         width: calc(100% / 3 - 8px)
       +to(375px)
         width: auto
@@ -116,12 +116,12 @@ label, .label
   margin-top: 58px
   &__inner
     display: flex
-    +sm
+    +sm-block
       display: block
   &__side
     flex: none
     width: 300px
-    +sm
+    +sm-block
       width: auto
       margin-bottom: 40px
   &__content
@@ -195,12 +195,12 @@ input[type="radio"]
   &__item
     display: flex
     justify-content: space-between
-    +xs
+    +xs-block
       display: block
     &>div
       flex: none
       width: calc(50% - 20px)
-      +xs
+      +xs-block
         width: auto
   &__tail
     order: -1

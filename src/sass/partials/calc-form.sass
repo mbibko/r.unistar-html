@@ -2,23 +2,23 @@
     width: 394px
     flex: none
     padding-top: 10px
-    +sm
+    +sm-block
         width: auto
     label
         text-transform: uppercase
         white-space: nowrap
         span
-            +xs
+            +xs-block
                 display: none
     .form-group
       margin-bottom: 41px
-      +lg
+      +lg-block
         margin-bottom: 32px
-      +xs
+      +xs-block
         margin-bottom: 26px
     &__content
         display: flex
-        +sm
+        +sm-block
             justify-content: center
         +to(375px)
             display: block
@@ -34,9 +34,9 @@
             &:nth-child(2)
                 width: 120px
                 margin-left: 77px
-                +lg
+                +lg-block
                     margin-left: 30px
-                +xs
+                +xs-block
                     margin-left: 10px
                 +to(375px)
                     margin-left: 0
@@ -49,13 +49,13 @@
 .b-counter-wrapper
     display: flex
     align-items: center
-    +xs
+    +xs-block
         display: block
     .b-counter
         flex: none
         width: 120px
         margin-right: 20px
-        +xs
+        +xs-block
             margin-bottom: 10px
     div:last-child
         opacity: 0.4    

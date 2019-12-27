@@ -29,11 +29,11 @@ $fields_sm: 16px
     padding-left: $fields
     padding-right: $fields
 
-    +xl()
+    +xl-block()
         padding-left: $fields_xl
         padding-right: $fields_xl
 
-    +sm()
+    +sm-block()
         padding-left: $fields_sm
         padding-right: $fields_sm
 
@@ -258,23 +258,43 @@ $fields_sm: 16px
     $val: 100% / $columns * $n
     +xs(padding-right, #{calc(#{$val} + #{$offset_xs_one_side})})
 
-=xl()
+=xl($name, $value)
+    @media screen and (max-width: $break_xl)
+        #{$name}: $value
+
+=xl-block()
     @media screen and (max-width: $break_xl)
         @content
 
-=lg()
+=lg($name, $value)
+    @media screen and (max-width: $break_lg)
+        #{$name}: $value
+
+=lg-block()
     @media screen and (max-width: $break_lg)
         @content
 
-=md()
+=md($name, $value)
+    @media screen and (max-width: $break_md)
+        #{$name}: $value
+
+=md-block()
     @media screen and (max-width: $break_md)
         @content
 
-=sm()
+=sm($name, $value)
+    @media screen and (max-width: $break_sm)
+        #{$name}: $value
+
+=sm-block()
     @media screen and (max-width: $break_sm)
         @content
 
-=xs()
+=xs($name, $value)
+    @media screen and (max-width: $break_xs)
+        #{$name}: $value
+
+=xs-block()
     @media screen and (max-width: $break_xs)
         @content
 

@@ -1,12 +1,12 @@
 .video-slider-wrapper
     position: relative
     margin-bottom: 76px
-    +md
+    +md-block
         display: flex
         flex-direction: column
         background-color: #f6f7fa
         padding-bottom: 30px
-    +sm
+    +sm-block
         margin-bottom: 40px
 
 .video-slider
@@ -16,12 +16,12 @@
     width: 603px
     border-radius: $border-radius
     overflow: hidden
-    +lg
+    +lg-block
         width: 50%
-    +md
+    +md-block
         position: static
         margin: 0 auto
-    +sm
+    +sm-block
         width: calc(100% - #{$fields_sm*2})
 
 .video-slider-content
@@ -32,11 +32,11 @@
     padding-top: 97px
     padding-bottom: 64px
     padding-right: 80px
-    +lg
+    +lg-block
         margin-left: 25%
         padding-left: 300px
         padding-right: 40px
-    +md
+    +md-block
         margin-left: 0
         padding-left: 30px
         padding-right: 30px
@@ -44,12 +44,12 @@
         padding-bottom: 20px
         order: -1
         height: auto
-    +xs
+    +xs-block
         padding-left: $fields_sm
         padding-right: $fields_sm
     &__inner
         height: 100%
-        +sm
+        +sm-block
             padding-bottom: 50px
         +only(md)
             padding-bottom: 0
@@ -109,7 +109,7 @@
             background-size: 50% 50%
             width: 104px
             height: 104px
-            +xs
+            +xs-block
                 width: 60px
                 height: 60px
         &:hover::before
