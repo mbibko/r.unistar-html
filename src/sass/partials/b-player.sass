@@ -4,9 +4,11 @@
     align-items: center
     padding-left: 31px
     background-color: #f6f7fa
+    padding-right: 20px
     +md-block
         min-height: 80px
     +xs-block
+        min-height: 72px
         padding-left: 20px
     &__icon
         +play-icon
@@ -42,10 +44,15 @@
         line-height: 20px
         +sm-block
             font-size: 16px
+        +xs-block
+            font-size: 14px
     &__subtitle
-        font-size: 13px
+        font-size: 14px
         line-height: 20px
         margin-bottom: 18px
+        +xs-block
+            margin-top: -5px
+            margin-bottom: 10px
     &__price
         font-size: 19px
         font-weight: 700
@@ -63,6 +70,9 @@
     $_: &
     display: flex
     padding-right: 30px
+    +xs-block
+        background-color: #F6F7FA
+        padding: 20px
     &__icon
         +play-icon
         margin-right: 40px

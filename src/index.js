@@ -1,3 +1,5 @@
+import {break_sm} from "./js/constants";
+
 if (NODE_ENV == 'development') {
     import('./pug/index.pug')
     import('./pug/components.pug')
@@ -14,6 +16,7 @@ import './sass/main.sass'
 // import components
 //=====================================
 // import './components/toTop'
+import './components/sliderPlyers'
 import './components/player'
 
 // import scripts
@@ -35,7 +38,7 @@ import counter from './js/b-counter.js'
 //=====================================
 import './js/svg-sprite'
 
-import { forEach } from './js/helpers'
+import {forEach, Move} from './js/helpers'
 
 // // // Import any polyfill to enable smoothscroll for JS APIs
 // import smoothscrollPolyfill from 'smoothscroll-polyfill';
@@ -68,6 +71,16 @@ if (document.querySelector('.tabs-voices__nav')) {
     new Tabby('.tabs-voices__nav');
 }
 
+(function () {
+    const wrapper = document.querySelector('.player3-wrapper');
+    if (!wrapper) return;
+    const button = wrapper.querySelector('.button-more');
+    button.addEventListener('click', () => {
+        wrapper.classList.toggle('active');
+    })
+
+})();
+
 import ActiveMenuLink from "active-menu-link";
 
 const header = document.querySelector('.header')
@@ -77,3 +90,8 @@ new ActiveMenuLink(".nav-main", {
   // scrollOffset: header.offsetHeight,
   headerHeight: header.offsetHeight
 });
+
+new Move(document.querySelector('[data-move="b-calc-bottom-get"]'), document.querySelector('[data-move="b-calc-bottom-set"]'), break_sm).init();
+new Move(document.querySelector('[data-move="b-times-get"]'), document.querySelector('[data-move="b-times-set"]'), break_sm).init();
+new Move(document.querySelector('[data-move="group-1-get"]'), document.querySelector('[data-move="group-1-set"]'), break_sm).init();
+new Move(document.querySelector('[data-move="b-cases-content__bottom-get"]'), document.querySelector('[data-move="b-cases-content__bottom-set"]'), break_sm).init();

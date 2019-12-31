@@ -17,6 +17,8 @@
             padding: 30px 70px 30px 30px
         +sm-block
             padding-right: 30px
+        +xs-block
+            padding: 30px $fields_sm 20px
 
 .b-cases-content
     flex: none
@@ -28,15 +30,27 @@
         margin-bottom: 30px
     +sm-block
         display: block
+        padding-top: 0
     p
         max-width: 239px
         color: fade-out(#fff, 0.3)
         +md-block
             max-width: none
+        +sm-block
+            padding-right: 20px
+            font-size: 12px
     &__title
         +h2
         color: inherit
         margin-bottom: 45px
+        +xs-block
+            margin-bottom: 8px
+    &__bottomTitle
+        +xs-block
+            +h4
+            margin-bottom: 10px
+            text-transform: uppercase
+            font-style: italic
     &__bottom
         margin-top: 66px
         font-size: 18px
@@ -54,6 +68,11 @@
             position: relative
             margin-bottom: 35px
             padding-bottom: 35px
+        +xs-block
+            margin-top: 20px
+            padding-right: 0
+            padding-bottom: 0
+            margin-bottom: 0
         &::before
             content: ''
             background-color: #fff
@@ -71,8 +90,14 @@
                 left: 0
                 width: 180px
                 margin-bottom: 0
-        .button
+            +xs-block
+                display: none
+        .button-submit
             margin-top: 25px
+            +xs-block
+                +button-block
+                +button-lg
+                margin-top: 0
 
 .b-cases-content2
     $_: &
@@ -87,6 +112,7 @@
         padding-top: 40px
         padding-left: 40px
     +xs-block
+        margin: 0 $fields_sm*-1
         padding: 0
         border: 0
     &__audio
@@ -101,6 +127,16 @@
             margin-right: 30px
         +sm-block
             margin-bottom: 30px
+        +xs-block
+            width: 100%
+            height: 267px
+            margin-bottom: 20px
+        img
+            border-radius: 6px
+            +xs-block
+                width: 100%
+                height: 100%
+                object-fit: cover
     &__icon
         +play-icon
         position: absolute
@@ -109,6 +145,10 @@
         transform: translate(-50%, -50%)
         #{$_}__audio:hover &
             +play-icon-hover()
+        +xs-block
+            width: 56px
+            height: 38px
+            border-radius: 13px
     &__content
         height: 100%
         display: flex
@@ -119,6 +159,8 @@
     &__subtitle
         margin-top: -3px
         margin-bottom: 28px
+        +xs-block
+            margin-bottom: 16px
     .swiper-slide
         display: flex
         padding-right: 15px
@@ -142,9 +184,10 @@
             left: auto
             right: 20px
         +xs-block
-            top: 0
-        +to(320px)
-            right: 0
+            width: 100%
+            left: 0
+            right: auto
+            top: 123px
         .swiper-button-next, .swiper-button-prev
             position: static
             margin: 0
@@ -155,6 +198,26 @@
                 background-color: #fff
         .swiper-button-prev
             margin-bottom: 27px
+        +xs-block
+            .swiper-button-next, .swiper-button-prev
+                position: absolute
+                display: none
+                width: 20px
+                height: 20px
+                margin-top: -10px
+                background-size: 6px 11px
+                background-image: url("../images/arr-right-1.svg")
+                background-color: #fff
+                box-shadow: 0 0 0 5px #fff
+                border-color: $blue-color
+                +sm-block
+                    display: block
+                &:hover
+                    background-image: url("../images/arr-right-1.svg?stroke=%23da007b")
+            .swiper-button-next
+                right: 20px
+            .swiper-button-prev
+                left: 20px
     .swiper-pagination
         position: absolute
         left: calc(100% + 50px)

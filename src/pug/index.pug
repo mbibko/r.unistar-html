@@ -8,7 +8,7 @@ block content
   div(id=navItems[1].replace(' ', '-'))
     .container
       h2.title Школа рекламы
-      .subtitle Учение - свет!
+      .subtitle.hideme Учение - свет!
 
       - var tabs = ["Ролик в рекламном блоке", "Читалка в новостях", "Читалка в рекламном блоке", "Размещение в соло-спотах", "Партнёрство информационных или игровых рубрик"]
 
@@ -23,26 +23,26 @@ block content
         .tabs-side__contents
           #tab-0.tabs-side__content
             .tabs-side__content-inner
-              h4 Партнёрство информационных или игровых рубрик
+              h3 Партнёрство информационных или игровых рубрик
               p Размещение аудиороликов и упоминаний партнера в информационных (новости, погода) или игровых рубриках (часто с розыгрышем подарков от партнера).
               .tabs-player
                 +player({title: 'Примеры партнерства игровой рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
                 +player({title: 'Примеры партнерства информационной рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
           #tab-1.tabs-side__content
             .tabs-side__content-inner
-              h4 Читалка в новостях
+              h3 Читалка в новостях
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nostrum vel dolorem temporibus quas, in totam quis. Necessitatibus repudiandae ex laboriosam inventore illum placeat quidem vero facere explicabo commodi. Est.
           #tab-2.tabs-side__content
             .tabs-side__content-inner
-              h4 Читалка в рекламном блоке
+              h3 Читалка в рекламном блоке
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, libero. Hic excepturi fuga ut, est quae, saepe tempore nulla aliquam doloremque tempora eligendi distinctio explicabo, quo esse debitis numquam pariatur.
           #tab-3.tabs-side__content
             .tabs-side__content-inner
-              h4 Размещение в соло-спотах
+              h3 Размещение в соло-спотах
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione consectetur quam odit reiciendis, cum eum debitis voluptatum iusto, voluptate quibusdam, repudiandae asperiores. Hic architecto, ab blanditiis magni exercitationem numquam inventore.
           #tab-4.tabs-side__content
             .tabs-side__content-inner
-              h4 Партнёрство информационных или игровых рубрик
+              h3 Партнёрство информационных или игровых рубрик
               p Размещение аудиороликов и упоминаний партнера в информационных (новости, погода) или игровых рубриках (часто с розыгрышем подарков от партнера).
               .tabs-player
                 +player({title: 'Примеры партнерства игровой рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
@@ -86,10 +86,7 @@ block content
           h2.title Создание роликов
           .subtitle В зависимости от сложности исполнения и количества голосов ролики делятся на три вида:
 
-          .player-2-wrapper-1
-            +player2({title: "Информационные", subtitle: "Один диктор", price: "2 977", url: 'player.mp3', playlist: 'create-clip'})
-            +player2({title: "Информационные", subtitle: "Один диктор", price: "2 977", url: 'player.mp3', playlist: 'create-clip'})
-            +player2({title: "Информационные", subtitle: "Один диктор", price: "2 977", url: 'player.mp3', playlist: 'create-clip'})
+          include ../components/sliderPlyers/sliderPlayers
 
         .section-video-creates__content
 
@@ -107,6 +104,7 @@ block content
                 .player3-wrapper
                   each item, value in ["Молодой, бодрый голос", "Универсальный, рекламный голос", "Универсальный, взрослый голос", "Глубокий, бархатный голос", "Глубокий, бархатный голос", "Уверенный, рекламный голос", "Универсальный, молодой голос", "Уверенный, рекламный голос", "Уверенный голос с хрипотцой"]
                     +player3({title: item, subtitle: "Голос "+value, url: 'player.mp3', playlist: 'man-voice'})
+                  .button-more.button.button-block.button-blue.button-md Показать еще
               #tab2-1.tabs-voices__content
                 p женские голоса
 

@@ -6,22 +6,30 @@
           h1.b-calc__title
             | Реклама на радио 
             span.text-red UNISTAR
-          .b-calc__bottom
-            .text
-              | Вас услышат
-              |
-              span.nums.hover-tolltip(data-title="Охват по РБ, 3 квартал 2019 г., АМГ Консалт/ГЕВС МЕДИА") 422,4
-              |
-              | тысячи человек в&nbsp;неделю!
-            .button.button-red скачать презентацию
+          div(data-move="b-calc-bottom-get")
+            .b-calc__bottom
+              .text
+                | Вас услышат
+                |
+                span.show-me
+                  .nums.hover-tolltip(data-title="Охват по РБ, 3 квартал 2019 г., АМГ Консалт/ГЕВС МЕДИА") 3 934 545
+                  span человек
+                span.hide-me
+                  .nums.hover-tolltip(data-title="Охват по РБ, 3 квартал 2019 г., АМГ Консалт/ГЕВС МЕДИА") 422,4
+                  span тысячи человек в&nbsp;неделю!
+              .button.button-red скачать презентацию
       .b-calc__content
           include ./calc-form
           .calc-form-order
             .calc-form-order__discount -15%
-            .calc-form-order__oldprice
-              span 2 977 BYN
-            .calc-form-order__newprice
-              | 2 739
-              span BYN
-            .button.button-blue отправить заявку
-            .button.button-gray сохранить расчёт
+            .calc-form-order__price
+              .calc-form-order__oldprice
+                span 2 977 BYN
+              .calc-form-order__newprice
+                | 2 739
+                span BYN
+            .calc-form-order__submits
+              .button.button-submit отправить заявку
+              .button.button-gray
+                span сохранить расчёт
+      div(data-move="b-calc-bottom-set")

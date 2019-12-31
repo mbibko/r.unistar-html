@@ -1,38 +1,51 @@
 import { Swiper, Navigation, Pagination, EffectFade } from 'swiper/dist/js/swiper.esm.js'
+import {break_xs} from "./constants";
 
 Swiper.use([Navigation, Pagination, EffectFade]);
 
-new Swiper('.b-cases-slider__inner', {
-    speed: 1000,
-    loop: true,
-    shortSwipes: false,
-    preventInteractionOnTransition: true,
-    slidesPerGroup: 1,
+(function () {
+    const sliderWrapperEl = document.querySelector('.b-cases-slider');
+    if(!sliderWrapperEl) return;
+    const sliderEl = sliderWrapperEl.querySelector('.b-cases-slider__inner');
+    new Swiper(sliderEl, {
+        speed: 1000,
+        loop: true,
+        shortSwipes: false,
+        preventInteractionOnTransition: true,
+        slidesPerGroup: 1,
 
-    // effect: 'fade',
-    // autoHeight: true,
+        fadeEffect: {
+          crossFade: true
+        },
 
-    fadeEffect: {
-      crossFade: true
-    },
+        pagination: {
+            el: '.b-cases-slider .swiper-pagination',
+            type: 'fraction',
+        },
 
-    pagination: {
-        el: '.b-cases-slider .swiper-pagination',
-        type: 'fraction',
-    },
+        navigation: {
+          nextEl: sliderWrapperEl.querySelector('.swiper-button-next'),
+          prevEl: sliderWrapperEl.querySelector('.swiper-button-next'),
+        },
 
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+        breakpoints: {
+            [break_xs]: {
+                slidesPerView: 1.1,
+                spaceBetween: 6,
+                centeredSlides: true,
+                loop: true,
+                autoHeight: true,
+                pagination: false
+            },
+        },
 
-    on: {
-      slideChange: function () {
-        const toggled = this.$el[0].querySelector('.b-toggle.is-active') 
-        if (!toggled) return;
-        toggled.classList.remove('is-active')
-      },
-    },
-  }
-)
-
+        on: {
+          slideChange: function () {
+            const toggled = this.$el[0].querySelector('.b-toggle.is-active')
+            if (!toggled) return;
+            toggled.classList.remove('is-active')
+          },
+        },
+      }
+    );
+})();

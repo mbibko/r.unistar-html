@@ -4,10 +4,8 @@
     overflow: hidden
     background: #28348a url(../images/calc-bg.png) left center no-repeat
     background-size: auto 101%
-    +xl-block
-        // background-position: left center
     +sm-block
-        margin-bottom: 40px
+        margin-bottom: 30px
         background-image: none
     label
         color: inherit
@@ -19,7 +17,7 @@
             padding-left: 20px
             padding-right: 20px
         +sm-block
-            padding-bottom: 40px
+            padding-bottom: 26px
             padding-left: 0
             padding-right: 0
         +to(440px)
@@ -48,24 +46,8 @@
         +md-block
             width: auto
         +sm-block
-            margin-left: $fields_sm*-1
-            margin-right: $fields_sm*-1
-            margin-bottom: 30px
-            padding-top: 30px
-            padding-bottom: 40px
-            padding-left: $fields_sm * 2
-            padding-right: $fields_sm * 2
-            background: url(../images/calc-bg.jpg) 0 0 no-repeat
-            background-size: cover
-            &::before
-                content: ''
-                opacity: 0.6
-                position: absolute
-                width: 100%
-                height: 100%
-                left: 0
-                top: 0
-                background-image: linear-gradient(185deg, #253786 0%, #682582 100%)
+            margin: 0 ($fields_sm*-1) 0
+            padding: 26px ($fields_sm*2) 0
         +xs-block
             padding-left: $fields_sm
             padding-right: $fields_sm
@@ -92,8 +74,12 @@
         color: #fff
         font-weight: 900
         +sm-block
-            font-size: 30px
-            line-height: normal
+            font-size: 28px
+            line-height: 24px
+            font-weight: 700
+            margin-bottom: 7px
+            .text-red
+                color: inherit
     &__bottom
         margin-top: auto
         font-size: 26px
@@ -105,13 +91,27 @@
             align-items: center
             justify-content: space-between
         +sm-block
-            display: block
+            text-transform: none
+            flex-direction: column
+            justify-content: center
             font-size: 16px
+            font-weight: 600
             line-height: normal
+        .hide-me
+            +sm-block
+                display: none
+        .show-me
+            display: none
+            +sm-block
+                display: flex
+                align-items: center
         .text
             display: flex
             flex-direction: column
             align-items: flex-start
+            +sm-block
+                flex-direction: row
+                align-items: center
         .nums
             display: block
             color: $red-color
@@ -120,8 +120,9 @@
             font-weight: 800
             +sm-block
                 display: inline-block
-                font-size: 22px
+                font-size: inherit
                 margin: 0 10px
+                font-weight: 600
                 line-height: normal
             &:hover + .text-hover
                 opacity: 1
@@ -134,8 +135,10 @@
         .button
             margin-top: 26px
             +md-block
-                +button-md
+                //+button-md
                 margin-top: 0
             +sm-block
-                margin-top: 20px
+                margin-top: 11px
+            +xs-block
+                +button-block
 

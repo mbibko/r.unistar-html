@@ -1,6 +1,7 @@
 .video-slider-wrapper
     position: relative
     margin-bottom: 76px
+    overflow: hidden
     +md-block
         display: flex
         flex-direction: column
@@ -112,5 +113,7 @@
             +xs-block
                 width: 60px
                 height: 60px
+                background-size: 50% 50%
+
         &:hover::before
             +play-icon-hover($theme: 'red')
