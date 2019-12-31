@@ -2,7 +2,7 @@
     background-color: #28348a
     color: #fff
     margin-bottom: 98px
-    +sm
+    +sm-block
         margin-bottom: 40px
     &__inner
         display: flex
@@ -10,50 +10,69 @@
         padding-top: 110px
         padding-bottom: 110px
         padding-right: 56px
-        +xl
+        +xl-block
             padding-right: 70px
-        +md
+        +md-block
             display: block
             padding: 30px 70px 30px 30px
-        +sm
+        +sm-block
             padding-right: 30px
+        +xs-block
+            padding: 30px $fields_sm 20px
 
 .b-cases-content
     flex: none
     width: 349px
     padding-top: 10px
-    +md
+    +md-block
         width: auto
         display: flex
         margin-bottom: 30px
-    +sm
+    +sm-block
         display: block
+        padding-top: 0
     p
         max-width: 239px
         color: fade-out(#fff, 0.3)
-        +md
+        +md-block
             max-width: none
+        +sm-block
+            padding-right: 20px
+            font-size: 12px
     &__title
         +h2
         color: inherit
         margin-bottom: 45px
+        +xs-block
+            margin-bottom: 8px
+    &__bottomTitle
+        +xs-block
+            +h4
+            margin-bottom: 10px
+            text-transform: uppercase
+            font-style: italic
     &__bottom
         margin-top: 66px
         font-size: 18px
         font-weight: 700
-        +md
+        +md-block
             padding-left: 60px
             padding-right: 60px
             margin-left: 60px
             margin-top: 0
             border-left: 1px solid rgba(#fff, .21)
-        +sm
+        +sm-block
             border-left: 0
             padding-left: 0
             margin-left: 0
             position: relative
             margin-bottom: 35px
             padding-bottom: 35px
+        +xs-block
+            margin-top: 20px
+            padding-right: 0
+            padding-bottom: 0
+            margin-bottom: 0
         &::before
             content: ''
             background-color: #fff
@@ -62,17 +81,23 @@
             width: 88px
             height: 1px
             margin-bottom: 37px
-            +md
+            +md-block
                 display: none
-            +sm
+            +sm-block
                 display: block
                 position: absolute
                 bottom: 0
                 left: 0
                 width: 180px
                 margin-bottom: 0
-        .button
+            +xs-block
+                display: none
+        .button-submit
             margin-top: 25px
+            +xs-block
+                +button-block
+                +button-lg
+                margin-top: 0
 
 .b-cases-content2
     $_: &
@@ -83,10 +108,11 @@
     border-radius: $border-radius
     border: 3px solid rgba(#fff, 0.16)
     padding: 55px 15px 31px 71px
-    +lg
+    +lg-block
         padding-top: 40px
         padding-left: 40px
-    +xs
+    +xs-block
+        margin: 0 $fields_sm*-1
         padding: 0
         border: 0
     &__audio
@@ -97,10 +123,20 @@
         height: 180px
         border-radius: $border-radius
         margin-right: 60px
-        +lg
+        +lg-block
             margin-right: 30px
-        +sm
+        +sm-block
             margin-bottom: 30px
+        +xs-block
+            width: 100%
+            height: 267px
+            margin-bottom: 20px
+        img
+            border-radius: 6px
+            +xs-block
+                width: 100%
+                height: 100%
+                object-fit: cover
     &__icon
         +play-icon
         position: absolute
@@ -109,6 +145,10 @@
         transform: translate(-50%, -50%)
         #{$_}__audio:hover &
             +play-icon-hover()
+        +xs-block
+            width: 56px
+            height: 38px
+            border-radius: 13px
     &__content
         height: 100%
         display: flex
@@ -119,10 +159,12 @@
     &__subtitle
         margin-top: -3px
         margin-bottom: 28px
+        +xs-block
+            margin-bottom: 16px
     .swiper-slide
         display: flex
         padding-right: 15px
-        +sm
+        +sm-block
             display: block
             padding-right: 0
 
@@ -135,16 +177,17 @@
         top: 0
         left: calc(100% + 60px)
         width: 40px
-        +xl
+        +xl-block
             left: calc(100% + 20px)
-        +sm
+        +sm-block
             top: 40px
             left: auto
             right: 20px
-        +xs
-            top: 0
-        +to(320px)
-            right: 0
+        +xs-block
+            width: 100%
+            left: 0
+            right: auto
+            top: 123px
         .swiper-button-next, .swiper-button-prev
             position: static
             margin: 0
@@ -155,6 +198,26 @@
                 background-color: #fff
         .swiper-button-prev
             margin-bottom: 27px
+        +xs-block
+            .swiper-button-next, .swiper-button-prev
+                position: absolute
+                display: none
+                width: 20px
+                height: 20px
+                margin-top: -10px
+                background-size: 6px 11px
+                background-image: url("../images/arr-right-1.svg")
+                background-color: #fff
+                box-shadow: 0 0 0 5px #fff
+                border-color: $blue-color
+                +sm-block
+                    display: block
+                &:hover
+                    background-image: url("../images/arr-right-1.svg?stroke=%23da007b")
+            .swiper-button-next
+                right: 20px
+            .swiper-button-prev
+                left: 20px
     .swiper-pagination
         position: absolute
         left: calc(100% + 50px)
@@ -164,15 +227,15 @@
         white-space: nowrap
         transform: rotate(90deg)
         letter-spacing: 4px
-        +xl
+        +xl-block
             left: calc(100% + 0px)
-        +sm
+        +sm-block
             transform: none
             width: auto
             left: auto
             bottom: auto
             right: 20px
             top: 163px + 40px
-        +xs
+        +xs-block
             right: 0
             top: 163px

@@ -92,6 +92,7 @@ let config = {
       },
       {
         test: /\.m?js$/,
+        include: path.resolve(__dirname, 'src'),
         use: {
             loader: 'babel-loader',
             options: {
@@ -203,7 +204,7 @@ let config = {
 
 module.exports = (env, argv) => {
   if(NODE_ENV == 'production') {
-    config.plugins.push(new CleanWebpackPlugin())
+    // config.plugins.push(new CleanWebpackPlugin())
     // config.plugins.push(new CssoWebpackPlugin())
   }
   return config;

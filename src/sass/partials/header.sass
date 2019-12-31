@@ -3,14 +3,9 @@
     svg
         width: 164px
         height: 70px
-
-.hamburger
-    display: none
-    +sm
-        position: absolute
-        left: 20px
-        top: 49px
-        display: block
+        +sm-block
+            width: 105px
+            height: 50px
 
 .header
     position: sticky
@@ -18,52 +13,48 @@
     z-index: 2
     background-color: #fff
     padding-bottom: 27px
-    +sm
-        position: relative
-    &__inner
+    +sm-block
+        padding-bottom: 0
     &__wrapper
         display: flex
     &__left
         flex: 1
         padding-right: 62px
-        +lg
+        +lg-block
             padding-right: 0
     &__right
         flex: 1
         margin-left: 120px
-        +lg
+        +lg-block
             max-width: 600px
             margin-left: auto
-        +md
+        +md-block
             margin-left: 50px
-        +sm
-            margin-left: 0
-            display: flex
-            flex-direction: column
-            align-items: center
+        +sm-block
+            display: none
         &>div
             display: flex
             justify-content: space-between
-            +lg
+            +lg-block
                 justify-content: flex-start
             &>div:first-child
-                +lg
+                +lg-block
                     width: 50%
-                +md
+                +md-block
                     margin-right: 20px
-                +sm
+                +sm-block
                     width: auto
                     margin-right: 0
             &:nth-child(1)
                 margin-top: 20px
-                +sm
+                +sm-block
                     display: block
             &:nth-child(2)
                 display: none
-                +lg
+                +lg-block
                     display: flex
                     margin-top: 20px
-                +sm
+                +sm-block
                     display: block
     &__side
         flex: none
@@ -71,7 +62,7 @@
         border-radius: 0 0 $border-radius $border-radius
         background-color: #f6f7fa
         padding: 40px 34px 30px 27px
-        +lg
+        +lg-block
             display: none
     &__top
         display: flex
@@ -80,20 +71,31 @@
         padding-top: 23px
         align-items: flex-start
         padding-right: 50px
-        +lg
+        +lg-block
             padding-right: 0
             justify-content: flex-start
-        +sm
-            flex-direction: column
+        +sm-block
+            justify-content: space-between
             align-items: center
+            height: 63px
             margin-bottom: 0
+            padding-top: 0
+    &__mobileMenuLink
+        display: none
+        +sm-block
+            display: block
+            border-radius: 50%
+            background-color: #F6F7FA
+            width: 40px
+            height: 40px
+            padding-top: 11px
     &__phone
         display: flex
         align-items: center
         font-size: 18px
         font-weight: 700
         margin-bottom: 26px
-        +lg
+        +lg-block
             margin-bottom: 0
         a
             color: #000
@@ -102,13 +104,13 @@
             margin-right: 8px
     &__submit
         display: flex
-        +sm
+        +sm-block
             margin-top: 16px
 
 .work-dates
     display: flex
     align-items: center
-    +sm
+    +sm-block
         margin-bottom: 8px
     span
         color: lighten(#000, 70%)
@@ -117,7 +119,7 @@
 .b-mail
     display: flex
     align-items: center
-    +sm
+    +sm-block
         justify-content: center
     a
         text-decoration: none
@@ -131,18 +133,20 @@
     margin-bottom: 26px
     color: lighten(#000, 70%)
     font-size: 13px
+    +sm-block
+        display: none
     &__inner
         justify-content: space-between
-        +lg
+        +lg-block
             justify-content: flex-start
     .swiper-slide
         width: auto
         white-space: nowrap
-        +lg
+        +lg-block
             width: calc(100% / 5)
-        +sm
+        +sm-block
             width: calc(100% / 3)
-        +xs
+        +xs-block
             width: 50%
 
 .swiper-container-free-mode>.swiper-wrapper

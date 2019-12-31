@@ -4,21 +4,23 @@
     align-items: center
     padding-left: 31px
     background-color: #f6f7fa
-    +md
+    padding-right: 20px
+    +md-block
         min-height: 80px
-    +xs
+    +xs-block
+        min-height: 72px
         padding-left: 20px
     &__icon
         +play-icon
         margin-right: 27px
-        +xs
+        +xs-block
             margin-right: 20px
     &__title
         font-size: 18px
         font-weight: 700
         line-height: 20px
         padding-right: 30px
-        +xs
+        +xs-block
             padding-right: 0
             font-size: 1rem
             line-height: normal
@@ -27,12 +29,12 @@
     display: flex
     padding: 27px 30px 32px
     background-color: $gray-light-color
-    +sm
+    +sm-block
         padding: 20px
     &__icon
         +play-icon
         margin-right: 29px
-        +sm
+        +sm-block
             margin-right: 20px
     &__content
 
@@ -40,12 +42,17 @@
         font-size: 18px
         font-weight: 700
         line-height: 20px
-        +sm
+        +sm-block
             font-size: 16px
+        +xs-block
+            font-size: 14px
     &__subtitle
-        font-size: 13px
+        font-size: 14px
         line-height: 20px
         margin-bottom: 18px
+        +xs-block
+            margin-top: -5px
+            margin-bottom: 10px
     &__price
         font-size: 19px
         font-weight: 700
@@ -63,12 +70,15 @@
     $_: &
     display: flex
     padding-right: 30px
+    +xs-block
+        background-color: #F6F7FA
+        padding: 20px
     &__icon
         +play-icon
         margin-right: 40px
-        +md
+        +md-block
             margin-right: 30px
-        +sm
+        +sm-block
             margin-right: 20px
     &__content
 
@@ -76,7 +86,7 @@
         font-size: 18px
         font-weight: 700
         line-height: 20px
-        +sm
+        +sm-block
             font-size: 14px
             font-weight: 600
     &__subtitle
@@ -84,5 +94,5 @@
         font-weight: 400
         line-height: 20px
         color: #999
-        +sm
+        +sm-block
             font-size: 12px

@@ -117,15 +117,48 @@ export function scrollToTop(scrollDuration) {
   },15);
 }
 
-export function move(moreContainer, lessContainer, size) {
-  if(window.innerWidth < size) {
-    if (!moreContainer.children[0]) return;
-    lessContainer.appendChild(moreContainer.children[0])
-  } else {
-    if (!lessContainer.children[0]) return;
-    moreContainer.appendChild(lessContainer.children[0])
+export class Move {
+  constructor(moreContainer, lessContainer, size, watch = true) {
+
+    this.moreContainer = moreContainer;
+    this.lessContainer = lessContainer;
+    this.size = size;
+    this.watch = watch;
   }
-  
+
+  init() {
+    this.move();
+    this.actions()
+  }
+
+  move() {
+    const self = this;
+    if (!this.moreContainer) return;
+    if (!this.lessContainer) return;
+
+    if(window.innerWidth < this.size) {
+      if (!this.moreContainer.children[0]) return;
+      let count = this.moreContainer.children.length;
+      for (let i = 0; i < count; i++) {
+        this.lessContainer.appendChild(self.moreContainer.children[0])
+      }
+    } else {
+      const self = this;
+      if (!this.lessContainer.children[0]) return;
+      let count = this.lessContainer.children.length;
+      for (let i = 0; i < count; i++) {
+        this.moreContainer.appendChild(self.lessContainer.children[0])
+      }
+    }
+  }
+
+  actions() {
+    const self = this;
+    if (!this.watch) return;
+    window.addEventListener('resize', () => {
+      self.move()
+    })
+  }
 }
 
 export function moveTingleClose(modal) {
