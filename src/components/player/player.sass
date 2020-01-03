@@ -10,7 +10,9 @@
   background-color: $blue-color
   color: #fff
   transition: .4s
+  visibility: hidden
   .player-open &
+    visibility: visible
     transform: translate(0, 0)
   &__inner
     flex: 1
@@ -54,6 +56,9 @@
     border: 2px solid #fff
     +md-block
       margin: 0 auto
+    +sm-block
+      width: 42px
+      height: 42px
     &:hover
       +play-icon-hover($theme: 'player')
   &__time

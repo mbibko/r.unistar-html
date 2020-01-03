@@ -18,6 +18,7 @@ import './sass/main.sass'
 // import './components/toTop'
 import './components/sliderPlyers'
 import './components/persons'
+import './components/popup-mobile'
 import './components/player'
 
 // import scripts
@@ -30,7 +31,7 @@ import './js/slider-cases.js'
 import './js/slider-channels.js'
 import './js/b-toggle.js'
 import './js/modals.js'
-import './js/popup-mobile.js'
+import './components/popup-mobile/popup-mobile.js'
 import './js/calc-form.js'
 
 import counter from './js/b-counter.js'

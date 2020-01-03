@@ -3,7 +3,8 @@
 @import utilities/mixins
 
 .sliderPlayers
-    margin: 0 $fields_sm*-1
+    +sm-block
+        margin: 0 $fields_sm*-1
     .swiper-wrapper
         +from($break_md_up)
             display: block

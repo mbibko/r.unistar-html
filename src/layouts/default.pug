@@ -24,13 +24,7 @@ html(lang=ru)
 
     block content
 
-    .overlay(data-dismiss="popup")
-    .popup-mobile
-        .popup-mobile__close(data-dismiss="popup")
-        .popup-mobile__inner
-            nav.nav-mobile
-              each item in navItems
-                a(href="#"+item.replace(' ', '-'))= item
+    include ../components/popup-mobile/popup-mobile
 
 
     include ./../components/player/player
