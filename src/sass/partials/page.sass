@@ -92,6 +92,8 @@
             align-items: flex-start
         &>div:nth-child(2)
             order: +1
+            +sm-block
+                order: inherit
     &__content
         flex: 1
         padding-top: 76px
@@ -99,6 +101,13 @@
             overflow: hidden
         +md-block
             padding-top: 20px
+        +sm-block
+            padding-top: 40px
+            overflow: initial
+    .button-submit
+        +sm-block
+            +button-block
+            +button-lg
 
 .b-phone
     display: block

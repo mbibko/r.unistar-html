@@ -1,4 +1,4 @@
-import {break_sm} from "./js/constants";
+import {break_sm, break_xs} from "./js/constants";
 
 if (NODE_ENV == 'development') {
     import('./pug/index.pug')
@@ -17,6 +17,7 @@ import './sass/main.sass'
 //=====================================
 // import './components/toTop'
 import './components/sliderPlyers'
+import './components/persons'
 import './components/player'
 
 // import scripts
@@ -94,4 +95,4 @@ new ActiveMenuLink(".nav-main", {
 new Move(document.querySelector('[data-move="b-calc-bottom-get"]'), document.querySelector('[data-move="b-calc-bottom-set"]'), break_sm).init();
 new Move(document.querySelector('[data-move="b-times-get"]'), document.querySelector('[data-move="b-times-set"]'), break_sm).init();
 new Move(document.querySelector('[data-move="group-1-get"]'), document.querySelector('[data-move="group-1-set"]'), break_sm).init();
-new Move(document.querySelector('[data-move="b-cases-content__bottom-get"]'), document.querySelector('[data-move="b-cases-content__bottom-set"]'), break_sm).init();
+new Move(document.querySelector('[data-move="b-cases-content__bottom-get"]'), document.querySelector('[data-move="b-cases-content__bottom-set"]'), break_xs).init();

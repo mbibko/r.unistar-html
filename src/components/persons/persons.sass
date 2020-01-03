@@ -1,14 +1,15 @@
+@import utilities/smart-grid
+@import utilities/variables
+@import utilities/mixins
+
 .persons
-    display: flex
-    flex-wrap: wrap
     margin-left: -20px
     margin-right: -60px
     +xl-block
         margin: 0 -20px
-    +xs-block
-        margin: 0 -10px
-    +to(400px)
-        margin: 0
+    +sm-block
+        margin: 0 $fields_sm*-1
+        display: block
     &__item
         flex: none
         width: calc(100% / 4)
@@ -17,13 +18,13 @@
         +lg-block
             width: calc(100% / 3)
         +sm-block
-            width: 50%
-            margin-bottom: 30px
-        +xs-block
-            padding: 0 10px
-        +to(400px)
-            width: 100%
+            width: auto
+            margin-bottom: 0
             padding: 0
+    .swiper-wrapper
+        +from($break_sm_up)
+            flex-wrap: wrap
+    +slider-navigation-sm($top: 80px)
 .person
     display: flex
     flex-direction: column
@@ -33,6 +34,8 @@
         overflow: hidden
         margin-bottom: 43px
         border-radius: $border-radius
+        +sm-block
+            margin-bottom: 16px
         img
             width: 100%
             height: 100%
@@ -43,17 +46,21 @@
         line-height: 20px
         color: #000
         margin-bottom: 20px
+        +sm-block
+            margin-bottom: 10px
     &__phones
         margin-top: auto
     &__phone
         display: block
-        background: url(../images/phone.svg?stroke=%23a1a1a2) 0 center no-repeat
+        background: url(../../images/phone.svg?stroke=%23a1a1a2) 0 center no-repeat
         padding-left: 29px
         background-size: 16px 15px
         &:first-child
             margin-top: 23px
+            +sm-block
+                margin-top: 10px
     &__mail
         padding-left: 29px
-        background: url(../images/papers.svg?stroke=%23a1a1a2) 0 center no-repeat
+        background: url(../../images/papers.svg?stroke=%23a1a1a2) 0 center no-repeat
         background-size: 16px 15px
         text-decoration: none

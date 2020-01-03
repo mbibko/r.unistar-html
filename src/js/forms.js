@@ -1,13 +1,16 @@
 import CustomSelect from './customSelect';
 import phoneMask from './phone-mask.js'
 import validate from './validate.js'
-import { forEach, onlyNumber, maxValue } from './helpers.js'
+import {forEach, onlyNumber, maxValue, mobileDevice} from './helpers.js'
 
 validate('.contact-form')
 
 onlyNumber(document.querySelectorAll('[data-field="number"]'))
 maxValue(document.querySelectorAll('input[type="number"]'))
-CustomSelect(document.querySelectorAll('.select'))
+
+if (!mobileDevice()) {
+  CustomSelect(document.querySelectorAll('.select'))
+}
 
 forEach(document.querySelectorAll('[data-field="phone"]'), el => {
   phoneMask(el)

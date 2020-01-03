@@ -127,25 +127,14 @@ block content
             div
               .subtitle Наши менеджеры, решающие любые задачи.
               a.b-phone(href="tel:+375172095383") +375 17 209-53-83
-            div
-              .time-work
-                .time-work__item
-                  | Понедльник-четверг
-                  span С 10:00 до 18:00
-                .time-work__item
-                  | Пятница
-                  span С 10:00 до 17:00
-            .button.button-red ЗАКАЗАТЬ ЗВОНОК
+            .time-work
+              .time-work__item
+                | Понедльник-четверг
+                span С 10:00 до 18:00
+              .time-work__item
+                | Пятница
+                span С 10:00 до 17:00
+            .button.button-submit.button-red ЗАКАЗАТЬ ЗВОНОК
 
         .section-contact__content
-          .persons
-            each item, value in ["Алеся Тябус", "Даша Иванникова", "Наташа Плескач", "Оксана Душевская", "Оля Гуйвик", "Саша Плешань", "Саша Фёдоров", "Шик Вика"]
-              .persons__item.person
-                .person__img
-                  img(src=`../images/persons/${value+1}.jpg`)
-                .person__title= item
-                | Должность работника
-                .person__phones
-                  a.person__phone(href="tel:+375299000000") +375 (29) 900-00-00
-                  a.person__phone(href="tel:+375299990000") +375 (29) 999-00-00
-                a.person__mail(href="mailto:vladimir2019@unistar.by") vladimir2019@unistar.by
+          include ../components/persons/persons

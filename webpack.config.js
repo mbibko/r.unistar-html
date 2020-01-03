@@ -9,7 +9,6 @@ const HtmlReplaceWebpackPlugin = require("html-replace-webpack-plugin");
 const HtmlBeautifyPlugin = require('html-beautify-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV || "development";
-const isDevServer = process.argv[1].indexOf('webpack-dev-server') !== -1;
 
 let config = {
   entry: "./src/index.js",
@@ -135,17 +134,29 @@ let config = {
           {
             loader: MiniCssExtractPlugin.loader,
             options: {
-              hmr: NODE_ENV == 'development',
-              reloadAll: true,
+              hmr: NODE_ENV === 'development',
+              reloadAll: true
             },
           },
-          // "style-loader",
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          "postcss-loader", 
+          {
+            loader: 'css-loader',
+            options: {
+              importLoaders: 1,
+              sourceMap: true
+            }
+          },
+          {
+            loader: "postcss-loader",
+            options: {
+              sourceMap: true
+            }
+          },
           {
             loader: "sass-loader",
             options: {
+              sourceMap: true,
               sassOptions: {
+                indentedSyntax: true,
                 includePaths: ["src/components", "src/sass"]
               }
             }
@@ -159,7 +170,7 @@ let config = {
             loader: "url-loader",
             options: {
               fallback: 'file-loader',
-              limit: 8192,
+              limit: 3192,
               context: "src",
               outputPath: (url) => {
                 if (/components/.test(url)) {

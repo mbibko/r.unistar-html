@@ -1,7 +1,7 @@
 import {break_sm} from "../../js/constants";
 import {Swiper} from "swiper/dist/js/swiper.esm";
 
-if (window.innerWidth <= 767) {
+if (window.innerWidth <= break_sm) {
     setTimeout(function () {
         const sliderEl = document.querySelector('.sliderPlayers');
         new Swiper(sliderEl, {

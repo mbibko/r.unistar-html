@@ -34,8 +34,8 @@ Swiper.use([Navigation, Pagination, EffectFade]);
                 spaceBetween: 6,
                 centeredSlides: true,
                 loop: true,
-                autoHeight: true,
-                pagination: false
+                pagination: false,
+                shortSwipes: true
             },
         },
 
