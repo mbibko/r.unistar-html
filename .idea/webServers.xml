@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="WebServers">
+    <option name="servers">
+      <webServer id="385c2ecb-0a62-481d-a482-4f6bc7851bc4" name="html.xx28.ru" url="http://188.225.80.86">
+        <fileTransfer host="188.225.80.86" port="21" rootFolder="/www/html.xx28.ru/unistar-reklama">
+          <advancedOptions>
+            <advancedOptions dataProtectionLevel="Private" passiveMode="true" shareSSLContext="true" />
+          </advancedOptions>
+          <option name="port" value="21" />
+        </fileTransfer>
+      </webServer>
+    </option>
+  </component>
+</project>
