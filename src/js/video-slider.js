@@ -1,4 +1,5 @@
 import {Swiper, Navigation, Pagination, EffectFade, Thumbs} from 'swiper/dist/js/swiper.esm.js'
+import {forEach} from "./helpers";
 
 Swiper.use([Navigation, Pagination, EffectFade, Thumbs]);
 
@@ -14,14 +15,7 @@ Swiper.use([Navigation, Pagination, EffectFade, Thumbs]);
             watchSlidesProgress: true,
             on: {
                 slideChange: function () {
-                    const videoWrapper = this.slides[this.previousIndex].querySelector('.b-video');
-                    if (!videoWrapper) return;
-                    const video = videoWrapper.querySelector('.b-video__video');
-                    let href = video.getAttribute("src");
-                    if (!href) return;
-                    videoWrapper.classList.remove('is-playing');
-                    href = href.replace('?autoplay=1', '');
-                    video.setAttribute("src", href);
+                    document.dispatchEvent(new CustomEvent('stopVideo'));
                 },
             },
         }

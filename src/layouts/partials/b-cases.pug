@@ -15,11 +15,11 @@
             each item, value in ["1", "2", "3"]
               .swiper-slide
                 if value === 0
-                  a.b-cases-content2__audio(href="https://www.youtube.com/embed/If2HNblI-gA" data-modal="video")
+                  .b-cases-content2__media(id="If2HNblI-gA" data-modal="video")
                     span.b-cases-content2__icon
                     img(src="../images/cases/1.png")
                 else
-                  a.b-cases-content2__audio(class="js-play-audio" data-url="player.mp3" data-title="Примеры партнерства игровой рубрики")
+                  .b-cases-content2__media(class="js-play-audio" data-url="player.mp3" data-title="Примеры партнерства игровой рубрики")
                     span.b-cases-content2__icon
                     img(src="../images/cases/1.png")
                 .b-cases-content2__content
@@ -43,7 +43,7 @@
                               p Охват слушателей (без учёта анонсов) – 42.630 ежедневно. Количество заявок – 800 писем Охват слушателей (без учёта анонсов) – 42.630 ежедневно. Количество заявок – 800 писем
                       if value == 0
                         .video-wrapper
-                          iframe(allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" data-src="https://www.youtube.com/embed/If2HNblI-gA?controls=0")
+                          .video-wrapper__video(id="If2HNblI-gA")
         .swiper-pagination
         .swiper-navigation
           .swiper-button-prev.js-player-stop

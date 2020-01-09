@@ -97,3 +97,15 @@ new Move(document.querySelector('[data-move="b-calc-bottom-get"]'), document.que
 new Move(document.querySelector('[data-move="b-times-get"]'), document.querySelector('[data-move="b-times-set"]'), break_sm).init();
 new Move(document.querySelector('[data-move="group-1-get"]'), document.querySelector('[data-move="group-1-set"]'), break_sm).init();
 new Move(document.querySelector('[data-move="b-cases-content__bottom-get"]'), document.querySelector('[data-move="b-cases-content__bottom-set"]'), break_xs).init();
+
+(function initYoutubeApi() {
+    const tag = document.createElement('script');
+    const firstScriptTag = document.getElementsByTagName('script')[0];
+    tag.src = 'https://www.youtube.com/iframe_api';
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+    window.onYouTubeIframeAPIReady = () => {
+        console.log('onYouTubeIframeAPIReady');
+        document.dispatchEvent(new CustomEvent('onYouTubeIframeAPIReady'))
+    }
+})();

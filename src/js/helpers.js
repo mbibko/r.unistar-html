@@ -183,3 +183,10 @@ export function mobileDevice() {
     return true;
   }
 }
+
+export function stopVideo(e, player) {
+  if (!player) return;
+  if (e && e.detail && e.detail.a === player.a) return;
+  console.log('stopVideoEvent');
+  player.stopVideo();
+}
