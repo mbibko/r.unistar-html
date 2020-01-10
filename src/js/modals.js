@@ -2,7 +2,7 @@ import tingle from './tingle.js'
 import validate from './validate.js'
 import { forEach, moveTingleClose, onlyNumber, maxValue } from './helpers.js'
 import phoneMask from './phone-mask.js'
-import CustomSelect from './customSelect';
+import Select from '../components/customSelect/customSelect';
 import counter from './b-counter.js'
 import {stopVideo} from "./helpers";
 
@@ -13,7 +13,7 @@ const modalOpts = {
     const self = this
     const modal = self.modal
     moveTingleClose(modal)
-    CustomSelect(modal.querySelectorAll('.select'))
+    Select(modal.querySelectorAll('.select'))
     self.bouncer = validate('form')
 
     forEach(modal.querySelectorAll('[data-dismiss="modal"]'), item => {

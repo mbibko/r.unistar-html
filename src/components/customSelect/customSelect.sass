@@ -1,0 +1,50 @@
+@import utilities/smart-grid
+@import utilities/variables
+@import utilities/mixins
+
+.choices
+    &__inner
+        height: var(--control-height)
+        min-height: 0
+        border-radius: $border-radius
+        display: flex
+        align-items: center
+        padding-left: var(--control-padding-h)
+        padding-right: var(--control-padding-h)
+        .is-open &
+            border-radius: $border-radius
+    &__list--single
+        padding: 0
+    &__input
+        +placeholder
+            color: var(--control-placeholder)
+            .is-changed &
+                color: #000
+    &__item
+        color: #000
+    &__list--dropdown
+        margin-top: 17px
+        border-radius: $border-radius
+        border: 0
+        box-shadow: 0 5px 10px rgba($base-color, 0.25)
+    &__list--dropdown .choices__list
+        max-height: 164px
+    &__list--dropdown &__item
+        padding: 9px var(--control-padding-h)
+        &:hover
+            background-color: #EFEFEF
+        &.is-selected
+            background-color: #EFEFEF
+            color: #000
+    .simplebar-track.simplebar-vertical
+        visibility: inherit !important
+    .simplebar-content-wrapper
+        visibility: inherit
+
+.choices[data-type*=select-one]
+    &:after
+        border-color: #000 transparent transparent
+        border-width: 6px
+
+.choices__list--multiple
+    display: none

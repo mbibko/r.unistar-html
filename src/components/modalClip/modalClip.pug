@@ -26,18 +26,18 @@ include ../../layouts/mixins
     .form-offsets.form-offsets_3
       .form-group
         select.select
-          option День
+          option(value="") День
           - var n = 1;
           while n <= 31
             option= n++
       .form-group
         select.select
-          option Месяц
+          option(value="") Месяц
           each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
             option=item
       .form-group
         select.select
-          option Год
+          option(value="") Год
           option 2019
           option 2020
           option 2021
@@ -46,18 +46,18 @@ include ../../layouts/mixins
     .form-offsets.form-offsets_3
       .form-group
         select.select
-          option День
+          option(value="") День
           - var n = 1;
           while n <= 31
             option= n++
       .form-group
         select.select
-          option Месяц
+          option(value="") Месяц
           each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
             option=item
       .form-group
         select.select
-          option Год
+          option(value="") Год
           option 2019
           option 2020
           option 2021
@@ -92,20 +92,20 @@ include ../../layouts/mixins
     label Что вы знаете о своей целевой аудитории?
     .form-offsets.form-offsets_3
       .form-group
-        select.select
-          option Пол
+        select.select(multiple)
+          option(value="") Пол
           option Мужской
           option Женский
     .form-offsets.form-offsets_3
       .form-group
-        select.select
-          option Возраст
+        select.select(multiple)
+          option(value="") Возраст
           each item in ["Младше 18", "19-29", "30-39", "40-49", "Старше 50"]
             option= item
     .form-offsets.form-offsets_3
       .form-group
-        select.select
-          option Доход
+        select.select(multiple)
+          option(value="") Доход
           option Низкий
           option Средний
           option Выше среднего

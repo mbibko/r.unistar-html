@@ -27,6 +27,12 @@ block content
         select.select
           while n < 15
             option(value=n)= n++
+      .form-group
+        - var n = 0;
+        select.select(multiple)
+          option(value="") This is a placeholder
+          while n < 15
+            option(value=n)= n++
           
     .h2 modals
 

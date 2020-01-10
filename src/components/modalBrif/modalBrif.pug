@@ -23,21 +23,21 @@ include ../../layouts/mixins
     .form-offsets.form-offsets_3
       .form-group
         select.select
-          option День
+          option(value="") День
           - var n = 0;
           while n <= 31
-            option= n++
+            option(value=n++)= n
       .form-group
         select.select
-          option Месяц
+          option(value="") Месяц
           each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
-            option=item
+            option(value=item)=item
       .form-group
         select.select
-          option Год
-          option 2019
-          option 2020
-          option 2021
+          option(value="") Год
+          option(value="2019") 2019
+          option(value="2020") 2020
+          option(value="2021") 2021
 
     .form-group
       label.required Что вы хотите рекламировать?
