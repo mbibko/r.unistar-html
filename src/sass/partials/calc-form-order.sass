@@ -38,10 +38,13 @@
         +sm-block
             width: 67px
             height: 64px
+            top: 4px
             left: auto
-            right: -2px
-            transform: rotate(90deg)
-            background: url(../images/star2.svg) -15px -25px / cover no-repeat
+            right: 12px
+            background-position: center
+            background-size: contain
+            //transform: rotate(90deg)
+            //background: url(../images/star2.svg) -15px -25px / cover no-repeat
     &::after
         content: ''
         position: absolute
@@ -64,21 +67,22 @@
         line-height: 38px
         transform: rotate(-45deg)
         transform-origin: center
+        text-align: center
         +sm-block
             width: 31px
             font-size: 15px
             line-height: 1
-            top: 11px
+            top: 22px
             left: auto
-            right: 1px
-            transform: rotate(45deg)
+            right: 29px
+            transform: rotate(0deg)
     &__price
         +sm-block
             display: flex
             align-items: center
             justify-content: space-between
             margin-bottom: 13px
-            padding-right: 36px
+            padding-right: 60px
     &__oldprice
         color: rgba(#000, 0.22)
         font-size: 22px

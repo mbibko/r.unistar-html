@@ -82,10 +82,12 @@
             #{$_}.active &
                 transform: scale(-1)
     &__list
-        display: none
+        max-height: 0
+        overflow: hidden
         margin-top: 19px
+        transition: 0.5s
         #{$_}.active &
-            display: block
+            max-height: var(--max-height)
     &__listItem
         display: block
         margin-bottom: 12px

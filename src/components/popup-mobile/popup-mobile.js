@@ -38,6 +38,8 @@ const enableBodyScroll = bodyScrollLock.enableBodyScroll;
 
     const popupMobileChannels = document.querySelector('.popup-mobile-channels');
     if (popupMobileChannels) {
+        const list = popupMobileChannels.querySelector('.popup-mobile-channels__list');
+        list.style.setProperty('--max-height', list.scrollHeight + 'px');
         popupMobileChannels.addEventListener('click', () => {
             popupMobileChannels.classList.toggle('active');
         })
