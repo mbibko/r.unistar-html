@@ -3,6 +3,24 @@
 @import utilities/mixins
 
 .choices
+    &[data-type*=select-one]
+        &:after
+            border-color: #000 transparent transparent
+            border-width: 6px
+            right: var(--select-arr-right-offset)
+    &[data-type*=select-multiple]
+        &::after
+            content: ''
+            height: 0
+            width: 0
+            border-style: solid
+            border-color: #000 transparent transparent
+            border-width: 6px
+            position: absolute
+            right: var(--select-arr-right-offset)
+            top: 50%
+            margin-top: -2.5px
+            pointer-events: none
     &__inner
         height: var(--control-height)
         min-height: 0
@@ -11,11 +29,16 @@
         align-items: center
         padding-left: var(--control-padding-h)
         padding-right: var(--control-padding-h)
+        border: 0
+        background-color: #fff
         .is-open &
             border-radius: $border-radius
     &__list--single
         padding: 0
+    &__list--multiple
+        display: none
     &__input
+        background-color: inherit
         +placeholder
             color: var(--control-placeholder)
             .is-changed &
@@ -36,15 +59,17 @@
         &.is-selected
             background-color: #EFEFEF
             color: #000
+    &[data-type*=select-multiple] &__list--dropdown &__item
+        padding-left: 30px
+        &.is-selected
+            background-image: url(check.svg?stroke=%23666)
+            background-position: 10px 50%
+            background-size: 10px 8px
+            background-repeat: no-repeat
     .simplebar-track.simplebar-vertical
         visibility: inherit !important
     .simplebar-content-wrapper
         visibility: inherit
 
-.choices[data-type*=select-one]
-    &:after
-        border-color: #000 transparent transparent
-        border-width: 6px
 
-.choices__list--multiple
-    display: none
+

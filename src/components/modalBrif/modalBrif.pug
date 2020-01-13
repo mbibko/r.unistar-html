@@ -21,24 +21,9 @@ include ../../layouts/mixins
       input.form-control(type="text" required)
     label Когда вы хотите запустить программу?
     .form-offsets.form-offsets_3
-      .form-group
-        select.select
-          option(value="") День
-          - var n = 0;
-          while n <= 31
-            option(value=n++)= n
-      .form-group
-        select.select
-          option(value="") Месяц
-          each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
-            option(value=item)=item
-      .form-group
-        select.select
-          option(value="") Год
-          option(value="2019") 2019
-          option(value="2020") 2020
-          option(value="2021") 2021
-
+      +form-day
+      +form-month
+      +form-year
     .form-group
       label.required Что вы хотите рекламировать?
       textarea.form-control(placeholder="Опишите ваш продукт, его преимущества и слабые стороны." required)

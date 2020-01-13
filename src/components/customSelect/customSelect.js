@@ -15,6 +15,8 @@ export default function (selectEls) {
             renderSelectedChoices: 'always',
             itemSelectText: '',
             noResultsText: 'ничего не найдено',
+            shouldSort: false,
+            resetScrollPosition: false,
             callbackOnInit: function () {
                 const self = this;
                 // console.log(self.dropdown.element.children[0])
@@ -26,10 +28,23 @@ export default function (selectEls) {
             }
         });
         select.passedElement.element.addEventListener('change', function (event) {
-                select.input.placeholder = 'Выбрано: ' + select.getValue(true).length;
+                // console.log(select.passedElement.element.type)
+                if (select.passedElement.element.type === 'select-multiple') {
+                    select.input.placeholder = 'Выбрано: ' + select.getValue(true).length;
+                }
                 select.containerOuter.element.classList.add('is-changed');
-            },
-            false,
+            }
         );
+        if (select.passedElement.element.type === 'select-multiple') {
+            select.passedElement.element.addEventListener('choice', function (event) {
+                select.getValue(true).forEach(item => {
+                    if (item !== event.detail.choice.value) return;
+                    setTimeout(() => {
+                        select.removeActiveItemsByValue(event.detail.choice.value);
+                        select.input.placeholder = 'Выбрано: ' + select.getValue().length;
+                    }, 100)
+                });
+            });
+        }
     });
 }

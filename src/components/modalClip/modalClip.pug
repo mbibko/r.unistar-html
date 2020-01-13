@@ -24,43 +24,15 @@ include ../../layouts/mixins
       input.form-control(type="text" placeholder="Например, товары для дома." required)
     label Когда вам нужен ролик?
     .form-offsets.form-offsets_3
-      .form-group
-        select.select
-          option(value="") День
-          - var n = 1;
-          while n <= 31
-            option= n++
-      .form-group
-        select.select
-          option(value="") Месяц
-          each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
-            option=item
-      .form-group
-        select.select
-          option(value="") Год
-          option 2019
-          option 2020
-          option 2021
+      +form-day
+      +form-month
+      +form-year
 
     label Когда стартует рекламная кампания в эфире?
     .form-offsets.form-offsets_3
-      .form-group
-        select.select
-          option(value="") День
-          - var n = 1;
-          while n <= 31
-            option= n++
-      .form-group
-        select.select
-          option(value="") Месяц
-          each item in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
-            option=item
-      .form-group
-        select.select
-          option(value="") Год
-          option 2019
-          option 2020
-          option 2021
+      +form-day
+      +form-month
+      +form-year
     .form-group
       label Почему именно в этот период?
       .checkboxes
@@ -80,7 +52,7 @@ include ../../layouts/mixins
         |
         span.text-underline обязательно
         |
-        | должна прозвучать в ролике? 
+        | должна прозвучать в ролике?
       textarea.form-control(placeholder="Основная информация о рекламируемом товаре/услуге/фирме." required)
     .form-group
       label Какой у вас слоган?
@@ -88,27 +60,27 @@ include ../../layouts/mixins
     .form-group
       label Какие контактные данные должны прозвучать?
       textarea.form-control(placeholder="Адрес, телефон, сайт...")
-    
+
     label Что вы знаете о своей целевой аудитории?
     .form-offsets.form-offsets_3
       .form-group
-        select.select(multiple)
+        select.select.form-control(multiple)
           option(value="") Пол
-          option Мужской
-          option Женский
+          option(value="0") Мужской
+          option(value="1") Женский
     .form-offsets.form-offsets_3
       .form-group
-        select.select(multiple)
+        select.select.form-control(multiple)
           option(value="") Возраст
-          each item in ["Младше 18", "19-29", "30-39", "40-49", "Старше 50"]
-            option= item
+          each item, val in ["Младше 18", "19-29", "30-39", "40-49", "Старше 50"]
+            option(value=val)= item
     .form-offsets.form-offsets_3
       .form-group
-        select.select(multiple)
+        select.select.form-control(multiple)
           option(value="") Доход
-          option Низкий
-          option Средний
-          option Выше среднего
+          option(value="0") Низкий
+          option(value="1") Средний
+          option(value="2") Выше среднего
     .form-group
       textarea.form-control(placeholder="Если есть дополнительная информация, напишите.")
     .form-group
@@ -144,6 +116,6 @@ include ../../layouts/mixins
 
 
     .form-error-text Заполните пожалуйста все обязательные поля. Они отмечены красной точкой.
-    
+
     .modal-footer
       button.button.button-red.button-submit(type="submit") Отправить бриф

@@ -41,3 +41,23 @@ mixin steps(cls)
           .b-steps__choose=item.choose
         if step+1<=cls
           .b-steps__choosen=item.choosen
+mixin form-day
+  .form-group
+    select.select.form-control
+      option(value="") День
+      - var n = 1;
+      while n <= 31
+        option(value=n++)= n
+mixin form-month
+  .form-group
+    select.select.form-control
+      option(value="") Месяц
+      each item, val in ["январь", "февраль", "март", "апрель", "май", "июнь", "июль", "август", "сентябрь", "октябрь", "ноябрь", "декабрь"]
+        option(value=val)=item
+mixin form-year
+  .form-group
+    select.select.form-control
+      option(value="") Год
+      option(value="2019") 2019
+      option(value="2020") 2020
+      option(value="2021") 2021
