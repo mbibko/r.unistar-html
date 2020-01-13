@@ -8,7 +8,7 @@ block content
   div(id=navItems[1].replace(' ', '-'))
     .container
       h2.title Школа рекламы
-      .subtitle Учение - свет!
+      .subtitle.hideme Учение - свет!
 
       - var tabs = ["Ролик в рекламном блоке", "Читалка в новостях", "Читалка в рекламном блоке", "Размещение в соло-спотах", "Партнёрство информационных или игровых рубрик"]
 
@@ -23,30 +23,29 @@ block content
         .tabs-side__contents
           #tab-0.tabs-side__content
             .tabs-side__content-inner
-              h4 Партнёрство информационных или игровых рубрик
+              h3 Партнёрство информационных или игровых рубрик
               p Размещение аудиороликов и упоминаний партнера в информационных (новости, погода) или игровых рубриках (часто с розыгрышем подарков от партнера).
               .tabs-player
                 +player({title: 'Примеры партнерства игровой рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
                 +player({title: 'Примеры партнерства информационной рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
           #tab-1.tabs-side__content
             .tabs-side__content-inner
-              h4 Читалка в новостях
+              h3 Читалка в новостях
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis nostrum vel dolorem temporibus quas, in totam quis. Necessitatibus repudiandae ex laboriosam inventore illum placeat quidem vero facere explicabo commodi. Est.
           #tab-2.tabs-side__content
             .tabs-side__content-inner
-              h4 Читалка в рекламном блоке
+              h3 Читалка в рекламном блоке
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dignissimos, libero. Hic excepturi fuga ut, est quae, saepe tempore nulla aliquam doloremque tempora eligendi distinctio explicabo, quo esse debitis numquam pariatur.
           #tab-3.tabs-side__content
             .tabs-side__content-inner
-              h4 Размещение в соло-спотах
+              h3 Размещение в соло-спотах
               p Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ratione consectetur quam odit reiciendis, cum eum debitis voluptatum iusto, voluptate quibusdam, repudiandae asperiores. Hic architecto, ab blanditiis magni exercitationem numquam inventore.
           #tab-4.tabs-side__content
             .tabs-side__content-inner
-              h4 Партнёрство информационных или игровых рубрик
+              h3 Партнёрство информационных или игровых рубрик
               p Размещение аудиороликов и упоминаний партнера в информационных (новости, погода) или игровых рубриках (часто с розыгрышем подарков от партнера).
               .tabs-player
-                +player({title: 'Примеры партнерства игровой рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
-                +player({title: 'Примеры партнерства информационной рубрики', url: 'player.mp3', playlist: 'reklama-school-1'})
+                +player({title: 'Примеры партнерства игровой рубрики', url: 'player.mp3'})
 
       .big-block
         div
@@ -63,7 +62,7 @@ block content
                 .video-slider__item.swiper-slide
                   .b-video.video-wrapper
                     .b-video__cover
-                    iframe(class="b-video__video" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" data-src="https://www.youtube.com/embed/_MBEr2eXJ9Q")
+                    .b-video__video(id="_MBEr2eXJ9Q")
 
         .video-slider-content
           .video-slider-content__inner.swiper-container.slider-group
@@ -86,10 +85,7 @@ block content
           h2.title Создание роликов
           .subtitle В зависимости от сложности исполнения и количества голосов ролики делятся на три вида:
 
-          .player-2-wrapper-1
-            +player2({title: "Информационные", subtitle: "Один диктор", price: "2 977", url: 'player.mp3', playlist: 'create-clip'})
-            +player2({title: "Информационные", subtitle: "Один диктор", price: "2 977", url: 'player.mp3', playlist: 'create-clip'})
-            +player2({title: "Информационные", subtitle: "Один диктор", price: "2 977", url: 'player.mp3', playlist: 'create-clip'})
+          include ../components/sliderPlyers/sliderPlayers
 
         .section-video-creates__content
 
@@ -107,6 +103,7 @@ block content
                 .player3-wrapper
                   each item, value in ["Молодой, бодрый голос", "Универсальный, рекламный голос", "Универсальный, взрослый голос", "Глубокий, бархатный голос", "Глубокий, бархатный голос", "Уверенный, рекламный голос", "Универсальный, молодой голос", "Уверенный, рекламный голос", "Уверенный голос с хрипотцой"]
                     +player3({title: item, subtitle: "Голос "+value, url: 'player.mp3', playlist: 'man-voice'})
+                  .button-more.button.button-block.button-blue.button-md Показать еще
               #tab2-1.tabs-voices__content
                 p женские голоса
 
@@ -129,25 +126,14 @@ block content
             div
               .subtitle Наши менеджеры, решающие любые задачи.
               a.b-phone(href="tel:+375172095383") +375 17 209-53-83
-            div
-              .time-work
-                .time-work__item
-                  | Понедльник-четверг
-                  span С 10:00 до 18:00
-                .time-work__item
-                  | Пятница
-                  span С 10:00 до 17:00
-            .button.button-red ЗАКАЗАТЬ ЗВОНОК
+            .time-work
+              .time-work__item
+                | Понедльник-четверг
+                span С 10:00 до 18:00
+              .time-work__item
+                | Пятница
+                span С 10:00 до 17:00
+            .button.button-submit.button-red ЗАКАЗАТЬ ЗВОНОК
 
         .section-contact__content
-          .persons
-            each item, value in ["Алеся Тябус", "Даша Иванникова", "Наташа Плескач", "Оксана Душевская", "Оля Гуйвик", "Саша Плешань", "Саша Фёдоров", "Шик Вика"]
-              .persons__item.person
-                .person__img
-                  img(src=`../images/persons/${value+1}.jpg`)
-                .person__title= item
-                | Должность работника
-                .person__phones
-                  a.person__phone(href="tel:+375299000000") +375 (29) 900-00-00
-                  a.person__phone(href="tel:+375299990000") +375 (29) 999-00-00
-                a.person__mail(href="mailto:vladimir2019@unistar.by") vladimir2019@unistar.by
+          include ../components/persons/persons

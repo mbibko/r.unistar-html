@@ -31,7 +31,7 @@
   width: 40px
   height: 40px
   border-radius: 50%
-  background: $blue-color url(../images/play.svg) 60% center no-repeat
+  background: $blue-color url(../images/play.svg) 55% center no-repeat
   background-size: 16px 20px
   transition: $transition
   transition-property: background-color
@@ -41,6 +41,10 @@
   @if $theme == 'player'
     background-color: transparent
     background-image: url(../images/play.svg?fill=none&stroke=%23fff&stroke-width=2)
+  +sm-block
+    width: 32px
+    height: 32px
+    background-size: 12px 15px
   .theme-red &
     background-color: $red-color
   &.is-playing, .is-playing &
@@ -65,35 +69,38 @@
   font-weight: 800
   font-style: italic
   text-transform: uppercase
-  +lg
-    line-height: normal
+
 =h1
   +h1-h6
   font-size: 48px
-  +xl
+  +xl-block
     font-size: 60px
-  +lg
+  +lg-block
     font-size: 42px
-  +xs
+  +xs-block
     font-size: 31px
 =h2
   +h1-h6
   font-size: 38px
   color: $link-color
-  +xl
+  +xl-block
     line-height: normal
     font-size: 34px
-  +lg
-    font-size: 26px
-  +xs
-    font-size: 22px
+  +lg-block
+    font-size: 28px
+  +xs-block
+    //font-size: 22px
 =h3
   +h1-h6
   margin-bottom: 38px
   color: $link-color
   font-size: 24px
+  +sm-block
+    font-size: 20px
+    margin-bottom: 20px
 =h4
   +h1-h6
+  line-height: 1
   font-style: normal
   text-transform: none
   font-size: 20px
@@ -124,11 +131,11 @@
   text-decoration: none !important
   white-space: nowrap
   transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out
-  // +lg
+  // +lg-block
   //   padding-left: 19px
   //   padding-right: 19px
   //   font-size: 1.167rem
-  // +xs
+  // +xs-block
   //   padding-left: 10px
   //   padding-right: 10px
   //   font-size: 13px
@@ -195,6 +202,10 @@
   height: 50px
   padding: 6px 20px
   font-size: 1.1rem
+=button-lg
+  height: 60px
+  padding: 10px 20px
+  font-size: 1.1rem
 
 $sizes-min: (xl: $break_lg+1, lg: $break_md+1, md: $break_sm+1, sm: $break_xs+1, xs: 0 )
 $sizes-max: (xl: $break_xl, lg: $break_lg, md: $break_md, sm: $break_sm, xs: $break_xs )
@@ -203,3 +214,27 @@ $sizes-max: (xl: $break_xl, lg: $break_lg, md: $break_md, sm: $break_sm, xs: $br
   @media (min-width: #{map-get($sizes-min, $size)})
       @media (max-width: #{map-get($sizes-max, $size)})
         @content
+
+=slider-navigation-sm($top: null)
+  .swiper-button-next, .swiper-button-prev
+    @if $top
+      top: $top
+    display: none
+    width: 20px
+    height: 20px
+    @if $top
+      margin-top: 0
+    @else
+      margin-top: -10px
+    background-size: 6px 11px
+    background-image: url("../../images/arr-right-1.svg")
+    background-color: #fff
+    box-shadow: 0 0 0 5px #fff
+    +sm-block
+      display: block
+    &:hover
+      background-image: url("../../images/arr-right-1.svg?stroke=%23da007b")
+  .swiper-button-next
+    right: 19px
+  .swiper-button-prev
+    left: 19px

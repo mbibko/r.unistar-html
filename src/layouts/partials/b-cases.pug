@@ -4,21 +4,22 @@
       div
         .b-cases-content__title кейсы
         p Радио Unistar создает оригинальные эксклюзивные эфирные проекты под нужды заказчика, с учетом его целевой аудитории и потребностей. По форме спецпроекты бывают информационными, игровыми и музыкальными.
-      .b-cases-content__bottom
-        div Хотите заказать спецпроект?
-        .button.button-red заполните бриф
+      div(data-move="b-cases-content__bottom-get")
+        .b-cases-content__bottom
+          .b-cases-content__bottomTitle Хотите заказать спецпроект?
+          .button-submit.button.button-red заполните бриф
     .b-cases-content2
       .b-cases-slider
         .b-cases-slider__inner.swiper-container.slider-group
           .swiper-wrapper
             each item, value in ["1", "2", "3"]
               .swiper-slide
-                if value == 0
-                  a.b-cases-content2__audio(href="https://www.youtube.com/embed/If2HNblI-gA" data-modal="video")
+                if value === 0
+                  .b-cases-content2__media(id="If2HNblI-gA" data-modal="video")
                     span.b-cases-content2__icon
                     img(src="../images/cases/1.png")
                 else
-                  a.b-cases-content2__audio(class="js-play-audio" data-url="player.mp3" data-title="Примеры партнерства игровой рубрики")
+                  .b-cases-content2__media(class="js-play-audio" data-url="player.mp3" data-title="Примеры партнерства игровой рубрики")
                     span.b-cases-content2__icon
                     img(src="../images/cases/1.png")
                 .b-cases-content2__content
@@ -42,10 +43,9 @@
                               p Охват слушателей (без учёта анонсов) – 42.630 ежедневно. Количество заявок – 800 писем Охват слушателей (без учёта анонсов) – 42.630 ежедневно. Количество заявок – 800 писем
                       if value == 0
                         .video-wrapper
-                          iframe(allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen="" frameborder="0" data-src="https://www.youtube.com/embed/If2HNblI-gA?controls=0")
-
-
+                          .video-wrapper__video(id="If2HNblI-gA")
         .swiper-pagination
         .swiper-navigation
           .swiper-button-prev.js-player-stop
           .swiper-button-next.js-player-stop
+    div(data-move="b-cases-content__bottom-set")

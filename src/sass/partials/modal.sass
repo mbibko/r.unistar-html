@@ -7,7 +7,7 @@
   z-index: 99
   body.player-open &
     padding-bottom: 120px
-  +xs
+  +xs-block
     padding-top: 20px
   &.modal-video
     display: flex
@@ -42,36 +42,36 @@
   background-color: $blue-color
   color: #fff
   border-radius: $border-radius
-  +md
+  +md-block
     width: 80%
-  +xs
+  +xs-block
     width: 100%
   .modal-md &
     width: 600px
-    +md
+    +md-block
       width: 80%
-    +xs
+    +xs-block
       width: 100%
   .modal-lg &
     width: 800px
-    +md
+    +md-block
       width: 80%
-    +xs
+    +xs-block
       width: 100%
   .modal-video &
     width: 800px
     background: none
-    +md
+    +md-block
       width: 80%
-    +xs
+    +xs-block
       width: 100%
   &__content
     padding: 60px
     padding-bottom: 60px
-    +md
+    +md-block
       padding-left: 40px
       padding-right: 40px
-    +xs
+    +xs-block
       padding-left: 16px
       padding-right: 16px
     .modal-video &
@@ -98,5 +98,5 @@
   text-align: center
   &>*
     margin: 0 20px
-    +xs
+    +xs-block
       margin: 0

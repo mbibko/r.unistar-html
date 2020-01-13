@@ -23,7 +23,8 @@ var settings = {
         },
         sm: {
             width: '767px',
-            fields: '16px' /* set fields only if you want to change container.fields */
+            fields: '16px', /* set fields only if you want to change container.fields */
+            offset: '10px'
         },
         xs: {
             width: '575px'

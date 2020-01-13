@@ -56,13 +56,14 @@ export default class {
 
     playAudio(elements) {
 
-        const _this = this
+        const _this = this;
 
         forEach(elements, item => {
             if (item.offsetWidth == 0 && item.offsetHeight == 0) return;
             
             item.addEventListener('click', e => {
                 e.preventDefault();
+                document.dispatchEvent(new CustomEvent('stopVideo'));
 
                 _this.playerContainer.classList.remove('has-error');
 
@@ -89,7 +90,7 @@ export default class {
                             _this.playerContainer.querySelector('[data-player="next"]').style.display = 'none'
                         }
                         _this.prevAudio = item
-                        _this.playerTitleEl.textContent = item.dataset.title
+                        _this.playerTitleEl.textContent = item.dataset.title;
                         setTimeout(function() {
                             _this.audio.play();
                         }, 1500)
@@ -104,16 +105,18 @@ export default class {
     }
 
     events() {
-        const _this = this
+        const _this = this;
+
+        function stopAudio() {
+            // if (_this.prevAudio) {
+            //     _this.prevAudio.classList.remove('is-playing');
+            // }
+            document.body.classList.remove('player-open');
+            _this.audio.pause();
+        }
 
         forEach(document.querySelectorAll('.js-player-stop'), item => {
-            item.addEventListener('click', () => {
-                if (_this.prevAudio) {
-                    _this.prevAudio.classList.remove('is-playing');
-                }
-                document.body.classList.remove('player-open');
-                _this.audio.pause();
-            });
+            item.addEventListener('click', stopAudio);
         });
         document.querySelector('[data-player="refresh"]').addEventListener('click', function() {
             _this.audio.trackEnded();
@@ -156,6 +159,15 @@ export default class {
 
         document.addEventListener('modalOpen', e => {
             _this.playAudio(e.target.querySelectorAll('.js-play-audio'))
+        });
+
+        document.addEventListener('stopAudio', stopAudio);
+
+        _this.playerAudioEl.addEventListener('pause', e => {
+            document.querySelector('.js-play-audio.is-playing').classList.remove('is-playing');
+        });
+        _this.playerAudioEl.addEventListener('play', e => {
+            document.querySelector('.is-played').classList.add('is-playing');
         });
 
     }

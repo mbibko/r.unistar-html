@@ -1,0 +1,18 @@
+@import utilities/smart-grid
+@import utilities/variables
+@import utilities/mixins
+
+.sliderPlayers
+    +sm-block
+        margin: 0 $fields_sm*-1
+    .swiper-wrapper
+        +from($break_md_up)
+            display: block
+    .swiper-slide
+        margin-bottom: 20px
+        +md-block
+            width: 70%
+            margin: 0 auto 10px
+        +sm-block
+            width: 100%
+    +slider-navigation-sm

@@ -1,43 +1,55 @@
 .contact-form
     margin-bottom: 135px
-    +md
+    +md-block
         margin-bottom: 60px
     label
         text-transform: uppercase
+        color: #fff
+        margin-bottom: 34px
+        +md-block
+            margin-bottom: 16px
+        +sm-block
+            margin-bottom: 10px
+            font-size: 10px
+    .form-control
+        +sm-block
+            font-size: 16px
     &__inner
         display: flex
         justify-content: space-between
-        +md
+        +md-block
             flex-wrap: wrap
-        +sm
+        +sm-block
             display: block
     &__item
         flex: none
         width: calc((100% - 120px - 40px) / 3 - 20px)
-        +md
+        +md-block
             width: calc(100%/2 - 20px)
-        +sm
+        +sm-block
             width: auto
-        label
-            color: #fff
-            margin-bottom: 34px
-            +md
-                margin-bottom: 16px
         .form-control
             background-color: rgba(#fff, 0.3)
+            +sm-block
+                background-color: #fff
             &:focus, &.is-filled
                 background-color: #fff
         &_submit
             width: 120px
-            +md
+            +md-block
                 width: calc(100%/4 - 20px)
                 margin-right: auto
                 margin-left: 40px
-            +sm
-                width: 200px
+            +sm-block
+                width: 100%
+                max-width: 400px
                 margin: auto
             label
                 opacity: 0
-            .button
+                +sm-block
+                    display: none
+            .button-submit
                 width: 100%
                 display: flex
+                +sm-block
+                    +button-lg

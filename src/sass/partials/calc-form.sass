@@ -2,60 +2,73 @@
     width: 394px
     flex: none
     padding-top: 10px
-    +sm
+    +sm-block
         width: auto
     label
         text-transform: uppercase
         white-space: nowrap
+        +sm-block
+            font-size: 10px
+            letter-spacing: 0.55px
         span
-            +xs
+            +xs-block
                 display: none
+    .form-group-wrapper
+        +sm-block
+            +row-flex
     .form-group
-      margin-bottom: 41px
-      +lg
-        margin-bottom: 32px
-      +xs
-        margin-bottom: 26px
+        margin-bottom: 41px
+        +lg-block
+            margin-bottom: 32px
+        +sm-block
+            +size-sm(6)
+            +col
+            &[data-move="group-1-get"]
+                margin-bottom: 0
+        +xs-block
+            margin-bottom: 14px
     &__content
         display: flex
-        +sm
-            justify-content: center
-        +to(375px)
+        +sm-block
             display: block
             margin-bottom: 0
+        +xs-block
+            margin-bottom: 18px
         &>.col
             flex: none
-            +to(375px)
-                margin-bottom: 16px
+            +xs-block
+                margin-bottom: 2px
             &:nth-child(1)
                 width: 197px
-                +to(375px)
+                +sm-block
                     width: auto
             &:nth-child(2)
                 width: 120px
                 margin-left: 77px
-                +lg
+                +lg-block
                     margin-left: 30px
-                +xs
-                    margin-left: 10px
-                +to(375px)
+                +sm-block
+                    width: auto
                     margin-left: 0
+                    margin-bottom: 4px
     &__title
         font-size: 20px
         font-weight: 700
         line-height: 20px
         margin-bottom: 39px
+        +sm-block
+            display: none
 
 .b-counter-wrapper
     display: flex
     align-items: center
-    +xs
+    +xs-block
         display: block
     .b-counter
         flex: none
         width: 120px
         margin-right: 20px
-        +xs
+        +xs-block
             margin-bottom: 10px
     div:last-child
         opacity: 0.4    
@@ -103,6 +116,9 @@
         padding-left: 3px
         pointer-events: none
 
+.b-times-wrapper
+    +sm-block
+        margin-top: -16px
 .b-times
     margin-top: 13px
     display: flex
@@ -117,7 +133,7 @@
         align-items: center
         justify-content: center
         width: 80px
-        height: 30px
+        height: 29px
         margin-right: 10px
         margin-bottom: 10px
         border: 2px solid #ffffff

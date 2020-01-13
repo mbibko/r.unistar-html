@@ -1,0 +1,15 @@
+.persons.swiper-container
+    .swiper-wrapper
+        each item, value in ["Алеся Тябус", "Даша Иванникова", "Наташа Плескач", "Оксана Душевская", "Оля Гуйвик", "Саша Плешань", "Саша Фёдоров", "Шик Вика"]
+            .persons__item.person.swiper-slide
+                .person__img
+                    img(src=`../images/persons/${value+1}.jpg`)
+                .person__title= item
+                | Должность работника
+                .person__phones
+                    a.person__phone(href="tel:+375299000000") +375 (29) 900-00-00
+                    a.person__phone(href="tel:+375299990000") +375 (29) 999-00-00
+                a.person__mail(href="mailto:vladimir2019@unistar.by") vladimir2019@unistar.by
+    .swiper-navigation
+        .swiper-button-next
+        .swiper-button-prev

@@ -2,37 +2,43 @@
   .calc-form__title Рассчитайте рекламную кампанию
   .calc-form__content
     .col
-      .form-group
-        label Город вещания
-        select.select
-          each item in ["Минск", "Бобруйск", "Другой город"]
-            option= item
-      .form-group
-        label Вид рекламы
-        select.select
-          each item in ["Ролик в рекл. блоке", "Читалка в рекламном блоке", "Читалка в новостях"]
-            option= item
-      .form-group
-        label Время выходов
-        select.select.js-select-time-choose
-          each item, value in ["Околопрайм", "Прайм", "Постпрайм"]
-            option(value=value)= item
-        .b-times.b-times_choose.active
-          each item, value in ["7:00 - 8:00", "10:00 - 11:00", "12:00 - 14:00", "16:00 - 17:00"]
-            div= item
-        .b-times.b-times_choose
-          each item, value in ["10:00 - 11:00", "12:00 - 14:00", "16:00 - 17:00"]
-            div= item
-        .b-times.b-times_choose
-          each item, value in ["12:00 - 14:00", "16:00 - 17:00"]
-            div= item
+      .form-group-wrapper
+        .form-group
+          label Город вещания
+          select.select.form-control
+            each item in ["Минск", "Бобруйск", "Другой город"]
+              option= item
+        .form-group
+          label Вид рекламы
+          select.select.form-control
+            each item in ["Ролик в рекл. блоке", "Читалка в рекламном блоке", "Читалка в новостях"]
+              option= item
+        .form-group
+          label Время выходов
+          select.select.form-control.js-select-time-choose
+            each item, value in ["Околопрайм", "Прайм", "Постпрайм"]
+              option(value=value)= item
+          div(data-move="b-times-get")
+            .b-times-wrapper
+              .b-times.b-times_choose.active
+                each item, value in ["7:00 - 8:00", "10:00 - 11:00", "12:00 - 14:00", "16:00 - 17:00"]
+                  div= item
+              .b-times.b-times_choose
+                each item, value in ["10:00 - 11:00", "12:00 - 14:00", "16:00 - 17:00"]
+                  div= item
+              .b-times.b-times_choose
+                each item, value in ["12:00 - 14:00", "16:00 - 17:00"]
+                  div= item
+        .form-group(data-move="group-1-set")
+      div(data-move="b-times-set")
     .col
-      .form-group
-        label Хронометраж, сек
-        +counter({value: "13"})
-      .form-group
-        label Период, дней
-        +counter({value: "13"})
-      .form-group
-        label Выходов в день
-        +counter({value: "25"})
+      .form-group-wrapper
+        .form-group
+          label Хронометраж, сек
+          +counter({value: "13"})
+        .form-group
+          label Период, дней
+          +counter({value: "13"})
+        .form-group(data-move="group-1-get")
+          label Выходов в день
+          +counter({value: "25"})

@@ -1,51 +1,51 @@
-import { Swiper, Navigation, Pagination, EffectFade, Thumbs } from 'swiper/dist/js/swiper.esm.js'
+import {Swiper, Navigation, Pagination, EffectFade, Thumbs} from 'swiper/dist/js/swiper.esm.js'
+import {forEach} from "./helpers";
 
 Swiper.use([Navigation, Pagination, EffectFade, Thumbs]);
 
-const slider1 = new Swiper('.video-slider__inner', {
-    slidesPerView: 1,
-    freeMode: true,
-    watchSlidesVisibility: true,
-    watchSlidesProgress: true,
-    on: {
-      slideChange: function () {
-        const videoWrapper = this.slides[this.previousIndex].querySelector('.b-video') 
-        if (!videoWrapper) return;
-        const video = videoWrapper.querySelector('.b-video__video') 
-        let href = video.getAttribute("src");
-        if (!href) return;
-        videoWrapper.classList.remove('is-playing');
-        href = href.replace('?autoplay=1', '');
-        video.setAttribute("src", href);
-      },
-    },
-  }
-)
+(function () {
 
-new Swiper('.video-slider-content__inner', {
-    speed: 1000,
-    loop: true,
-    preventInteractionOnTransition: true,
+    const sliderWrapperEl = document.querySelector('.video-slider-wrapper');
+    if(!sliderWrapperEl) return;
 
-    effect: 'fade',
+    const slider1 = new Swiper('.video-slider__inner', {
+            slidesPerView: 1,
+            freeMode: true,
+            watchSlidesVisibility: true,
+            watchSlidesProgress: true,
+            on: {
+                slideChange: function () {
+                    document.dispatchEvent(new CustomEvent('stopVideo'));
+                },
+            },
+        }
+    );
 
-    fadeEffect: {
-      crossFade: true
-    },
+    new Swiper('.video-slider-content__inner', {
+            speed: 1000,
+            loop: true,
+            preventInteractionOnTransition: true,
 
-    pagination: {
-        el: '.video-slider-content__inner .swiper-pagination',
-        type: 'fraction',
-    },
+            effect: 'fade',
 
-    navigation: {
-      nextEl: '.swiper-button-next',
-      prevEl: '.swiper-button-prev',
-    },
+            fadeEffect: {
+                crossFade: true
+            },
 
-    thumbs: {
-      swiper: slider1
-    },
+            pagination: {
+                el: '.video-slider-content__inner .swiper-pagination',
+                type: 'fraction',
+            },
 
-  }
-)
+            navigation: {
+                nextEl: sliderWrapperEl.querySelector('.swiper-button-next'),
+                prevEl: sliderWrapperEl.querySelector('.swiper-button-prev'),
+            },
+
+            thumbs: {
+                swiper: slider1
+            },
+
+        }
+    );
+})();

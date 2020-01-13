@@ -10,7 +10,9 @@
   background-color: $blue-color
   color: #fff
   transition: .4s
+  visibility: hidden
   .player-open &
+    visibility: visible
     transform: translate(0, 0)
   &__inner
     flex: 1
@@ -18,7 +20,7 @@
     overflow: hidden
     position: relative
     align-items: center
-    +md
+    +md-block
       flex-wrap: wrap
       padding-top: 20px
       padding-bottom: 20px
@@ -30,7 +32,7 @@
     cursor: pointer
     background: url(../images/close.svg?stroke=%23fff) center no-repeat
     background-size: 25px 25px
-    +md
+    +md-block
       position: absolute
       right: 5px
       top: 13px
@@ -39,7 +41,7 @@
     width: 440px
     display: flex
     align-items: center
-    +md
+    +md-block
       width: 100%
       padding: 0 30px
       display: block
@@ -52,28 +54,31 @@
     height: 42px
     margin-right: 36px
     border: 2px solid #fff
-    +md
+    +md-block
       margin: 0 auto
+    +sm-block
+      width: 42px
+      height: 42px
     &:hover
       +play-icon-hover($theme: 'player')
   &__time
     width: 44px
     flex: none
     &_played
-      +md
+      +md-block
         margin-right: -26px
     &_duration
       padding-left: 4px
-      +md
+      +md-block
         margin-left: -26px
         padding-left: 0
-    +md
+    +md-block
       margin-top: 16px
   &__time-scrubber
     flex: 1
     display: flex
     align-items: center
-    +md
+    +md-block
       margin-top: 20px
       align-items: flex-start
   &__scrubber
@@ -109,7 +114,7 @@
   &__buttons
     display: flex
     margin-left: 50px
-    +md
+    +md-block
       margin-left: 0
   &__button
     width: 25px
@@ -125,21 +130,21 @@
       border-radius: 50%
       background-image: url(../images/prev.svg)
       background-size: 11px 9px
-      +md
+      +md-block
         margin-left: 0
         position: absolute
         margin-top: 11px
     &_prev
-      +md
+      +md-block
         left: calc(50% - 55px)
     &_next
       transform: scale(-1)
-      +md
+      +md-block
         left: calc(50% + 30px)
     &_refresh
       background-image: url(../images/refresh.svg)
       background-size: 100% 100%
-      +md
+      +md-block
         position: absolute
         right: 10px
         bottom: 42px
@@ -150,7 +155,7 @@
     margin-left: 40px
     padding-left: 58px
     border-left: 2px solid rgba(#fff, .2)
-    +md
+    +md-block
       height: auto
       border-left: 0
       display: block
@@ -165,7 +170,7 @@
   &__side
     display: flex
     align-items: center
-    +md
+    +md-block
       width: 100%
       order: -1
     .has-error &

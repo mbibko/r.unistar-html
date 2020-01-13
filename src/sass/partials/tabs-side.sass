@@ -1,30 +1,34 @@
 .tabs-side
     display: flex
     margin-bottom: 68px
-    +sm
+    +sm-block
         display: block
+        margin-bottom: 20px
     &__nav
         flex: none
         width: 345px
         margin-right: 80px
-        padding: 36px 41px 0 32px
+        padding: 36px 41px 20px 32px
         border-radius: $border-radius
         border: 2px solid #efefef
-        +lg
+        +lg-block
             width: 300px
             margin-right: 40px
-        +md
+        +md-block
             width: 240px
             padding: 30px 20px 0
             margin-right: 28px
-        +sm
+        +sm-block
             width: auto
-            margin-bottom: 30px
+            margin-bottom: 14px
             margin-right: 0
+            padding: 18px 20px
         li
-            margin-bottom: 40px
-            +sm
-                margin-bottom: 16px
+            margin-top: 40px
+            &:first-child
+                margin-top: 0
+            +sm-block
+                margin-top: 8px
             a
                 display: block
                 padding-right: 20px
@@ -36,9 +40,9 @@
                 background-size: 5px 10px
                 outline: none !important
                 color: #000
-                +sm
-                    font-size: 14px
-                    font-weight: 600
+                +sm-block
+                    font-size: 12px
+                    font-weight: 700
                 &:hover
                     color: $link-color
                     background-image: url('../images/triangle-right.svg?fill=%23253786')
@@ -48,11 +52,13 @@
     &__contents
         flex: 1
         min-width: 0
-        +md
+        +md-block
             padding-right: 20px
+        +sm-block
+            padding-right: 0
         h4
             margin-bottom: 50px
-            +sm
+            +sm-block
                 margin-bottom: 20px
     &__content
         height: 100%
@@ -60,21 +66,28 @@
         display: flex
         flex-direction: column
         height: 100%
+        h3
+            margin-bottom: 10px
+            font-size: 16px
+            font-style: normal
+            color: #000
+            text-transform: none
+            font-weight: 700
 
 .tabs-player
     display: flex
     justify-content: space-between
     margin-top: 50px
-    +md
+    +md-block
         margin-top: 30px
         display: block
-    +xs
-        margin-top: 10px
+    +xs-block
+        margin-top: -10px
     &>div
         flex: none
         width: calc(50% - 30px)
-        +lg
+        +lg-block
             width: calc(50% - 15px)
-        +md
+        +md-block
             width: 100%
             margin-top: 10px

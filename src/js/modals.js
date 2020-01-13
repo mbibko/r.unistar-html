@@ -4,6 +4,7 @@ import { forEach, moveTingleClose, onlyNumber, maxValue } from './helpers.js'
 import phoneMask from './phone-mask.js'
 import CustomSelect from './customSelect';
 import counter from './b-counter.js'
+import {stopVideo} from "./helpers";
 
 const modalOpts = {
   closeMethods: ['overlay', 'button', 'escape'],
@@ -47,10 +48,10 @@ forEach(document.querySelectorAll('[data-modal]'), button => {
 document.addEventListener("eventModalvideo", function(event) {
     const html = `
     <div class="video-wrapper">
-        <iframe width="560" height="315" src="${event.target.href}?controls=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        <div class="video-wrapper__video" id="${event.target.id}"></div>
     </div>
-    `
-    console.log(event.target);
+    `;
+    // console.log(event.target);
     const modal = new tingle.modal({
         closeMethods: ['overlay', 'button', 'escape'],
         cssClass: ['modal-video'],
@@ -59,8 +60,24 @@ document.addEventListener("eventModalvideo", function(event) {
         }
     });
     modal.setContent(html);
+    video();
     modal.open();
-})
+
+    function video() {
+        document.dispatchEvent(new CustomEvent('stopAudio'));
+        document.dispatchEvent(new CustomEvent('stopVideo', {'detail': player}));
+
+        const videoEl = modal.modal.querySelector('.video-wrapper__video');
+        const player = new YT.Player(videoEl, {
+            videoId: videoEl.id,
+            events: {
+                'onReady': event => event.target.playVideo()
+            }
+        });
+
+        document.addEventListener('stopVideo', e => stopVideo(e, player));
+    }
+});
 
 document.addEventListener("eventModalbrif", function(event) {
     modalInit(modalBrif, modalOpts)
