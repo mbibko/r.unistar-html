@@ -1,16 +1,15 @@
-import CustomSelect from './customSelect';
+import Select from '../components/customSelect/customSelect';
 import phoneMask from './phone-mask.js'
 import validate from './validate.js'
-import {forEach, onlyNumber, maxValue, mobileDevice} from './helpers.js'
+import {forEach, onlyNumber, maxValue} from './helpers.js'
+import {mobileDevice} from "./helpers";
 
 validate('.contact-form')
 
 onlyNumber(document.querySelectorAll('[data-field="number"]'))
 maxValue(document.querySelectorAll('input[type="number"]'))
 
-if (!mobileDevice()) {
-  CustomSelect(document.querySelectorAll('.select'))
-}
+Select(document.querySelectorAll('.select'))
 
 forEach(document.querySelectorAll('[data-field="phone"]'), el => {
   phoneMask(el)
@@ -36,3 +35,10 @@ forEach(document.querySelectorAll('.js-select-time-choose'), select => {
     timesEls[select.value].classList.add('active')
   })
 });
+
+if (mobileDevice()) {
+  forEach(document.querySelectorAll('.select[multiple]'), select => {
+    if (select.previousElementSibling && select.previousElementSibling.tagName === 'LABEL') return;
+    select.insertAdjacentHTML('beforebegin', `<label>${select.options[0].text}</label>`);
+  });
+}

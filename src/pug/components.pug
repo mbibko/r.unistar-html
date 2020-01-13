@@ -12,6 +12,7 @@ block content
     br
     br
 
+
     +player({title: 'Примеры партнерства игровой рубрики', url: 'player.mp3'})
     +player({title: 'Error', url: 'player1.mp3'})
 
@@ -21,12 +22,19 @@ block content
     div.blue-bg.padder
       .h2 form elements
       .form-group
-        input.form-control(value='form control')
+        input.form-control(placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aliquam aspernatur cumque deserunt ea, exercitationem incidunt ')
       .form-group
         - var n = 0;
-        select.select
+        select.select.form-control
           while n < 15
             option(value=n)= n++
+      .form-group
+        label hi
+        - var n = 0;
+        select.select.form-control(multiple)
+          option(value="") This is a placeholder
+          while n < 15
+            option(value=n)= "="+(n++)
           
     .h2 modals
 

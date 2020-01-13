@@ -40,7 +40,7 @@ import counter from './js/b-counter.js'
 //=====================================
 import './js/svg-sprite'
 
-import {forEach, Move} from './js/helpers'
+import {forEach, mobileDevice, Move} from './js/helpers'
 
 // // // Import any polyfill to enable smoothscroll for JS APIs
 // import smoothscrollPolyfill from 'smoothscroll-polyfill';
@@ -64,6 +64,9 @@ counter(document.querySelectorAll('.b-counter'))
 
 if(location.hostname == 'localhost') {
   document.documentElement.classList.add('css-simple-grid')
+}
+if (mobileDevice()) {
+    document.body.classList.add('is-mobile')
 }
 
 if (document.querySelector('.tabs-side__nav')) {

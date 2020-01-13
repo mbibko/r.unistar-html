@@ -1,4 +1,4 @@
-import CustomSelect from './customSelect';
+import Select from '../components/customSelect/customSelect';
 import counter from './b-counter.js';
 import { forEach } from './helpers'
 
@@ -7,7 +7,7 @@ import { forEach } from './helpers'
     const init = form => {
         if (!form) return
         counter(form.querySelectorAll('.b-counter'))
-        CustomSelect(form.querySelectorAll('.select'))
+        Select(form.querySelectorAll('.select'))
         forEach(document.querySelectorAll('.js-select-time-choose'), select => {
             const timesEls = select.parentNode.querySelectorAll('.b-times')
             select.addEventListener('change', () => {
