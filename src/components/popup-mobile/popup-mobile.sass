@@ -82,6 +82,8 @@
             #{$_}.active &
                 transform: scale(-1)
     &__list
+        display: flex
+        flex-wrap: wrap
         max-height: 0
         overflow: hidden
         margin-top: 19px
@@ -90,11 +92,11 @@
             max-height: var(--max-height)
     &__listItem
         display: block
+        width: 50%
         margin-bottom: 12px
         text-transform: uppercase
         span
-            display: inline-block
-            margin-left: 10px
+            display: block
             font-weight: 700
 
 
