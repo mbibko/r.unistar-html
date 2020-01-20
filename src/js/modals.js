@@ -5,6 +5,7 @@ import phoneMask from './phone-mask.js'
 import Select from '../components/customSelect/customSelect';
 import counter from './b-counter.js'
 import {stopVideo} from "./helpers";
+import {controls} from "./controls";
 
 const modalOpts = {
   closeMethods: ['overlay', 'button', 'escape'],
@@ -13,7 +14,6 @@ const modalOpts = {
     const self = this
     const modal = self.modal
     moveTingleClose(modal)
-    Select(modal.querySelectorAll('.select'))
     self.bouncer = validate('form')
 
     forEach(modal.querySelectorAll('[data-dismiss="modal"]'), item => {
@@ -21,8 +21,7 @@ const modalOpts = {
             self.close()
         })
     });
-    phoneMask(modal.querySelector('[data-field="phone"]'))
-    counter(modal.querySelectorAll('.b-counter'))
+    controls(modal.querySelectorAll('form'));
     modal.dispatchEvent(new Event(`modalOpen`, {bubbles: true}));
   },
   onClose: function() {
@@ -36,7 +35,7 @@ const modalInit = (modalEl, modalOpts) => {
     modal.setContent(html);
     modal.open();
     return modal
-}
+};
 
 forEach(document.querySelectorAll('[data-modal]'), button => {
     button.addEventListener('click', e => {

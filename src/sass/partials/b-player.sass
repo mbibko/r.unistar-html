@@ -39,10 +39,12 @@
     &__content
 
     &__title
+        margin-bottom: 8px
         font-size: 18px
         font-weight: 700
         line-height: 20px
         +sm-block
+            line-height: normal
             font-size: 16px
         +xs-block
             font-size: 14px
@@ -70,9 +72,10 @@
     $_: &
     display: flex
     padding-right: 30px
-    +xs-block
-        background-color: #F6F7FA
-        padding: 20px
+    &_mobile-boxed
+        +xs-block
+            background-color: #F6F7FA
+            padding: 20px
     &__icon
         +play-icon
         margin-right: 40px

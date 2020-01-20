@@ -65,22 +65,22 @@ include ../../layouts/mixins
     .form-offsets.form-offsets_3
       .form-group
         select.select.form-control(multiple)
-          option(value="") Пол
-          option(value="0") Мужской
-          option(value="1") Женский
+          option(value="" selected disabled) Пол
+          option(value="Мужской") Мужской
+          option(value="Женский") Женский
     .form-offsets.form-offsets_3
       .form-group
         select.select.form-control(multiple)
-          option(value="") Возраст
+          option(value="" selected disabled) Возраст
           each item, val in ["Младше 18", "19-29", "30-39", "40-49", "Старше 50"]
-            option(value=val)= item
+            option(value=item)= item
     .form-offsets.form-offsets_3
       .form-group
         select.select.form-control(multiple)
-          option(value="") Доход
-          option(value="0") Низкий
-          option(value="1") Средний
-          option(value="2") Выше среднего
+          option(value="" selected disabled) Доход
+          option(value="Низкий") Низкий
+          option(value="Средний") Средний
+          option(value="Выше среднего") Выше среднего
     .form-group
       textarea.form-control(placeholder="Если есть дополнительная информация, напишите.")
     .form-group

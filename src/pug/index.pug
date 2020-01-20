@@ -102,7 +102,7 @@ block content
               #tab2-0.tabs-voices__content
                 .player3-wrapper
                   each item, value in ["Молодой, бодрый голос", "Универсальный, рекламный голос", "Универсальный, взрослый голос", "Глубокий, бархатный голос", "Глубокий, бархатный голос", "Уверенный, рекламный голос", "Универсальный, молодой голос", "Уверенный, рекламный голос", "Уверенный голос с хрипотцой"]
-                    +player3({title: item, subtitle: "Голос "+value, url: 'player.mp3', playlist: 'man-voice'})
+                    +player3({modClass: ['mobile-boxed'], title: item, subtitle: "Голос "+value, url: 'player.mp3', playlist: 'man-voice'})
                   .button-more.button.button-block.button-blue.button-md Показать еще
               #tab2-1.tabs-voices__content
                 p женские голоса

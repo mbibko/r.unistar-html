@@ -2,7 +2,7 @@ export default function (els) {
     if (!els) return;
     ;[].forEach.call(els, item => {
         const form = item.closest("form");
-        console.log(form);
+        // console.log(form);
         const input = item.querySelector('input');
         const setInputWidth = () => input.value.length * 9 + 25 + 'px';
         if (input.classList.contains('has-type')) {

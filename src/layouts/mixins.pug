@@ -22,7 +22,7 @@ mixin player2(data)
         span BYN
 
 mixin player3(data)
-  .b-player3(class=data.class)
+  .b-player3(class=data.class class=data.modClass && data.modClass.map(item=>"b-player3_"+item))
     .b-player3__icon.js-play-audio(data-url=data.url data-title=data.title data-playlist=data.playlist)
     .b-player3__content
       .b-player3__title= data.title

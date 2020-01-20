@@ -69,9 +69,11 @@ label, .label
       background-image: url(../images/triangle.svg)
       background-repeat: no-repeat
       background-size: 11px 6px
+      color: var(--control-placeholder)
+      &.is-filled
+        color: #000
       +xs-block
         width: 100%
-  @at-root
     input#{&}
       overflow: hidden
       text-overflow: ellipsis
