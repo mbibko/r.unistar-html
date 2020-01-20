@@ -1,15 +1,26 @@
-import Select from '../components/customSelect/customSelect';
-import counter from './b-counter.js';
 import { forEach } from './helpers'
+import {controls} from "./controls";
 
 (function() {
 
     const init = form => {
-        if (!form) return
-        counter(form.querySelectorAll('.b-counter'))
-        Select(form.querySelectorAll('.select'))
-        forEach(document.querySelectorAll('.js-select-time-choose'), select => {
-            const timesEls = select.parentNode.querySelectorAll('.b-times')
+        if (!form) return;
+        controls(form);
+        forEach(form.querySelectorAll('input.form-control'), control => {
+            control.addEventListener('change', () => {
+                console.log('control changed');
+                updateCalcSum(form);
+            });
+            control.addEventListener('counter-changed', () => {
+                console.log('counter changed');
+                updateCalcSum(form);
+            })
+        });
+        forEach(form.querySelectorAll('#city-select, #type-select, #period-select'), select => {
+            select.addEventListener('change', () => selectChanged(form, select))
+        });
+        forEach(form.querySelectorAll('.js-select-time-choose'), select => {
+            const timesEls = select.parentNode.querySelectorAll('.b-times');
             select.addEventListener('change', () => {
                 forEach(timesEls, el => {
                     el.classList.remove('active')
@@ -17,157 +28,68 @@ import { forEach } from './helpers'
                 timesEls[select.value].classList.add('active')
             })
         });
-        ready( function selectInit () {
-            forEach(document.querySelectorAll('.b-counter__control input'), input => {
-                input.addEventListener('input', () => {
-                    var max_val = input.getAttribute("max");
-                    var min_val = input.getAttribute("min");
-                    if(parseInt(input.value) < min_val ) {
-                        input.value = min_val
-                    }
-                    if(parseInt(input.value) > max_val) {
-                        input.value = max_val
-                    }
-                    //получить значения для формулы
-                    var chron = document.querySelector("#chron").value;
-                    var perday = document.querySelector("#perday").value;
-                    var time = document.querySelector("#period-select").selectedIndex;
-                    var price = document.querySelector("#period-select").options[time].dataset.price;
-                    var nds = document.querySelector("#nds").value;
-                    var city = document.querySelector("#city-select").selectedIndex;
-                    var city_coef = document.querySelector("#city-select").options[city].dataset.coef;
-                    var period = document.querySelector("#period").value;
-                    var type = document.querySelector("#type-select").selectedIndex;
-                    var type_coef = document.querySelector("#type-select").options[type].dataset.coef;
+    };
+    init(document.querySelector('.form-calculator'));
 
-                    var sum = chron * perday / 60 * price * nds * city_coef * period * type_coef;
-                    var sum_int = chron * perday * period;
-                    var sum_sale = 0;
-                    forEach(document.querySelectorAll('.sale_value'), sale => {
-                        var min_time = sale.dataset.min;
-                        var max_time = sale.dataset.max;
-                        var val = sale.dataset.val;
-                        if (sum_int >= min_time && sum_int <= max_time) sum_sale = val;
-                    });
-                    document.querySelector(".calc-form-order__discount").innerHTML = "-" + sum_sale + "%";
-                    var itog = sum/100*(100 - sum_sale);
-                    document.querySelector(".calc-form-order__newprice").innerHTML = itog.toFixed() + "<span>BYN</span>";
-                    document.querySelector(".calc-form-order__oldprice span").innerHTML = sum.toFixed() + " BYN";
-                })
-            });
-            forEach(document.querySelectorAll('#city-select, #type-select, #period-select'), select => {
-                select.addEventListener('change', () => {
-                    var city_id_ind = document.querySelector("#city-select").selectedIndex;
-                    var city_id = document.querySelector("#city-select").options[city_id_ind].dataset.id;
+    function selectChanged(form, select) {
+        var city_id_ind = form.querySelector("#city-select").selectedIndex;
+        var city_id = form.querySelector("#city-select").options[city_id_ind].dataset.id;
 
-                    var type_id_ind = document.querySelector("#type-select").selectedIndex;
-                    var type_id = document.querySelector("#type-select").options[type_id_ind].dataset.id;
+        var type_id_ind = form.querySelector("#type-select").selectedIndex;
+        var type_id = form.querySelector("#type-select").options[type_id_ind].dataset.id;
 
-                    var period_id_ind = document.querySelector("#period-select").selectedIndex;
-                    var period_id = document.querySelector("#period-select").options[period_id_ind].dataset.id;
+        var period_id_ind = form.querySelector("#period-select").selectedIndex;
+        var period_id = form.querySelector("#period-select").options[period_id_ind].dataset.id;
 
-                    var data = "";
-                    if (select.id == "city-select") {
-                        data =  "CITY_ID="+city_id+"&TYPE_ID="+type_id;
-                    } else {
-                        data =  "CITY_ID="+city_id+"&TYPE_ID="+type_id+"&PERIOD_ID="+period_id;
-                    }
-                    var request = new XMLHttpRequest();
-                    request.open('POST', '/bitrix/templates/partnership/calc.php', true);
-                    request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-                    request.onload = function() {
-                        if (this.status >= 200 && this.status < 400) {
-                            // Success!
-                            var resp = this.response;
-                            document.querySelector('.b-calc__content').innerHTML = resp;
-                            init(document.querySelector('.calc-form'));
-                        }
-                    };
-                    request.send(data);
-                })
-            });
-        });
-    }
-    // init() //after Ajax success
-    function ready(fn) {
-        if (document.readyState != 'loading'){
-            fn();
+        var data = "";
+        if (select.id === "city-select") {
+            data =  "CITY_ID="+city_id+"&TYPE_ID="+type_id;
         } else {
-            document.addEventListener('DOMContentLoaded', fn);
+            data =  "CITY_ID="+city_id+"&TYPE_ID="+type_id+"&PERIOD_ID="+period_id;
         }
+        var request = new XMLHttpRequest();
+        request.open('POST', '/bitrix/templates/partnership/calc.php', true);
+        request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
+        request.onload = function() {
+            if (this.status >= 200 && this.status < 400) {
+                // Success!
+                const formParent = form.parentNode;
+                formParent.innerHTML = this.response;
+                init(formParent.children[0]);
+            }
+        };
+        request.send(data);
+    }
+    function updateCalcSum(form) {
+        //получить значения для формулы
+        const chronEl = form.querySelector("#chron");
+        if (!chronEl) return;
+        var chron = chronEl.value;
+        var perday = form.querySelector("#perday").value;
+        var time = form.querySelector("#period-select").selectedIndex;
+        var price = form.querySelector("#period-select").options[time].dataset.price;
+        var nds = form.querySelector("#nds").value;
+        var city = form.querySelector("#city-select").selectedIndex;
+        var city_coef = form.querySelector("#city-select").options[city].dataset.coef;
+        var period = form.querySelector("#period").value;
+        var type = form.querySelector("#type-select").selectedIndex;
+        var type_coef = form.querySelector("#type-select").options[type].dataset.coef;
+
+        var sum = chron * perday / 60 * price * nds * city_coef * period * type_coef;
+        var sum_int = chron * perday * period;
+        var sum_sale = 0;
+        forEach(form.querySelectorAll('.sale_value'), sale => {
+            var min_time = sale.dataset.min;
+            var max_time = sale.dataset.max;
+            var val = sale.dataset.val;
+            if (sum_int >= min_time && sum_int <= max_time) sum_sale = val;
+        });
+        form.querySelector(".calc-form-order__discount").innerHTML = "-" + sum_sale + "%";
+        var itog = sum/100*(100 - sum_sale);
+        form.querySelector(".calc-form-order__newprice").innerHTML = itog.toFixed() + "<span>BYN</span>";
+        form.querySelector(".calc-form-order__oldprice span").innerHTML = sum.toFixed() + " BYN";
     }
 
-    ready( function selectInit () {
-        forEach(document.querySelectorAll('.b-counter__control input'), input => {
-            input.addEventListener('input', () => {
-                var max_val = input.getAttribute("max");
-                var min_val = input.getAttribute("min");
-                if(parseInt(input.value) < min_val ) {
-                    input.value = min_val
-                }
-                if(parseInt(input.value) > max_val) {
-                    input.value = max_val
-                }
-                //получить значения для формулы
-                var chron = document.querySelector("#chron").value;
-                var perday = document.querySelector("#perday").value;
-                var time = document.querySelector("#period-select").selectedIndex;
-                var price = document.querySelector("#period-select").options[time].dataset.price;
-                var nds = document.querySelector("#nds").value;
-                var city = document.querySelector("#city-select").selectedIndex;
-                var city_coef = document.querySelector("#city-select").options[city].dataset.coef;
-                var period = document.querySelector("#period").value;
-                var type = document.querySelector("#type-select").selectedIndex;
-                var type_coef = document.querySelector("#type-select").options[type].dataset.coef;
-
-                var sum = chron * perday / 60 * price * nds * city_coef * period * type_coef;
-                var sum_int = chron * perday * period;
-                var sum_sale = 0;
-                forEach(document.querySelectorAll('.sale_value'), sale => {
-                    var min_time = sale.dataset.min;
-                    var max_time = sale.dataset.max;
-                    var val = sale.dataset.val;
-                    if (sum_int >= min_time && sum_int <= max_time) sum_sale = val;
-                });
-                document.querySelector(".calc-form-order__discount").innerHTML = "-" + sum_sale + "%";
-                var itog = sum/100*(100 - sum_sale);
-                document.querySelector(".calc-form-order__newprice").innerHTML = itog.toFixed() + "<span>BYN</span>";
-                document.querySelector(".calc-form-order__oldprice span").innerHTML = sum.toFixed() + " BYN";
-            })
-        });
-        forEach(document.querySelectorAll('#city-select, #type-select, #period-select'), select => {
-            select.addEventListener('change', () => {
-                var city_id_ind = document.querySelector("#city-select").selectedIndex;
-                var city_id = document.querySelector("#city-select").options[city_id_ind].dataset.id;
-
-                var type_id_ind = document.querySelector("#type-select").selectedIndex;
-                var type_id = document.querySelector("#type-select").options[type_id_ind].dataset.id;
-
-                var period_id_ind = document.querySelector("#period-select").selectedIndex;
-                var period_id = document.querySelector("#period-select").options[period_id_ind].dataset.id;
-
-                var data = "";
-                if (select.id == "city-select") {
-                    data =  "CITY_ID="+city_id+"&TYPE_ID="+type_id;
-                } else {
-                    data =  "CITY_ID="+city_id+"&TYPE_ID="+type_id+"&PERIOD_ID="+period_id;
-                }
-
-                var request = new XMLHttpRequest();
-                request.open('POST', '/bitrix/templates/partnership/calc.php', true);
-                request.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded; charset=UTF-8');
-                request.onload = function() {
-                    if (this.status >= 200 && this.status < 400) {
-                        // Success!
-                        var resp = this.response;
-                        document.querySelector('.b-calc__content').innerHTML = resp;
-                        init(document.querySelector('.calc-form'));
-                    }
-                };
-                request.send(data);
-            })
-        });
-    });
 }());
 
 

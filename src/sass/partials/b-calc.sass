@@ -58,15 +58,6 @@
         flex: 1
     &__content
         flex: 1
-        display: flex
-        justify-content: space-between
-        +sm-block
-            display: block
-            padding-left: $fields_sm
-            padding-right: $fields_sm
-        +xs-block
-            padding-left: 0
-            padding-right: 0
     &__title
         font-size: 48px
         line-height: 50px
@@ -142,3 +133,13 @@
             +xs-block
                 +button-block
 
+.form-calculator
+    display: flex
+    justify-content: space-between
+    +sm-block
+        display: block
+        padding-left: $fields_sm
+        padding-right: $fields_sm
+    +xs-block
+        padding-left: 0
+        padding-right: 0

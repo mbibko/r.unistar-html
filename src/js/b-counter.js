@@ -1,24 +1,30 @@
-export default function(els) {
+export default function (els) {
+    if (!els) return;
     ;[].forEach.call(els, item => {
-      const input = item.querySelector('input');
-      const setInputWidth = () => input.value.length*9 + 25 +'px';
-      if (input.classList.contains('has-type')) {
-        input.style.width = setInputWidth();
-        input.addEventListener('keyup', () => {
-          input.style.width = setInputWidth()
+        const form = item.closest("form");
+        console.log(form);
+        const input = item.querySelector('input');
+        const setInputWidth = () => input.value.length * 9 + 25 + 'px';
+        if (input.classList.contains('has-type')) {
+            input.style.width = setInputWidth();
+            input.addEventListener('keyup', () => {
+                input.style.width = setInputWidth()
+            })
+        }
+        input.addEventListener('change', () => {
+            const min_val = input.getAttribute("min");
+            if (parseInt(input.value) < min_val) {
+                input.value = min_val
+            }
+        });
+        ;[].forEach.call(item.querySelectorAll("[data-button]"), button => {
+            button.addEventListener('click', () => {
+                input.value = (parseInt(input.value) + parseInt(button.dataset.button + 1)).toString();
+                if (parseInt(input.value) < 0) {
+                    input.value = "0"
+                }
+                input.dispatchEvent(new CustomEvent('counter-changed'));
+            })
         })
-      }
-      ;[].forEach.call(item.querySelectorAll("[data-button]"), button => {
-          button.addEventListener('click', () => {
-            var max_val = input.getAttribute("max");
-            var min_val = input.getAttribute("min");
-            var old_val = parseInt(input.value);
-            input.value = old_val + (1 * +(button.dataset.button + 1));
-            if(parseInt(input.value) < 0) { input.value = 0 }
-            if(parseInt(input.value) < min_val || parseInt(input.value) > max_val) { input.value = old_val }
-            let event = new Event("input");
-            input.dispatchEvent(event);
-          })
-      })
     });
 }

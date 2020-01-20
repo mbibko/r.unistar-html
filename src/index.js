@@ -34,8 +34,6 @@ import './js/modals.js'
 import './components/popup-mobile/popup-mobile.js'
 import './js/calc-form.js'
 
-import counter from './js/b-counter.js'
-
 // import icons
 //=====================================
 import './js/svg-sprite'
@@ -60,8 +58,6 @@ import {forEach, mobileDevice, Move} from './js/helpers'
 //     })
 // }());
 
-counter(document.querySelectorAll('.b-counter'))
-
 if(location.hostname == 'localhost') {
   document.documentElement.classList.add('css-simple-grid')
 }
@@ -77,13 +73,12 @@ if (document.querySelector('.tabs-voices__nav')) {
 }
 
 (function () {
-    const wrapper = document.querySelector('.player3-wrapper');
-    if (!wrapper) return;
-    const button = wrapper.querySelector('.button-more');
-    button.addEventListener('click', () => {
-        wrapper.classList.toggle('active');
+    forEach(document.querySelectorAll('.player3-wrapper'), wrapper => {
+        const button = wrapper.querySelector('.button-more');
+        button.addEventListener('click', () => {
+            wrapper.classList.toggle('active');
+        })
     })
-
 })();
 
 import ActiveMenuLink from "active-menu-link";

@@ -99,10 +99,19 @@ export function onlyNumber(elements) {
 }
 
 export function maxValue(elements) {
-  [].forEach.call(elements, function (el, i) {
+  [].forEach.call(elements, function (el) {
     const max = el.getAttribute('max')
     el.addEventListener('keyup', () => {
       if (+el.value > max) el.value = max
+    });
+  });
+}
+
+export function minValue(elements) {
+  [].forEach.call(elements, function (el) {
+    const min = el.getAttribute('min')
+    el.addEventListener('change', () => {
+      if (+el.value < min) el.value = min
     });
   });
 }

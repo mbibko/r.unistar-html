@@ -23,6 +23,7 @@
   +button
   +button-red
   min-width: initial
+  width: 390px
   height: 78px
   padding-left: 34px
   padding-right: 36px
@@ -30,6 +31,9 @@
   font-weight: 600
   letter-spacing: 0.64px
   line-height: 20px
+  +from($break_sm+1)
+    padding-left: 0
+    padding-right: 80px
   +sm-block
     font-size: 16px
   +xs-block
@@ -40,22 +44,20 @@
   &::after
     content: ''
     height: 40px
-    margin-left: 78px
+    margin-left: auto
     border-left: 1px solid rgba(#fff, 0.48)
     padding-left: 40px
     background: url(../images/triangle-right.svg?fill=%23fff) right center no-repeat
     background-size: 9px 18px
-    +sm-block
+    position: absolute
+    right: 40px
+    +xs-block
       margin-left: 20px
-    +to(375px)
+      right: 30px
+      padding-left: 30px
+    +to(400px)
       display: none
   &:hover
     background-color: $blue-color
-  +from($break_sm+1)
-    width: 390px
-    padding-left: 0
-    padding-right: 80px
-    &::after
-        position: absolute
-        right: 40px
-        margin-left: 0
+  span
+    margin-right: 20px

@@ -9,7 +9,11 @@
         +from($break_md_up)
             display: block
     .swiper-slide
+        display: flex
+        height: auto
         margin-bottom: 20px
+        &>div
+            flex: 1
         +md-block
             width: 70%
             margin: 0 auto 10px

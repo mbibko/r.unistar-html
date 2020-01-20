@@ -20,21 +20,27 @@ block content
     br
 
     div.blue-bg.padder
-      .h2 form elements
-      .form-group
-        input.form-control(placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aliquam aspernatur cumque deserunt ea, exercitationem incidunt ')
-      .form-group
-        - var n = 0;
-        select.select.form-control
-          while n < 15
-            option(value=n)= n++
-      .form-group
-        label hi
-        - var n = 0;
-        select.select.form-control(multiple)
-          option(value="") This is a placeholder
-          while n < 15
-            option(value=n)= "="+(n++)
+      form
+        .h2 form elements
+        .form-group
+          input.form-control(placeholder='Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab ad aliquam aspernatur cumque deserunt ea, exercitationem incidunt ')
+        .form-group
+          - var n = 0;
+          select.select.form-control
+            while n < 15
+              option(value=n)= n++
+        .form-group
+          label hi
+          - var n = 0;
+          select.select.form-control(multiple)
+            option(value="") This is a placeholder
+            while n < 15
+              option(value=n)= "="+(n++)
+        .form-group
+          label Продолжительность ролика?
+          .b-counter-wrapper
+            +counter({value: "13", type: "сек", min: 5, max: 45})
+            div от 5 до 45 секунд.
           
     .h2 modals
 
