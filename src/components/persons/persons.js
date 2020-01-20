@@ -18,7 +18,7 @@ import {break_sm, break_xs} from "../../js/constants";
                     },
                     breakpoints: {
                         [break_xs]: {
-                            slidesPerView: 1.4,
+                            slidesPerView: 1,
                         },
                     },
                 }

@@ -112,7 +112,6 @@
         padding-top: 40px
         padding-left: 40px
     +xs-block
-        margin: 0 $fields_sm*-1
         padding: 0
         border: 0
     &__media
@@ -187,37 +186,20 @@
             width: 100%
             left: 0
             right: auto
-            top: 123px
-        .swiper-button-next, .swiper-button-prev
-            position: static
-            margin: 0
-            background-image: url(../images/arr-right.svg?stroke=%23fff)
-            border-color: #fff
-            &:hover
-                background-image: url(../images/arr-right.svg?stroke=%2328348A)
-                background-color: #fff
-        .swiper-button-prev
-            margin-bottom: 27px
-        +xs-block
+            top: 0
+        +from($break_sm_up)
             .swiper-button-next, .swiper-button-prev
-                position: absolute
-                display: none
-                width: 20px
-                height: 20px
-                margin-top: -10px
-                background-size: 6px 11px
-                background-image: url("../images/arr-right-1.svg")
-                background-color: #fff
-                box-shadow: 0 0 0 5px #fff
-                border-color: $blue-color
-                +sm-block
-                    display: block
+                position: static
+                margin: 0
+                background-image: url(../images/arr-right.svg?stroke=%23fff)
+                border-color: #fff
                 &:hover
-                    background-image: url("../images/arr-right-1.svg?stroke=%23da007b")
-            .swiper-button-next
-                right: 20px
+                    background-image: url(../images/arr-right.svg?stroke=%2328348A)
+                    background-color: #fff
             .swiper-button-prev
-                left: 20px
+                margin-bottom: 27px
+        +xs-block
+            +slider-navigation-sm($top: 267px/2 - 10px)
     .swiper-pagination
         position: absolute
         left: calc(100% + 50px)

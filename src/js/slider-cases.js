@@ -30,7 +30,6 @@ Swiper.use([Navigation, Pagination, EffectFade]);
 
         breakpoints: {
             [break_xs]: {
-                slidesPerView: 1.1,
                 spaceBetween: 6,
                 centeredSlides: true,
                 loop: true,
