@@ -28,11 +28,16 @@ export default function (selectEls) {
             }
         });
         select.passedElement.element.addEventListener('change', function (event) {
-                // console.log(select.passedElement.element.type)
-                if (select.passedElement.element.type === 'select-multiple') {
-                    select.input.placeholder = 'Выбрано: ' + (select.getValue(true).length - 1);
-                }
+                // console.log(select._placeholderValue);
                 select.containerOuter.element.classList.add('is-changed');
+                if (select.passedElement.element.type === 'select-multiple') {
+                    if (select.getValue(true).length > 1) {
+                        select.input.placeholder = 'Выбрано: ' + (select.getValue(true).length - 1);
+                    } else {
+                        select.input.placeholder = select._placeholderValue;
+                        select.containerOuter.element.classList.remove('is-changed');
+                    }
+                }
             }
         );
         if (select.passedElement.element.type === 'select-multiple') {
@@ -42,7 +47,8 @@ export default function (selectEls) {
                     setTimeout(() => {
                         select.removeActiveItemsByValue(event.detail.choice.value);
                         select.input.placeholder = 'Выбрано: ' + select.getValue().length;
-                    }, 100)
+                        select.passedElement.triggerEvent('change', {});
+                    }, 100);
                 });
             });
         }
