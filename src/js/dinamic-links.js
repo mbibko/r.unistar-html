@@ -1,4 +1,4 @@
-if(location.hostname != 'localhost') {
+if(location.hostname === 'html.xx28.ru') {
   fetch('ajax.pages_list.php')
     .then(
       function(response) {

@@ -30,7 +30,7 @@ export default function (selectEls) {
         select.passedElement.element.addEventListener('change', function (event) {
                 // console.log(select.passedElement.element.type)
                 if (select.passedElement.element.type === 'select-multiple') {
-                    select.input.placeholder = 'Выбрано: ' + select.getValue(true).length;
+                    select.input.placeholder = 'Выбрано: ' + (select.getValue(true).length - 1);
                 }
                 select.containerOuter.element.classList.add('is-changed');
             }
