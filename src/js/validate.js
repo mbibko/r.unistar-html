@@ -24,12 +24,12 @@ export default function(form) {
       emitEvents: true
     });
     document.addEventListener('bouncerFormInvalid', function (event) {
-        var form = event.target;
+        const form = event.target;
         form.querySelector('.form-error-text').style.display = 'block'
     }, false);
 
     document.addEventListener('bouncerFormValid', function (event) {
-        var form = event.target;
+        const form = event.target;
         form.querySelector('.form-error-text').style.display = 'none'
     }, false);
 

@@ -1,5 +1,5 @@
 import { Swiper, Navigation, Pagination, EffectFade } from 'swiper/dist/js/swiper.esm.js'
-import {break_xs} from "./constants";
+import {break_sm, break_xs} from "../../js/constants";
 
 Swiper.use([Navigation, Pagination, EffectFade]);
 
@@ -7,6 +7,14 @@ Swiper.use([Navigation, Pagination, EffectFade]);
     const sliderWrapperEl = document.querySelector('.b-cases-slider');
     if(!sliderWrapperEl) return;
     const sliderEl = sliderWrapperEl.querySelector('.b-cases-slider__inner');
+    const firstMediaHeight = sliderWrapperEl.querySelector('.b-cases-content2__media').offsetHeight;
+    const arrPrev = sliderWrapperEl.querySelector('.swiper-button-prev');
+    const arrNext = sliderWrapperEl.querySelector('.swiper-button-next');
+
+    if (window.innerWidth <= break_sm) {
+        arrNext.style.top = firstMediaHeight/2 + 'px';
+        arrPrev.style.top = firstMediaHeight/2 + 'px';
+    }
     new Swiper(sliderEl, {
         speed: 1000,
         loop: true,
@@ -24,8 +32,8 @@ Swiper.use([Navigation, Pagination, EffectFade]);
         },
 
         navigation: {
-          nextEl: sliderWrapperEl.querySelector('.swiper-button-next'),
-          prevEl: sliderWrapperEl.querySelector('.swiper-button-next'),
+          nextEl: arrNext,
+          prevEl: arrPrev,
         },
 
         breakpoints: {

@@ -22,7 +22,7 @@ const modalOpts = {
         })
     });
     controls(modal.querySelectorAll('form'));
-    modal.dispatchEvent(new Event(`modalOpen`, {bubbles: true}));
+    modal.dispatchEvent(new Event(`playersAdded`, {bubbles: true}));
   },
   onClose: function() {
     this.bouncer.destroy

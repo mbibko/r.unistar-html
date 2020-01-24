@@ -49,8 +49,8 @@ export default class {
 
         dragScrubber(_this.playerProgress);
 
-        this.events()
-        this.playAudio(document.querySelectorAll('.js-play-audio'))
+        this.events();
+        this.playAudio(document.querySelectorAll('.js-play-audio'));
 
     }
 
@@ -157,7 +157,7 @@ export default class {
             });
         });
 
-        document.addEventListener('modalOpen', e => {
+        document.addEventListener('playersAdded', e => {
             _this.playAudio(e.target.querySelectorAll('.js-play-audio'))
         });
 

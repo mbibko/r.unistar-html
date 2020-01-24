@@ -1,3 +1,7 @@
+@import utilities/smart-grid
+@import utilities/variables
+@import utilities/mixins
+
 .b-cases
     background-color: #28348a
     color: #fff
@@ -128,14 +132,13 @@
             margin-bottom: 30px
         +xs-block
             width: 100%
-            height: 267px
+            height: auto
             margin-bottom: 20px
         img
             border-radius: 6px
             +xs-block
+                display: block
                 width: 100%
-                height: 100%
-                object-fit: cover
     &__icon
         +play-icon
         position: absolute
@@ -191,15 +194,17 @@
             .swiper-button-next, .swiper-button-prev
                 position: static
                 margin: 0
-                background-image: url(../images/arr-right.svg?stroke=%23fff)
+                background-image: url("~images/arr-right.svg?stroke=%23fff")
                 border-color: #fff
                 &:hover
-                    background-image: url(../images/arr-right.svg?stroke=%2328348A)
+                    background-image: url("~images/arr-right.svg?stroke=%2328348A")
                     background-color: #fff
             .swiper-button-prev
                 margin-bottom: 27px
         +xs-block
-            +slider-navigation-sm($top: 267px/2 - 10px)
+            +slider-navigation-sm()
+            +sm-block
+                transform: translateY(-50%)
     .swiper-pagination
         position: absolute
         left: calc(100% + 50px)
