@@ -83,13 +83,17 @@ if (document.querySelector('.tabs-voices__nav')) {
 
 import ActiveMenuLink from "active-menu-link";
 
-const header = document.querySelector('.header')
-new ActiveMenuLink(".nav-main", {
-  activeClass: "active",
-  itemTag: "li",
-  // scrollOffset: header.offsetHeight,
-  headerHeight: header.offsetHeight
-});
+(function () {
+    const header = document.querySelector('.header');
+    const navMain = document.querySelector('.nav-main');
+    if (!navMain) return;
+    new ActiveMenuLink(".nav-main", {
+      activeClass: "active",
+      itemTag: "li",
+      // scrollOffset: header.offsetHeight,
+      headerHeight: header.offsetHeight
+    });
+})();
 
 new Move(document.querySelector('[data-move="b-calc-bottom-get"]'), document.querySelector('[data-move="b-calc-bottom-set"]'), break_sm).init();
 new Move(document.querySelector('[data-move="b-times-get"]'), document.querySelector('[data-move="b-times-set"]'), break_sm).init();
