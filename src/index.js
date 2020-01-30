@@ -61,6 +61,10 @@ import {forEach, mobileDevice, Move} from './js/helpers'
 if(location.hostname == 'localhost') {
   document.documentElement.classList.add('css-simple-grid')
 }
+if(location.pathname.indexOf('/pdf.html') !== -1) {
+    import(/* webpackChunkName: "pdf" */ './sass/partials/pdf.sass')
+}
+
 if (mobileDevice()) {
     document.body.classList.add('is-mobile')
 }
