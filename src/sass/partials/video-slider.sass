@@ -26,6 +26,7 @@
         width: calc(100% - #{$fields_sm*2})
 
 .video-slider-content
+    position: relative
     height: 461px
     margin-left: 303px
     padding-left: 369px
@@ -55,7 +56,18 @@
         +only(md)
             padding-bottom: 0
     &__item
-
+    &__interested
+        position: absolute
+        left: 20px
+        top: 16px
+        border-width: 2px
+        border-color: $red-color
+        color: $red-color
+        cursor: default
+        +sm-block
+            position: static
+            margin-bottom: 16px
+            height: 34px
     &__title
         +h2
         margin-bottom: 30px

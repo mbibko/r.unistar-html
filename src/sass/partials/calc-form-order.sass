@@ -11,6 +11,7 @@
     text-align: right
     overflow: hidden
     background-color: #fff
+    color: $base-color
     +lg-block
         padding-left: 14px
         padding-right: 14px
@@ -55,6 +56,17 @@
         background-color: #d8007b
         +sm-block
             display: none
+    &__text
+        color: #C7C7C7
+        font-size: 11px
+        display: inline-block
+        margin-bottom: 4px
+        +sm-block
+            position: relative
+            height: 0
+            top: 9px
+            font-size: 9px
+            padding-right: 60px
     &__discount
         display: block
         width: 124px
@@ -79,7 +91,7 @@
     &__price
         +sm-block
             display: flex
-            align-items: center
+            align-items: flex-end
             justify-content: space-between
             margin-bottom: 13px
             padding-right: 60px
@@ -93,7 +105,7 @@
         white-space: nowrap
         +sm-block
             font-size: 14px
-            margin: 0
+            margin: 0 0 1px
         span
             position: relative
             &::before
