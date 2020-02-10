@@ -15,12 +15,13 @@ Swiper.use([Navigation, Pagination, EffectFade]);
         arrNext.style.top = firstMediaHeight/2 + 'px';
         arrPrev.style.top = firstMediaHeight/2 + 'px';
     }
-    new Swiper(sliderEl, {
+    const sliderCases = new Swiper(sliderEl, {
         speed: 1000,
         loop: true,
         shortSwipes: false,
         preventInteractionOnTransition: true,
         slidesPerGroup: 1,
+        autoHeight: true,
 
         fadeEffect: {
           crossFade: true
@@ -55,4 +56,11 @@ Swiper.use([Navigation, Pagination, EffectFade]);
         },
       }
     );
+    document.addEventListener('updateSliderHeight', () => {
+        sliderCases.wrapperEl.classList.add('is-toggled');
+        setTimeout(function () {
+            sliderCases.wrapperEl.classList.remove('is-toggled');
+            sliderCases.update();
+        }, 1000);
+    });
 })();

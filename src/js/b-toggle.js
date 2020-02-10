@@ -23,7 +23,8 @@ import {stopVideo} from "./helpers";
       }
       document.addEventListener('stopVideo', e => stopVideo(e, player));
     });
-    item.classList.toggle('is-active')
-    item.classList.add('is-was-active')
+    item.classList.toggle('is-active');
+    item.classList.add('is-was-active');
+    document.dispatchEvent(new CustomEvent('updateSliderHeight'));
   });
 });

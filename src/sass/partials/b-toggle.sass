@@ -1,7 +1,7 @@
 .b-toggle
     $_: &
     position: relative
-    height: 100%
+    //height: 100%
     padding-bottom: 30px
     cursor: pointer
     &__inner
@@ -9,7 +9,7 @@
         overflow: hidden
         max-height: 287px
         +xs-block
-            max-height: 200px
+            max-height: 100px
         #{$_}.is-active &
             max-height: var(--max-height)
     &::before

@@ -172,7 +172,10 @@
 
 .b-cases-slider
     .swiper-wrapper
-        height: auto !important
+        +from($break_sm_up)
+            height: auto !important
+        &.is-toggled
+            height: auto !important
     .swiper-navigation
         position: absolute
         z-index: 1
