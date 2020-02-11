@@ -85,21 +85,12 @@
             font-size: 16px
             font-weight: 600
             line-height: normal
-        .hide-me
-            +sm-block
-                display: none
-        .show-me
-            display: none
-            +sm-block
-                display: flex
-                align-items: center
         .text
-            display: flex
-            flex-direction: column
-            align-items: flex-start
-            +sm-block
-                flex-direction: row
-                align-items: center
+            +from($break_sm_up)
+                &>span
+                    display: flex
+                    flex-direction: column
+                    align-items: flex-start
         .nums
             display: block
             color: $red-color
@@ -109,9 +100,11 @@
             +sm-block
                 display: inline-block
                 font-size: inherit
-                margin: 0 10px
+                margin: 0 4px
                 font-weight: 600
                 line-height: normal
+                &::before
+                    left: -100px
             &:hover + .text-hover
                 opacity: 1
         .text-hover
