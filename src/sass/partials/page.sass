@@ -59,7 +59,14 @@
 .list-desc
     li
         display: flex
-        margin-bottom: 8px
+        margin-top: 33px
+        &:first-child
+            margin-top: 0
+        p
+            &:only-child
+                margin-bottom: 0
+            &:last-child
+                margin-bottom: 0
         +xs-block
             display: block
     span
