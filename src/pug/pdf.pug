@@ -7,21 +7,36 @@ block content
   .p-pdf.container
     .p-pdf__wrapper
       .pdf-logo
-        svg(width="230" height="136"): use(xlink:href="#logo")
+        img(src="../images/logo1.jpg")
       .p-pdf__title Расчет рекламной кампании
       .p-pdf__inner
-        .b-list
-          each item in [["Город вещания", "Все города"], ["Хронометраж, сек", "10 секунд"], ["Вид рекламы", "Ролик в блоке"], ["Период, дней", "7 дней"], ["Время выходов", "Прайм-тайм"], ["Выходов в день", "5"]]
-            .b-list__item
-              .b-list__title=item[0]
-              =item[1]
-        .b-price
-          .b-price__discount
-            span -15%
-          .b-price__newprice
-            | 2 739
-            span BYN        
-          .b-price__oldprice
-            | 2 977
-            span BYN
+        table.b-list
+          tbody
+            each item in [["Город вещания", "Все города"], ["Тип", "Ролик в блоке"], ["Время выходов", "Прайм-тайм"], ["Период", "7 дней"], ["Хронометраж", "10 секунд"], ["Выходов в день", "5"]]
+              tr
+                td.b-list__title=item[0]
+                td.b-list__desc=item[1]
+            tr
+              td
+              td
+            tr
+              td.line
+              td
+            tr
+              td.price-title Сумма без скидки
+              td.price-old 2 739 BYN
+            tr
+              td.price-title Скидка за объем
+              td.price-discount -55%
+            tr
+              td
+              td
+            tr
+              td.line
+              td.line
+          tfoot
+            tr
+              td ИТОГО
+              td 2 739 BYN
+
       .p-pdf__footer Мы рассчитали для вас примерную стоимость рекламной кампании на радио Unistar с учетом НДС 20%. Она не включает сезонные коэффициенты, дополнительные скидки и пониженные тарифы выходного дня. Подробный медиаплан для вас подготовит специалист по работе с клиентами. Пожалуйста, позвоните по тел. +375 17 209 53 83 или напишите на reklama@unistar.by. Либо оставьте заявку на reklama.unistar.by и ожидайте звонок в рабочее время (ПН-ЧТ с 10:00 до 18:00, ПТ с 10:00 до 17:00).
