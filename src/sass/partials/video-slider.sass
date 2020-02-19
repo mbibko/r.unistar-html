@@ -51,6 +51,8 @@
         padding-right: $fields_sm
     &__inner
         height: 100%
+        +md-block
+            margin-top: 50px
         +sm-block
             padding-bottom: 50px
         +only(md)
@@ -58,16 +60,17 @@
     &__item
     &__interested
         position: absolute
-        left: 20px
-        top: 16px
-        border-width: 2px
-        border-color: $red-color
-        color: $red-color
-        cursor: default
-        +sm-block
-            position: static
-            margin-bottom: 16px
-            height: 34px
+        right: 28px
+        top: 2px
+        color: #7b7b7d
+        font-weight: 700
+        font-style: italic
+        font-size: 16px
+        font-family: $second-font
+        padding-right: 50px
+        padding-top: 20px
+        height: 60px
+        background: url("../images/star-red.svg") 98% 15px / 29px 37px no-repeat
     &__title
         +h2
         margin-bottom: 30px
