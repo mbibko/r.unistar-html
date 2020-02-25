@@ -398,7 +398,7 @@
     function _handleClickOutside(event) {
         // if click is outside the modal
         if (this.opts.closeMethods.indexOf('overlay') !== -1 && !_findAncestor(event.target, 'tingle-modal') &&
-            !(this.modal.children[0].offsetLeft < event.clientX && event.clientX < this.modal.children[0].offsetLeft + this.modal.children[0].offsetWidth)) {
+        event.clientX < this.modal.clientWidth) {
             this.close()
         }
     }
