@@ -60,7 +60,7 @@ export default class {
 
         forEach(elements, item => {
             if (item.offsetWidth == 0 && item.offsetHeight == 0) return;
-            
+
             item.addEventListener('click', e => {
                 e.preventDefault();
                 document.dispatchEvent(new CustomEvent('stopVideo'));
@@ -148,23 +148,30 @@ export default class {
                 }
             })
         });
-        document.addEventListener('mousedown', e => {
-            if (e.target != _this.playerProgress) return
-            document.addEventListener('mousemove', _this.audio.pause);
-            document.addEventListener('mouseup', e => {
-                document.removeEventListener('mousemove', _this.audio.pause)
-                _this.audio.play()
-            });
-        });
+        function pause() {
+            _this.audio.pause()
+        }
+        function play() {
+            _this.audio.play()
+            document.removeEventListener('mousemove', pause);
+            document.removeEventListener('mouseup', play);
+        }
+        function mousedown(e) {
+            if (e.target !== _this.playerProgress) return;
+            document.addEventListener('mousemove', pause);
+            document.addEventListener('mouseup', play);
+        }
+        document.addEventListener('mousedown', mousedown);
 
         document.addEventListener('playersAdded', e => {
             _this.playAudio(e.target.querySelectorAll('.js-play-audio'))
         });
 
-        document.addEventListener('stopAudio', stopAudio);
-
         _this.playerAudioEl.addEventListener('pause', e => {
-            document.querySelector('.js-play-audio.is-playing').classList.remove('is-playing');
+            const el = document.querySelector('.js-play-audio.is-playing');
+            if(el) {
+                el.classList.remove('is-playing');
+            }
         });
         _this.playerAudioEl.addEventListener('play', e => {
             document.querySelector('.is-played').classList.add('is-playing');
