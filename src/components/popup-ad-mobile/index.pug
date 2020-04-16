@@ -1,0 +1,41 @@
+#modalAdMobile.modal-content
+    .popup-ad-mobile.swiper-container.slider-group
+        .swiper-wrapper
+            -
+                const data = [
+                    {
+                        title: "Почему важно рекламироваться сейчас?",
+                    },
+                    {
+                        title: "Во-первых...",
+                        text: "Большинство ваших конкурентов снизило активность, поэтому ваша реклама станет заметнее\n"
+                    },
+                    {
+                        title: "Во-вторых...",
+                        text: "Без рекламы вы потеряете до 39% узнаваемости бренда \n"
+                    },
+                    {
+                        title: "В-третьих...",
+                        text: "Люди больше доверяют тем, кто рекламируется в кризис\n"
+                    },
+                    {
+                        title: "В-четвёртых...",
+                        text: "Вам понадобится в два раза больше денег, чтобы потом отыграть свою долю рынка\n"
+                    },
+                    {
+                        title: "Оригинальная статья:",
+                        text: "<a target='_blank' href='http://meduza.io/feature/2020/04/03/esli-mozhesh-reklamiruysya'>meduza.io/feature/2020/04/03/esli-mozhesh-reklamiruysya</a>"
+                    },
+
+
+                ]
+            each item in data
+                .swiper-slide
+                    .popup-ad-mobile__title=item.title
+                    .popup-ad-mobile__text !{item.text}
+        .popup-ad-mobile__navs
+            .popup-ad-mobile__navs-inner
+                .swiper-pagination
+                .swiper-navigation
+                    .swiper-button-next
+                    .swiper-button-prev

@@ -22,6 +22,9 @@ import './components/persons'
 import './components/popup-mobile'
 import './components/player'
 
+import {popupAdMobile} from './components/popup-ad-mobile';
+popupAdMobile();
+
 // import scripts
 //=====================================
 import './js/dinamic-links.js'

@@ -23,6 +23,7 @@ const modalOpts = {
     });
     controls(modal.querySelectorAll('form'));
     modal.dispatchEvent(new Event(`playersAdded`, {bubbles: true}));
+    modal.dispatchEvent(new Event(`modal-open`, {bubbles: true}));
   },
   onClose: function() {
     this.bouncer.destroy
@@ -77,6 +78,30 @@ document.addEventListener("eventModalvideo", function(event) {
         document.addEventListener('stopVideo', e => stopVideo(e, player));
     }
 });
+
+setTimeout(() => {
+    if (window.innerWidth < 1024) return;
+    let modalOptsLocal = Object.assign({}, modalOpts);
+    modalOptsLocal.cssClass = ['modal-left-bottom'];
+    document.addEventListener('modal-open', e => {
+        if(!e.target.classList.contains('modal-left-bottom')) return;
+        document.body.classList.remove('tingle-enabled');
+    });
+    new tingle.modal(modalOptsLocal);
+    modalInit(modalAd, modalOptsLocal);
+}, 1500);
+
+setTimeout(() => {
+    if (window.innerWidth >= 1024) return;
+    let modalOptsLocal = Object.assign({}, modalOpts);
+    modalOptsLocal.cssClass = ['modal-mobile-bottom'];
+    document.addEventListener('modal-open', e => {
+        if(!e.target.classList.contains('modal-mobile-bottom')) return;
+        document.body.classList.remove('tingle-enabled');
+    });
+    new tingle.modal(modalOptsLocal);
+    modalInit(modalAdMobile, modalOptsLocal);
+}, 1500);
 
 document.addEventListener("eventModalbrif", function(event) {
     modalInit(modalBrif, modalOpts)

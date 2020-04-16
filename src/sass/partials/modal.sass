@@ -5,6 +5,9 @@
   $_: &
   backdrop-filter: none
   z-index: 99
+  color: #fff
+  a
+    color: inherit
   body.player-open &
     padding-bottom: 120px
   +xs-block
@@ -110,3 +113,67 @@
     margin: 0 20px
     +xs-block
       margin: 0
+
+.tingle-modal
+  $_: &
+  &.modal-left-bottom
+    right: auto
+    top: auto
+    left: 10px
+    bottom: 10px
+    //bottom: auto
+    background: none
+    #{$_}__close
+      background: none
+      border: 0
+      svg
+        width: 20px
+        height: 20px
+    .tingle-modal-box
+      width: 500px
+      border-radius: 10px
+      border: 2px solid #fff
+      &__content
+        padding: 20px
+  &.modal-mobile-bottom
+    width: 100%
+    right: auto
+    top: auto
+    padding-top: 60px
+    //bottom: auto
+    background: none
+    #{$_}__close
+      background: #de007e
+      width: 40px
+      height: 40px
+      border: 0
+      border-radius: 0
+      top: -46px
+      right: 6px
+      svg
+        width: 20px
+        height: 20px
+    .tingle-modal-box
+      width: 100%
+      border-radius: 0
+      background-color: #de007e
+      &__content
+        padding: 20px
+
+.modal-ad
+  font-size: 15px
+  a
+    color: inherit
+  &__title
+    margin-bottom: 14px
+    font-size: 24px
+    font-weight: 700
+    text-transform: uppercase
+    line-height: 28px
+  &__list
+    margin-bottom: 5px
+    line-height: 1.2
+    font-style: italic
+  &__bottom
+    font-size: 10px
+    text-align: center
