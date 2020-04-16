@@ -80,6 +80,8 @@ document.addEventListener("eventModalvideo", function(event) {
 });
 
 setTimeout(() => {
+    const el = document.querySelector('#popup-bottom-pc');
+    if (!el) return;
     if (window.innerWidth < 1024) return;
     let modalOptsLocal = Object.assign({}, modalOpts);
     modalOptsLocal.cssClass = ['modal-left-bottom'];
@@ -88,10 +90,12 @@ setTimeout(() => {
         document.body.classList.remove('tingle-enabled');
     });
     new tingle.modal(modalOptsLocal);
-    modalInit(modalAd, modalOptsLocal);
+    modalInit(el, modalOptsLocal);
 }, 1500);
 
 setTimeout(() => {
+    const el = document.querySelector('#popup-bottom-mobile');
+    if (!el) return;
     if (window.innerWidth >= 1024) return;
     let modalOptsLocal = Object.assign({}, modalOpts);
     modalOptsLocal.cssClass = ['modal-mobile-bottom'];
@@ -100,7 +104,7 @@ setTimeout(() => {
         document.body.classList.remove('tingle-enabled');
     });
     new tingle.modal(modalOptsLocal);
-    modalInit(modalAdMobile, modalOptsLocal);
+    modalInit(el, modalOptsLocal);
 }, 1500);
 
 document.addEventListener("eventModalbrif", function(event) {

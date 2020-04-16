@@ -1,5 +1,5 @@
-#modalAdMobile.modal-content
-    .popup-ad-mobile.swiper-container.slider-group
+#popup-bottom-mobile.modal-content
+    .popup-bottom-mobile.swiper-container.slider-group
         .swiper-wrapper
             -
                 const data = [
@@ -31,10 +31,10 @@
                 ]
             each item in data
                 .swiper-slide
-                    .popup-ad-mobile__title=item.title
-                    .popup-ad-mobile__text !{item.text}
-        .popup-ad-mobile__navs
-            .popup-ad-mobile__navs-inner
+                    .popup-bottom-mobile__title=item.title
+                    .popup-bottom-mobile__text !{item.text}
+        .popup-bottom-mobile__navs
+            .popup-bottom-mobile__navs-inner
                 .swiper-pagination
                 .swiper-navigation
                     .swiper-button-next

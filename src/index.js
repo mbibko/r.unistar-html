@@ -22,8 +22,8 @@ import './components/persons'
 import './components/popup-mobile'
 import './components/player'
 
-import {popupAdMobile} from './components/popup-ad-mobile';
-popupAdMobile();
+import {popupBottomMobile} from './components/popup-bottom-mobile';
+popupBottomMobile();
 
 // import scripts
 //=====================================
