@@ -42,10 +42,11 @@ include ../../layouts/mixins
                   label.checkbox-label(for="check-"+item)=item
       textarea.form-control(placeholder="Например, вы хотите связать старт рекламной кампании с каким-то событием.")
     .form-group
-      label Продолжительность ролика?
+      label.required Продолжительность ролика?
       .b-counter-wrapper
-        +counter({value: "13", type: "сек", min: 5, max: "45"})
-        div Ваш ролик не должен быть длиннее, чем ... секунд.
+        +counter({value: "0", type: "сек", min: 5, max: "41"})
+        div Ваш ролик не должен быть длиннее, чем 40 секунд.
+      #b-counter-error
     .form-group
       label.required
         | Какая информация
