@@ -1,5 +1,5 @@
 node_modules
 sources
-dist
 *.sublime*
 .idea
+temp
